@@ -9,12 +9,40 @@
   overflow: hidden;
 }
 
-.modal {
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.advert-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal-advert {
+  position: absolute;
+  width: 290px;
+  height: 845px;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
   background-color: $primary-bg-color;
   padding-top: 54px;
   padding-right: 19px;
   padding-bottom: 40px;
   padding-left: 20px;
+}
+.modal-button-icone {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 15px;
+  right: 20px;
 }
 
 .form-text {
@@ -40,13 +68,21 @@
   color: $primary-text-color;
 }
 
+.category {
+  font-size: 0;
+  color: transparent;
+}
+
 .price-label,
 .tel-label {
   margin-bottom: 13px;
 }
 
 .form-input {
+  height: 50px;
   margin-bottom: 20px;
+  border: 1px solid #bbbbbb;
+  background-color: $primary-bg-color;
 }
 
 .name-product-form {
@@ -88,15 +124,55 @@
 
   color: $primary-bg-color;
 }
+
+// photo
+
+.input-wrapper {
+  width: 100%;
+  position: relative;
+}
+.form-input-file {
+  // opacity: 0;
+
+  // position: absolute;
+  // top: 50%;
+  // left: -50%;
+}
+.input-file-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0%;
+  margin-top: 0%;
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+.nput-file-item {
+  margin-right: 5px;
+}
+
+// .input-file-item:not(:nth-child((3 * n) + 3)) {
+//   margin-right: 5px;
+// }
+
+// .input-file {
+//   display: block;
+//   width: 76px;
+//   height: 46px;
+//   margin-right: 10px;
+//   margin-bottom: 10px;
+//   background: #f5f6fb;
+// }
+
 @media screen and (min-width: 480px) {
-  .modal {
+  .modal-advert {
     width: 290px;
     height: 845px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .modal {
+  .modal-advert {
     width: 724px;
     height: 698px;
     padding-right: 55px;
@@ -106,7 +182,7 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .modal {
+  .modal-advert {
     width: 950px;
     height: 698px;
     padding-right: 58px;
