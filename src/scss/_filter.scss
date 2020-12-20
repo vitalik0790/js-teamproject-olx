@@ -1,0 +1,80 @@
+.filter {
+  // временно для мобилки
+  padding-top: 30px;
+  padding-bottom: 30px;
+  // ...
+
+  background: #02182d;
+}
+
+// .filter__btn-wrapper {
+//   justify-content: center;
+//   align-items: center;
+// }
+
+.filter-icon {
+  margin-right: 12px;
+  width: 24px;
+  height: 24px;
+  fill: #5e6671;
+  // align-items: center;
+
+  // &:hover,
+  // &:focus {
+  //   fill: #5e6671;
+  // }
+}
+
+.filter__btn {
+  margin-right: 56px; // 55px
+  margin-bottom: 35px;
+
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+
+  color: $header-primary-text-color;
+  background: #02182d;
+  border: none;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.filter__list {
+  display: flex;
+  flex-wrap: wrap;
+  // width: 270px;
+}
+
+.filter__list-item:not(:last-of-type) {
+  margin-right: 10px;
+}
+
+.filter__list-item:not(:last-of-type) {
+  margin-bottom: 20px;
+}
+
+.filter__list-item_btn {
+  justify-content: center;
+  align-items: center;
+  padding: 8px 21px;
+
+  background: #02182d;
+
+  font-size: 12px;
+  line-height: 1.25;
+  color: $header-primary-text-color;
+
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: 1px solid $header-primary-text-color;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+    border-color: $accent-color;
+  }
+}
