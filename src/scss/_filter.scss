@@ -1,80 +1,82 @@
 .filter {
+  background: #02182d;
+
   // временно для мобилки
   padding-top: 30px;
   padding-bottom: 30px;
   // ...
 
-  background: #02182d;
-}
-
-// .filter__btn-wrapper {
-//   justify-content: center;
-//   align-items: center;
-// }
-
-.filter-icon {
-  margin-right: 12px;
-  width: 24px;
-  height: 24px;
-  fill: #5e6671;
-  // align-items: center;
-
-  // &:hover,
-  // &:focus {
-  //   fill: #5e6671;
-  // }
-}
-
-.filter__btn {
-  margin-right: 56px; // 55px
-  margin-bottom: 35px;
-
-  font-size: 12px;
-  line-height: 1.25;
-  letter-spacing: 0.03em;
-
-  color: $header-primary-text-color;
-  background: #02182d;
-  border: none;
-
-  &:hover,
-  &:focus {
-    color: $accent-color;
+  &__btn-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
   }
-}
 
-.filter__list {
-  display: flex;
-  flex-wrap: wrap;
-  // width: 270px;
-}
+  &__btn-icon {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    fill: #5e6671;
 
-.filter__list-item:not(:last-of-type) {
-  margin-right: 10px;
-}
+    &:hover,
+    &:focus {
+      fill: $accent-color;
+      cursor: pointer;
+    }
+  }
 
-.filter__list-item:not(:last-of-type) {
-  margin-bottom: 20px;
-}
+  &__btn-button {
+    margin-right: 56px; // 55px
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: 0.03em;
+    color: $header-primary-text-color;
+    background: #02182d;
+    border: none;
 
-.filter__list-item_btn {
-  justify-content: center;
-  align-items: center;
-  padding: 8px 21px;
+    &:hover,
+    &:focus {
+      color: $accent-color;
+      cursor: pointer;
+    }
+  }
 
-  background: #02182d;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 270px;
 
-  font-size: 12px;
-  line-height: 1.25;
-  color: $header-primary-text-color;
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+      width: 650px;
+      padding: 30px 78px 32px 40px;
+      background: #02182d;
+      box-shadow: 15px 15px 55px rgba(0, 0, 0, 0.3);
+    }
 
-  box-sizing: border-box;
-  border-radius: 20px;
-  border: 1px solid $header-primary-text-color;
+    @media screen and (min-width: 1280px) {
+      width: 1060px;
+    }
+  }
 
-  &:hover,
-  &:focus {
-    color: $accent-color;
-    border-color: $accent-color;
+  &__list-item:not(:last-of-type) {
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+
+  &__list-item_btn {
+    padding: 8px 21px;
+    background: #02182d;
+    font-size: 12px;
+    line-height: 1.25;
+    color: $header-primary-text-color;
+    border-radius: 20px;
+    border: 1px solid $header-primary-text-color;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+      border-color: $accent-color;
+      cursor: pointer;
+    }
   }
 }
