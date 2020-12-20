@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { openInModal } from './modal';
+import { openInModal, closeModal } from './modal';
 import signUpFormTemplate from '../../templates/signUpFormTemplate.hbs';
 import signInFormTemplate from '../../templates/signInFormTemplate.hbs';
 
@@ -22,29 +22,28 @@ const logOut = () => {
 
 const signUpHandler = () => {
   openInModal(signUpFormTemplate());
+  const errorUp = document.querySelector('.form__errorUp');
+  const signUpForm = document.forms.signUpForm;
   const resetUser = () => {
     user.email = '';
     user.password = '';
     signUpForm.reset();
   };
   const getUserData = e => {
-    document.querySelector('.errorUp').textContent = '';
+    errorUp.textContent = '';
     const { name, value } = e.target;
     user[name] = value;
-    console.log(user);
   };
-  const signUpForm = document.forms.signUpForm;
   const signUp = async user => {
     try {
       const response = await axios.post(signUpURL, user);
       console.log(response);
       const data = { email: response.data.email };
       console.log('data', data);
-      //   closeModal();
+      closeModal();
     } catch (error) {
       console.log(error.response.data.message);
-      document.querySelector('.errorUp').textContent =
-        error.response.data.message;
+      errorUp.textContent = error.response.data.message;
     }
   };
   const signUpData = e => {
@@ -56,18 +55,20 @@ const signUpHandler = () => {
 };
 const signInHandler = () => {
   openInModal(signInFormTemplate());
+  const errorIn = document.querySelector('.form__errorIn');
   const signInForm = document.forms.signInForm;
-  const signInFormSignUpBtn = document.querySelector('.signInFormSignUpBtn');
+  const signInFormSignUpBtn = document.querySelector(
+    '.form__signInFormSignUpBtn',
+  );
   const resetUser = () => {
     user.email = '';
     user.password = '';
     signInForm.reset();
   };
   const getUserData = e => {
-    document.querySelector('.errorIn').textContent = '';
+    errorIn.textContent = '';
     const { name, value } = e.target;
     user[name] = value;
-    console.log(user);
   };
   const signIn = async user => {
     try {
@@ -76,11 +77,10 @@ const signInHandler = () => {
         'accessToken',
         JSON.stringify(response.data.accessToken),
       );
-      //   closeModal();
+      closeModal();
     } catch (error) {
       console.log(error.response.data.message);
-      document.querySelector('.errorIn').textContent =
-        error.response.data.message;
+      errorIn.textContent = error.response.data.message;
     }
   };
   const signInData = async e => {
