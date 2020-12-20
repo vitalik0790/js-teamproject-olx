@@ -36,6 +36,8 @@ const signUpHandler = () => {
       console.log(response);
       const data = { email: response.data.email };
       console.log('data', data);
+      signUpForm.removeEventListener('input', getUserData);
+      signUpForm.removeEventListener('submit', signUpData);
       closeModal();
     } catch (error) {
       console.log(error.response.data.message);
@@ -73,6 +75,9 @@ const signInHandler = () => {
         'accessToken',
         JSON.stringify(response.data.accessToken),
       );
+      signInForm.removeEventListener('input', getUserData);
+      signInForm.removeEventListener('submit', signInData);
+      signInFormSignUpBtn.removeEventListener('click', signUpHandler);
       closeModal();
     } catch (error) {
       console.log(error.response.data.message);

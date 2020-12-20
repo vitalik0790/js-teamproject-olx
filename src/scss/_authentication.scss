@@ -67,6 +67,14 @@
     margin-bottom: 40px;
   }
 }
+.form__errorUp,
+.form__errorIn {
+  display: block;
+  margin: 0 auto 20px;
+  font-weight: 700;
+  text-align: center;
+  color: red;
+}
 .form__signupbtn {
   min-width: 120px;
   margin: 0 auto;
