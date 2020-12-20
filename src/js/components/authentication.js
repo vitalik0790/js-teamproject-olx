@@ -3,10 +3,6 @@ import { openInModal, closeModal } from './modal';
 import signUpFormTemplate from '../../templates/signUpFormTemplate.hbs';
 import signInFormTemplate from '../../templates/signInFormTemplate.hbs';
 
-const signUpBtn = document.querySelector('.signUpBtn');
-const signInBtn = document.querySelector('.signInBtn');
-const logOutBtn = document.querySelector('.logOutBtn');
-
 const signUpURL = 'https://callboard-backend.herokuapp.com/auth/register';
 const signInURL = 'https://callboard-backend.herokuapp.com/auth/login';
 
@@ -92,7 +88,12 @@ const signInHandler = () => {
   signInForm.addEventListener('submit', signInData);
   signInFormSignUpBtn.addEventListener('click', signUpHandler);
 };
-
-signUpBtn.addEventListener('click', signUpHandler);
-signInBtn.addEventListener('click', signInHandler);
-logOutBtn.addEventListener('click', logOut);
+const testAuth = () => {
+  const signUpBtn = document.querySelector('.signUpBtn');
+  const signInBtn = document.querySelector('.signInBtn');
+  const logOutBtn = document.querySelector('.logOutBtn');
+  signUpBtn.addEventListener('click', signUpHandler);
+  signInBtn.addEventListener('click', signInHandler);
+  logOutBtn.addEventListener('click', logOut);
+};
+export { signUpHandler, signInHandler, logOut, testAuth };
