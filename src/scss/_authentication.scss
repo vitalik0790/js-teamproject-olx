@@ -1,0 +1,141 @@
+.form {
+  width: 100%;
+}
+.form__body {
+  min-width: 253px;
+  display: block;
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    width: 426px;
+  }
+}
+.form__title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.25;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.21;
+  }
+}
+.form__email,
+.form__password {
+  box-sizing: border-box;
+  position: relative;
+  //   display: block;
+  width: 100%;
+  padding: 18px 0px 18px 25px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  outline: none;
+  background-color: #ffffff;
+  border: 1px solid #bbbbbb;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    border-color: $accent-color;
+  }
+  @media screen and (min-width: 768px) {
+    padding: 20px 0px 20px 17px;
+    font-size: 14px;
+    line-height: 1.21;
+  }
+}
+.form__email::placeholder,
+.form__password::placeholder {
+  color: #bbbbbb;
+}
+.form__email:required:valid:not(:placeholder-shown),
+.form__password:required:valid:not(:placeholder-shown) {
+  border: 1px solid green;
+}
+.form__email:required:invalid:not(:placeholder-shown),
+.form__password:required:invalid:not(:placeholder-shown) {
+  border: 1px solid red;
+}
+
+.form__email {
+  margin-bottom: 26px;
+}
+.form__password {
+  margin-bottom: 30px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
+}
+.form__signupbtn {
+  min-width: 120px;
+  margin: 0 auto;
+  padding: 18px 10px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.25;
+  display: block;
+  //   align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  background-color: $primary-bg-color;
+  border: 1px solid #bbbbbb;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $primary-bg-color;
+  }
+  @media screen and (min-width: 768px) {
+    min-width: 204px;
+    font-size: 14px;
+    line-height: 1.21;
+  }
+}
+
+.form__signinbtn {
+  @extend .form__signupbtn;
+  margin-bottom: 10px;
+  background-color: $accent-color;
+  color: $primary-bg-color;
+  border-color: transparent;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background-color: $primary-bg-color;
+    color: $primary-text-color;
+    border-color: #bbbbbb;
+  }
+}
+.form__text {
+  display: block;
+  margin: 0 auto 10px;
+  width: max-content;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  color: #bbbbbb;
+}
+.form__signInFormSignUpBtn {
+  display: block;
+  margin: 0 auto;
+  padding: 5px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  background-color: #bbbbbb;
+  border: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $primary-bg-color;
+  }
+}
