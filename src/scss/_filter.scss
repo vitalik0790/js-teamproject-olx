@@ -55,6 +55,7 @@
 
     @media screen and (min-width: 1280px) {
       width: 1060px;
+      background: #122438;
     }
   }
 
@@ -77,6 +78,10 @@
       color: $accent-color;
       border-color: $accent-color;
       cursor: pointer;
+    }
+
+    @media screen and (min-width: 1280px) {
+      background: #122438;
     }
   }
 }
