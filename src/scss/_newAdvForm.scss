@@ -1,0 +1,115 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.modal {
+  background-color: $primary-bg-color;
+  padding-top: 54px;
+  padding-right: 19px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+}
+
+.form-text {
+  display: block;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+
+  color: $primary-text-color;
+}
+
+.product-name {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.214;
+  letter-spacing: 0.02em;
+  margin-bottom: 10px;
+
+  color: $primary-text-color;
+}
+
+.price-label,
+.tel-label {
+  margin-bottom: 13px;
+}
+
+.form-input {
+  margin-bottom: 20px;
+}
+
+.name-product-form {
+  margin-bottom: 30px;
+}
+
+.tel-input-form {
+  margin-bottom: 40px;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-photo {
+  width: 77.19px;
+
+  height: 45.94px;
+
+  background-color: #f5f6fb;
+}
+
+.push-button {
+  width: 251px;
+  height: 50px;
+  background-color: $accent-color;
+  border-color: transparent;
+}
+
+.button-text {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.166;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: $primary-bg-color;
+}
+@media screen and (min-width: 480px) {
+  .modal {
+    width: 290px;
+    height: 845px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 724px;
+    height: 698px;
+    padding-right: 55px;
+    padding-bottom: 60px;
+    padding-left: 53px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .modal {
+    width: 950px;
+    height: 698px;
+    padding-right: 58px;
+    padding-left: 57px;
+  }
+}
