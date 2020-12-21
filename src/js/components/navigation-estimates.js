@@ -2,7 +2,7 @@ import navigationEstimate from '../../templates/navigationSignIn.hbs'
 import navSignUp from '../../templates/navigationSignUp.hbs'
 
 const refs = {
-    signInDiv: document.querySelector('.auth-test-btns2'),
+    signInDiv: document.querySelector('.header-auth'),
 }
 
 export const isLogin = () => {

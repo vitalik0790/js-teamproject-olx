@@ -15,21 +15,23 @@
   outline: none;
   background-color: transparent;
 
-  &:hover {
+  &:hover,
+  &:focus {
     cursor: pointer;
     color: $accent-color;
   }
 }
 
 .sign-in-up__stick {
-  border: 1px solid #465363;
-  &:hover {
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 40%;
+  background-color: rgba(70, 83, 99, 1);
+  border: 1px solid rgba(70, 83, 99, 1);
+  &:hover,
+  &:focus {
     color: $accent-color;
   }
 }
-
-// .user_btn {
-//   &::before {
-//     background-image: url(../images/svg/icons/nav-estimate/Subtract.svg);
-//   }
-// }
