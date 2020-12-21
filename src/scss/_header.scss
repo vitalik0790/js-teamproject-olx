@@ -171,6 +171,11 @@
 
         border: none;
         background-color: transparent;
+
+        &:hover,
+        &:focus {
+          color: $accent-color;
+        }
       }
       @media screen and (min-width: 1280px) {
         display: none;
