@@ -29,4 +29,8 @@ const openInModal = content => {
   addEventListener('keydown', checkEscape);
 };
 
-export { openInModal, closeModal };
+const inCurrentModal = content => {
+  if (!refs.backdrop.classList.contains('is-hidden')) refs.content.innerHTML = content;
+};
+
+export { openInModal, closeModal, inCurrentModal };
