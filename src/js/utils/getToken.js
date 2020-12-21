@@ -1,3 +1,5 @@
 export const getToken = () => {
-  return localStorage.getItem('accessToken');
+  if (localStorage.getItem('accessToken')) {
+    return localStorage.getItem('accessToken');
+  }
 };
