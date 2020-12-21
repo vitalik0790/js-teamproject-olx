@@ -141,6 +141,15 @@
             Очистить
           </button>
         </div>
+      <div class="container"></div>
+      <div class="auth-test-btns container">
+        <p>
+          Тестовые кнопки для работы аутентификации. Удалим когда реализуем
+          кнопки по макету.
+        </p>
+        <button type="button" class="signUpBtn">Зарегистрироваться</button>
+        <button type="button" class="signInBtn">Войти</button>
+        <button type="button" class="logOutBtn">Выйти</button>
       </div>
     </header>
     <main class="main">
@@ -154,6 +163,13 @@
     <footer class="footer">
       <div class="container"></div>
     </footer>
-    <div class="modal"></div>
+    <div class="backdrop is-hidden">
+      <div class="modal">
+        <svg class="modal-close">
+          <use href="./images/svg/icons/close/close-24px.svg#close"></use>
+        </svg>
+        <div class="modal-content"></div>
+      </div>
+    </div>
   </body>
 </html>

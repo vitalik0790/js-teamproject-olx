@@ -3,3 +3,5 @@ import '../node_modules/modern-normalize/modern-normalize.css';
 import './styles.scss';
 
 //renderHeader();
+import { testAuth } from './js/components/authentication';
+testAuth();
