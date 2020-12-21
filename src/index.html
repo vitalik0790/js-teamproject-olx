@@ -12,69 +12,41 @@
     <title>OLX</title>
   </head>
 
-  <body>
-    <header class="header">
-      <div class="container" id="header">
-        <div class="header-top">
-          <button
-            type="button"
-            class="navigation__button"
-            aria-expanded="true"
-            aria-controls="menu-container"
-            data-menu-button
-          >
-            <svg
-              width="20"
-              height="20"
-              aria-label="Мобильное меню"
-              class="navigation-button-svg"
-            >
-              <use
-                class="navigation__button-close"
-                href="./images/svg/icons/sprite.svg#close"
-              ></use>
-              <use
-                class="navigation__button-menu"
-                href="./images/svg/icons/sprite.svg#menu"
-              ></use>
-            </svg>
-          </button>
-          <div class="header-logo">
-            <a href="#" class="link">
-              <div class="header-logo__ellipse">
-                <span class="header-logo__name">LOGO</span>
-              </div>
-            </a>
-          </div>
-          <input
-            class="header-logo__input"
-            type="text"
-            name="inputSearch"
-            id="inputSearch"
-            placeholder=""
-          />
-          <button
-            type="button"
-            class="search__button"
-            aria-expanded="true"
-            aria-controls="menu-container"
-            data-menu-button
-          >
-            <svg
-              width="24"
-              height="24"
-              aria-label="Мобильное меню"
-              class="search__button-svg"
-            >
-              <use class="" href="./images/svg/icons/sprite.svg#search"></use>
-            </svg>
-          </button>
-          <div class="header-auth">
-            <button class="button header-auth__btn">Регистрация</button>
-            <span class="header-auth__element">|</span>
-            <button class="button header-auth__btn-accent">Вход</button>
-          </div>
-          <button class="button header-btn-adv">Создать объявление</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <title>OLX</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container" id="header">
+      <div class="header-top">
+        <button type="button" class="navigation__button" aria-expanded="true" aria-controls="menu-container"
+          data-menu-button>
+          <svg width="20" height="20" aria-label="Мобильное меню" class="navigation-button-svg">
+            <use class="navigation__button-close" href="./images/svg/icons/sprite.svg#close"></use>
+            <use class="navigation__button-menu" href="./images/svg/icons/sprite.svg#menu"></use>
+          </svg>
+        </button>
+        <div class="header-logo">
+          <a href="#" class="link">
+            <div class="header-logo__ellipse">
+              <span class="header-logo__name">LOGO</span>
+            </div>
+          </a>
+        </div>
+        <input class="header-logo__input" type="text" name="inputSearch" id="inputSearch" placeholder="" />
+        <button type="button" class="search__button" aria-expanded="true" aria-controls="menu-container"
+          data-menu-button>
+          <svg width="24" height="24" aria-label="Мобильное меню" class="search__button-svg">
+            <use class="" href="./images/svg/icons/sprite.svg#search"></use>
+          </svg>
+        </button>
+        <div class="header-auth">
         </div>
         <div class="header-filter">
           <input
@@ -138,29 +110,34 @@
             </li>
           </ul>
 
-          <button class="button header-clear-filter-btn">
-            <svg width="24" height="24" class="clear-filter-svg">
-              <use href="./images/svg/icons/sprite.svg#replay"></use>
-            </svg>
-            Очистить
-          </button>
-        </div>
-        <div class="container"></div>
-        <div class="auth-test-btns container">
-          <p>
-            Тестовые кнопки для работы аутентификации. Удалим когда реализуем
-            кнопки по макету.
-          </p>
-          <button type="button" class="signUpBtn">Зарегистрироваться</button>
-          <button type="button" class="signInBtn">Войти</button>
-          <button type="button" class="logOutBtn">Выйти</button>
-        </div>
+        <button class="button header-clear-filter-btn">
+          <svg width="24" height="24" class="clear-filter-svg">
+            <use href="./images/svg/icons/sprite.svg#replay"></use>
+          </svg>
+          Очистить
+        </button>
       </div>
-    </header>
-    <main class="main">
-      <section class="slider">
-        <div class="container"></div>
-      </section>
+      <div class="container"></div>
+      <!-- <div class="auth-test-btns container">
+        <p>
+          Тестовые кнопки для работы аутентификации. Удалим когда реализуем
+          кнопки по макету.
+        </p>
+        <button type="button" class="signUpBtn">Зарегистрироваться</button>
+        <button type="button" class="signInBtn">Войти</button>
+        <button type="button" class="logOutBtn">Выйти</button>
+      </div> -->
+    </div>
+  </header>
+  <main class="main">
+
+    <section class="slider">
+      <div class="container"></div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery">
+      <div class="container">
 
       <!-- GALLERY -->
       <section class="gallery">
