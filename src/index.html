@@ -1,104 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>OLX</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <title>OLX</title>
-</head>
-
-<body>
-  <header class="header">
-    <div class="container" id="header">
-      <div class="header-top">
-        <button type="button" class="navigation__button" aria-expanded="true" aria-controls="menu-container"
-          data-menu-button>
-          <svg width="20" height="20" aria-label="Мобильное меню" class="navigation-button-svg">
-            <use class="navigation__button-close" href="./images/svg/icons/sprite.svg#close"></use>
-            <use class="navigation__button-menu" href="./images/svg/icons/sprite.svg#menu"></use>
-          </svg>
-        </button>
-        <div class="header-logo">
-          <a href="#" class="link">
-            <div class="header-logo__ellipse">
-              <span class="header-logo__name">LOGO</span>
-            </div>
-          </a>
+  <body>
+    <header class="header">
+      <div class="container" id="header">
+        <div class="header-top">
+          <button
+            type="button"
+            class="navigation__button"
+            aria-expanded="true"
+            aria-controls="menu-container"
+            data-menu-button
+          >
+            <svg
+              width="20"
+              height="20"
+              aria-label="Мобильное меню"
+              class="navigation-button-svg"
+            >
+              <use
+                class="navigation__button-close"
+                href="./images/svg/icons/sprite.svg#close"
+              ></use>
+              <use
+                class="navigation__button-menu"
+                href="./images/svg/icons/sprite.svg#menu"
+              ></use>
+            </svg>
+          </button>
+          <div class="header-logo">
+            <a href="#" class="link">
+              <div class="header-logo__ellipse">
+                <span class="header-logo__name">LOGO</span>
+              </div>
+            </a>
+          </div>
+          <input
+            class="header-logo__input"
+            type="text"
+            name="inputSearch"
+            id="inputSearch"
+            placeholder=""
+          />
+          <button
+            type="button"
+            class="search__button"
+            aria-expanded="true"
+            aria-controls="menu-container"
+            data-menu-button
+          >
+            <svg
+              width="24"
+              height="24"
+              aria-label="Мобильное меню"
+              class="search__button-svg"
+            >
+              <use class="" href="./images/svg/icons/sprite.svg#search"></use>
+            </svg>
+          </button>
+          <div class="header-auth"></div>
+          <button class="button header-btn-adv">Создать объявление</button>
         </div>
-        <input class="header-logo__input" type="text" name="inputSearch" id="inputSearch" placeholder="" />
-        <button type="button" class="search__button" aria-expanded="true" aria-controls="menu-container"
-          data-menu-button>
-          <svg width="24" height="24" aria-label="Мобильное меню" class="search__button-svg">
-            <use class="" href="./images/svg/icons/sprite.svg#search"></use>
-          </svg>
-        </button>
-        <div class="header-auth">
+        <div class="header-filter">
+          <input
+            class="header-logo__input-tablet"
+            type="text"
+            name="inputSearchTabl"
+            id="inputSearchTabl"
+            placeholder=""
+          />
+          <button class="button header-filter-tablet">
+            <svg width="24" height="24" class="clear-filter-tablet-svg">
+              <use href="./images/svg/icons/sprite.svg#tune"></use>
+            </svg>
+            Фильтры
+          </button>
+
+          <ul class="header-filter-list">
+            <li class="list header-filter-list__item">
+              <button class="button header-filter-list__item-btn">
+                Недвижимость
+              </button>
+            </li>
+            <li class="list header-filter-list__item">
+              <button class="button header-filter-list__item-btn">
+                Транспорт
+              </button>
+            </li>
+            <li class="list header-filter-list__item">
+              <button class="button header-filter-list__item-btn">
+                Работа
+              </button>
+            </li>
+            <li class="list header-filter-list__item">
+              <button class="button header-filter-list__item-btn">
+                Электроника
+              </button>
+            </li>
+            <li class="list header-filter-list__item">
+              <button class="button header-filter-list__item-btn">
+                Бизнес и услуги
+              </button>
+            </li>
+            <li class="list header-filter-list__item">
+              <button class="button header-filter-list__item-btn">
+                Отдых и спорт
+              </button>
+            </li>
+            <li class="list header-filter-list__item">
+              <button class="button header-filter-list__item-btn">
+                Отдам бесплатно
+              </button>
+            </li>
+            <li class="list header-filter-list__item">
+              <button class="button header-filter-list__item-btn">Обмен</button>
+            </li>
+          </ul>
+
+          <button class="button header-clear-filter-btn">
+            <svg width="24" height="24" class="clear-filter-svg">
+              <use href="./images/svg/icons/sprite.svg#replay"></use>
+            </svg>
+            Очистить
+          </button>
         </div>
-        <button class="button header-btn-adv">Создать объявление</button>
-      </div>
-      <div class="header-filter">
-        <input class="header-logo__input-tablet" type="text" name="inputSearchTabl" id="inputSearchTabl"
-          placeholder="" />
-        <button class="button header-filter-tablet">
-          <svg width="24" height="24" class="clear-filter-tablet-svg">
-            <use href="./images/svg/icons/sprite.svg#tune"></use>
-          </svg>
-          Фильтры
-        </button>
-
-        <ul class="header-filter-list">
-          <li class="list header-filter-list__item">
-            <button class="button header-filter-list__item-btn">
-              Недвижимость
-            </button>
-          </li>
-          <li class="list header-filter-list__item">
-            <button class="button header-filter-list__item-btn">
-              Транспорт
-            </button>
-          </li>
-          <li class="list header-filter-list__item">
-            <button class="button header-filter-list__item-btn">
-              Работа
-            </button>
-          </li>
-          <li class="list header-filter-list__item">
-            <button class="button header-filter-list__item-btn">
-              Электроника
-            </button>
-          </li>
-          <li class="list header-filter-list__item">
-            <button class="button header-filter-list__item-btn">
-              Бизнес и услуги
-            </button>
-          </li>
-          <li class="list header-filter-list__item">
-            <button class="button header-filter-list__item-btn">
-              Отдых и спорт
-            </button>
-          </li>
-          <li class="list header-filter-list__item">
-            <button class="button header-filter-list__item-btn">
-              Отдам бесплатно
-            </button>
-          </li>
-          <li class="list header-filter-list__item">
-            <button class="button header-filter-list__item-btn">Обмен</button>
-          </li>
-        </ul>
-
-        <button class="button header-clear-filter-btn">
-          <svg width="24" height="24" class="clear-filter-svg">
-            <use href="./images/svg/icons/sprite.svg#replay"></use>
-          </svg>
-          Очистить
-        </button>
-      </div>
-      <div class="container"></div>
-      <!-- <div class="auth-test-btns container">
+        <div class="container"></div>
+        <!-- <div class="auth-test-btns container">
         <p>
           Тестовые кнопки для работы аутентификации. Удалим когда реализуем
           кнопки по макету.
@@ -107,187 +145,232 @@
         <button type="button" class="signInBtn">Войти</button>
         <button type="button" class="logOutBtn">Выйти</button>
       </div> -->
-    </div>
-  </header>
-  <main class="main">
-
-    <section class="slider">
-      <div class="container"></div>
-    </section>
-
-    <!-- GALLERY -->
-    <section class="gallery">
-      <div class="container">
-
-        <button class="gallery__modal-btn"></button>
-
-        <ul class="gallery__wrap">
-
-          <li class="gallery__list electronics-wrap">
-
-            <div class="gallery__info">
-              <h2 class="gallery__info-name">Электроника</h2>
-              <a class="gallery__link_view-all" href="">Смотреть все</a>
-            </div>
-
-            <button class="slider prev" type="button"></button>
-            <ul class="products list">
-              <li class="products__item">
-                <div class="products__img-wrap">
-                  <img class="products__img" src="./images/img/goods img/5.jpg" alt="">
-                </div>
-                <div class="products__info">
-                  <h3 class="products__info-name">Acer SB220Q bi 21.5 inches</h3>
-                  <span class="products__new-price">3,000 €</span>
-                </div>
-              </li>
-              <li class="products__item">
-                <div class="products__img-wrap">
-                  <img class="products__img" src="./images/img/goods img/6.jpg" alt="">
-                </div>
-                <div class="products__info">
-                  <h3 class="products__info-name">Acer Aspire 5 Slim</h3>
-                  <span class="products__new-price">18,500 €</span>
-                </div>
-              </li>
-              <li class="products__item">
-                <div class="products__img-wrap">
-                  <img class="products__img" src="./images/img/goods img/7.jpg" alt="">
-                </div>
-                <div class="products__info">
-                  <h3 class="products__info-name">FastSnail Joy-Con Charging</h3>
-                  <span class="products__new-price">320 €</span>
-                </div>
-              </li>
-              <li class="products__item">
-                <div class="products__img-wrap">
-                  <img class="products__img" src="./images/img/goods img/8.jpg" alt="">
-                </div>
-                <div class="products__info">
-                  <h3 class="products__info-name">RUNMUS Gaming Headset</h3>
-                  <span class="products__new-price">700 €</span>
-                </div>
-              </li>
-            </ul>
-            <button class="slider next" type="button"></button>
-
-          </li>
-
-          <li class="gallery__list sport-wrap">
-
-            <div class="gallery__info">
-              <h2 class="gallery__info-name">Отдых и спорт</h2>
-              <a class="gallery__link_view-all" href="">Смотреть все</a>
-            </div>
-
-            <button class="slider prev" type="button"></button>
-            <ul class="products list">
-              <li class="products__item">
-                <div class="products__img-wrap">
-                  <img class="products__img" src="./images/img/goods img/9.jpg" alt="">
-                </div>
-                <div class="products__info">
-                  <h3 class="products__info-name">Exercise Yoga Mat</h3>
-                  <span class="products__new-price">250 €</span>
-                </div>
-              </li>
-              <li class="products__item">
-                <div class="products__img-wrap">
-                  <img class="products__img" src="./images/img/goods img/10.jpg" alt="">
-                </div>
-                <div class="products__info">
-                  <h3 class="products__info-name">SKI Over Glasses Console</h3>
-                  <span class="products__new-price">1,200 €</span>
-                </div>
-              </li>
-              <li class="products__item">
-                <div class="products__img-wrap">
-                  <img class="products__img" src="./images/img/goods img/11.jpg" alt="">
-                </div>
-                <div class="products__info">
-                  <h3 class="products__info-name">Watch Band 38MM</h3>
-                  <span class="products__new-price">300 €</span>
-                </div>
-              </li>
-              <li class="products__item">
-                <div class="products__img-wrap">
-                  <img class="products__img" src="./images/img/goods img/12.jpg" alt="">
-                </div>
-                <div class="products__info">
-                  <h3 class="products__info-name">NBA Street Basketball</h3>
-                  <span class="products__new-price">3,600 €</span>
-                </div>
-              </li>
-            </ul>
-            <button class="slider next" type="button"></button>
-          </li>
-
-          <li class="gallery__list exchange-wrap">
-
-            <div class="gallery__info">
-              <h2 class="gallery__info-name">Обмен</h2>
-              <a class="gallery__link_view-all" href="">Смотреть все</a>
-            </div>
-
-            <button class="slider prev" type="button"></button>
-            <ul class="products list">
-              <li class="products__item">
-                <div class="products__img-wrap">
-                  <img class="products__img" src="./images/img/goods img/13.jpg" alt="">
-                </div>
-                <div class="products__info">
-                  <h3 class="products__info-name">Mini Waffle Maker</h3>
-                  <span class="products__new-price">399 €</span>
-                </div>
-              </li>
-              <li class="products__item">
-                <div class="products__img-wrap">
-                  <img class="products__img" src="./images/img/goods img/14.jpg" alt="">
-                </div>
-                <div class="products__info">
-                  <h3 class="products__info-name">Office Chair ErgonomicConsole</h3>
-                  <span class="products__new-price">800 €</span>
-                </div>
-              </li>
-              <li class="products__item">
-                <div class="products__img-wrap">
-                  <img class="products__img" src="./images/img/goods img/15.jpg" alt="">
-                </div>
-                <div class="products__info">
-                  <h3 class="products__info-name">THERMOS</h3>
-                  <span class="products__new-price">300 €</span>
-                </div>
-              </li>
-              <li class="products__item">
-                <div class="products__img-wrap">
-                  <img class="products__img" src="./images/img/goods img/16.jpg" alt="">
-                </div>
-                <div class="products__info">
-                  <h3 class="products__info-name">Mist Humidifier</h3>
-                  <span class="products__new-price">600 €</span>
-                </div>
-              </li>
-            </ul>
-            <button class="slider next" type="button"></button>
-
-          </li>
-
-        </ul>
       </div>
-    </section>
+    </header>
+    <main class="main">
+      <section class="slider">
+        <div class="container"></div>
+      </section>
 
-  </main>
-  <footer class="footer">
-    <div class="container"></div>
-  </footer>
-  <div class="backdrop is-hidden">
-    <div class="modal">
-      <svg class="modal-close">
-        <use href="./images/svg/icons/close/close-24px.svg#close"></use>
-      </svg>
-      <div class="modal-content"></div>
+      <!-- GALLERY -->
+      <section class="gallery">
+        <div class="container">
+          <button class="gallery__modal-btn"></button>
+
+          <ul class="gallery__wrap">
+            <li class="gallery__list electronics-wrap">
+              <div class="gallery__info">
+                <h2 class="gallery__info-name">Электроника</h2>
+                <a class="gallery__link_view-all" href="">Смотреть все</a>
+              </div>
+
+              <button class="slider prev" type="button"></button>
+              <ul class="products list">
+                <li class="products__item">
+                  <div class="products__img-wrap">
+                    <img
+                      class="products__img"
+                      src="./images/img/goods img/5.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="products__info">
+                    <h3 class="products__info-name">
+                      Acer SB220Q bi 21.5 inches
+                    </h3>
+                    <span class="products__new-price">3,000 €</span>
+                  </div>
+                </li>
+                <li class="products__item">
+                  <div class="products__img-wrap">
+                    <img
+                      class="products__img"
+                      src="./images/img/goods img/6.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="products__info">
+                    <h3 class="products__info-name">Acer Aspire 5 Slim</h3>
+                    <span class="products__new-price">18,500 €</span>
+                  </div>
+                </li>
+                <li class="products__item">
+                  <div class="products__img-wrap">
+                    <img
+                      class="products__img"
+                      src="./images/img/goods img/7.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="products__info">
+                    <h3 class="products__info-name">
+                      FastSnail Joy-Con Charging
+                    </h3>
+                    <span class="products__new-price">320 €</span>
+                  </div>
+                </li>
+                <li class="products__item">
+                  <div class="products__img-wrap">
+                    <img
+                      class="products__img"
+                      src="./images/img/goods img/8.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="products__info">
+                    <h3 class="products__info-name">RUNMUS Gaming Headset</h3>
+                    <span class="products__new-price">700 €</span>
+                  </div>
+                </li>
+              </ul>
+              <button class="slider next" type="button"></button>
+            </li>
+
+            <li class="gallery__list sport-wrap">
+              <div class="gallery__info">
+                <h2 class="gallery__info-name">Отдых и спорт</h2>
+                <a class="gallery__link_view-all" href="">Смотреть все</a>
+              </div>
+
+              <button class="slider prev" type="button"></button>
+              <ul class="products list">
+                <li class="products__item">
+                  <div class="products__img-wrap">
+                    <img
+                      class="products__img"
+                      src="./images/img/goods img/9.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="products__info">
+                    <h3 class="products__info-name">Exercise Yoga Mat</h3>
+                    <span class="products__new-price">250 €</span>
+                  </div>
+                </li>
+                <li class="products__item">
+                  <div class="products__img-wrap">
+                    <img
+                      class="products__img"
+                      src="./images/img/goods img/10.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="products__info">
+                    <h3 class="products__info-name">
+                      SKI Over Glasses Console
+                    </h3>
+                    <span class="products__new-price">1,200 €</span>
+                  </div>
+                </li>
+                <li class="products__item">
+                  <div class="products__img-wrap">
+                    <img
+                      class="products__img"
+                      src="./images/img/goods img/11.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="products__info">
+                    <h3 class="products__info-name">Watch Band 38MM</h3>
+                    <span class="products__new-price">300 €</span>
+                  </div>
+                </li>
+                <li class="products__item">
+                  <div class="products__img-wrap">
+                    <img
+                      class="products__img"
+                      src="./images/img/goods img/12.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="products__info">
+                    <h3 class="products__info-name">NBA Street Basketball</h3>
+                    <span class="products__new-price">3,600 €</span>
+                  </div>
+                </li>
+              </ul>
+              <button class="slider next" type="button"></button>
+            </li>
+
+            <li class="gallery__list exchange-wrap">
+              <div class="gallery__info">
+                <h2 class="gallery__info-name">Обмен</h2>
+                <a class="gallery__link_view-all" href="">Смотреть все</a>
+              </div>
+
+              <button class="slider prev" type="button"></button>
+              <ul class="products list">
+                <li class="products__item">
+                  <div class="products__img-wrap">
+                    <img
+                      class="products__img"
+                      src="./images/img/goods img/13.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="products__info">
+                    <h3 class="products__info-name">Mini Waffle Maker</h3>
+                    <span class="products__new-price">399 €</span>
+                  </div>
+                </li>
+                <li class="products__item">
+                  <div class="products__img-wrap">
+                    <img
+                      class="products__img"
+                      src="./images/img/goods img/14.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="products__info">
+                    <h3 class="products__info-name">
+                      Office Chair ErgonomicConsole
+                    </h3>
+                    <span class="products__new-price">800 €</span>
+                  </div>
+                </li>
+                <li class="products__item">
+                  <div class="products__img-wrap">
+                    <img
+                      class="products__img"
+                      src="./images/img/goods img/15.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="products__info">
+                    <h3 class="products__info-name">THERMOS</h3>
+                    <span class="products__new-price">300 €</span>
+                  </div>
+                </li>
+                <li class="products__item">
+                  <div class="products__img-wrap">
+                    <img
+                      class="products__img"
+                      src="./images/img/goods img/16.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="products__info">
+                    <h3 class="products__info-name">Mist Humidifier</h3>
+                    <span class="products__new-price">600 €</span>
+                  </div>
+                </li>
+              </ul>
+              <button class="slider next" type="button"></button>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container"></div>
+    </footer>
+    <div class="backdrop is-hidden">
+      <div class="modal">
+        <svg class="modal-close">
+          <use href="./images/svg/icons/close/close-24px.svg#close"></use>
+        </svg>
+        <div class="modal-content"></div>
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
