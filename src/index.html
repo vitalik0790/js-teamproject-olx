@@ -12,7 +12,105 @@
 
 <body>
   <header class="header">
-    <div class="container"></div>
+    <div class="container" id="header">
+      <div class="header-top">
+        <button type="button" class="navigation__button" aria-expanded="true" aria-controls="menu-container"
+          data-menu-button>
+          <svg width="20" height="20" aria-label="Мобильное меню" class="navigation-button-svg">
+            <use class="navigation__button-close" href="./images/svg/icons/sprite.svg#close"></use>
+            <use class="navigation__button-menu" href="./images/svg/icons/sprite.svg#menu"></use>
+          </svg>
+        </button>
+        <div class="header-logo">
+          <a href="#" class="link">
+            <div class="header-logo__ellipse">
+              <span class="header-logo__name">LOGO</span>
+            </div>
+          </a>
+        </div>
+        <input class="header-logo__input" type="text" name="inputSearch" id="inputSearch" placeholder="" />
+        <button type="button" class="search__button" aria-expanded="true" aria-controls="menu-container"
+          data-menu-button>
+          <svg width="24" height="24" aria-label="Мобильное меню" class="search__button-svg">
+            <use class="" href="./images/svg/icons/sprite.svg#search"></use>
+          </svg>
+        </button>
+        <div class="header-auth">
+          <button class="button header-auth__btn">Регистрация</button>
+          <span class="header-auth__element">|</span>
+          <button class="button header-auth__btn-accent">Вход</button>
+        </div>
+        <button class="button header-btn-adv">Создать объявление</button>
+      </div>
+      <div class="header-filter">
+        <input class="header-logo__input-tablet" type="text" name="inputSearchTabl" id="inputSearchTabl"
+          placeholder="" />
+        <button class="button header-filter-tablet">
+          <svg width="24" height="24" class="clear-filter-tablet-svg">
+            <use href="./images/svg/icons/sprite.svg#tune"></use>
+          </svg>
+          Фильтры
+        </button>
+
+        <ul class="header-filter-list">
+          <li class="list header-filter-list__item">
+            <button class="button header-filter-list__item-btn">
+              Недвижимость
+            </button>
+          </li>
+          <li class="list header-filter-list__item">
+            <button class="button header-filter-list__item-btn">
+              Транспорт
+            </button>
+          </li>
+          <li class="list header-filter-list__item">
+            <button class="button header-filter-list__item-btn">
+              Работа
+            </button>
+          </li>
+          <li class="list header-filter-list__item">
+            <button class="button header-filter-list__item-btn">
+              Электроника
+            </button>
+          </li>
+          <li class="list header-filter-list__item">
+            <button class="button header-filter-list__item-btn">
+              Бизнес и услуги
+            </button>
+          </li>
+          <li class="list header-filter-list__item">
+            <button class="button header-filter-list__item-btn">
+              Отдых и спорт
+            </button>
+          </li>
+          <li class="list header-filter-list__item">
+            <button class="button header-filter-list__item-btn">
+              Отдам бесплатно
+            </button>
+          </li>
+          <li class="list header-filter-list__item">
+            <button class="button header-filter-list__item-btn">Обмен</button>
+          </li>
+        </ul>
+
+        <button class="button header-clear-filter-btn">
+          <svg width="24" height="24" class="clear-filter-svg">
+            <use href="./images/svg/icons/sprite.svg#replay"></use>
+          </svg>
+          Очистить
+        </button>
+      </div>
+      <div class="container"></div>
+      <div class="auth-test-btns container">
+        <p>
+          Тестовые кнопки для работы аутентификации. Удалим когда реализуем
+          кнопки по макету.
+        </p>
+        <button type="button" class="signUpBtn">Зарегистрироваться</button>
+        <button type="button" class="signInBtn">Войти</button>
+        <button type="button" class="logOutBtn">Выйти</button>
+      </div>
+    </div>
   </header>
   <main class="main">
 
@@ -200,7 +298,6 @@
           </li>
 
         </ul>
-
       </div>
     </section>
 
