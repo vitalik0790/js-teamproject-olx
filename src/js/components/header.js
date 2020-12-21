@@ -15,11 +15,11 @@ export const renderHeader = () => {
 };
 
 const createMarkUp = categories => {
-  const getHeader = document.getElementById('header');
+  const getUl = document.querySelector('.header-filter-list');
   let categoriesWrapper = { categories: categories };
-  getHeader.innerHTML += header(categoriesWrapper);
+  getUl.innerHTML += header(categoriesWrapper);
 
-  console.log('getHeader == >>', getHeader);
-  console.log('categories == >>', categories);
-  console.log('categoriesWrapper == >>', categoriesWrapper);
+  // console.log('getHeader == >>', getUl);
+  // console.log('categories == >>', categories);
+  // console.log('categoriesWrapper == >>', categoriesWrapper);
 };
