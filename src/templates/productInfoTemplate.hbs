@@ -1,16 +1,16 @@
 <div class="productInfo__wrapper">
   <div class="productInfo__images">
     <div class="productInfo__imgMax-wrapper">
-      <img class="productInfo__imgMax" src="./images/img/goods img/1.jpg" alt="" />
+      <img class="productInfo__imgMax" src="../images/img/goods img/1.jpg" alt="" />
     </div>
 
     <ul class="list productInfo__list-imgMin">
       {{!-- {{#each this}} --}}
       <li class="productInfo__item-imgMin">
-        <img class="productInfo__imgMin" src="./images/img/goods img/1.jpg" alt="" />
+        <img class="productInfo__imgMin" src="../images/img/goods img/1.jpg" alt="" />
       </li>
       <li class="productInfo__item-imgMin">
-        <img class="productInfo__imgMin" src="./images/img/goods img/1.jpg" alt="" />
+        <img class="productInfo__imgMin" src="../images/img/goods img/2.jpg" alt="" />
       </li>
       {{!-- {{/each}} --}}
     </ul>
@@ -23,18 +23,16 @@
 
     <div class="siema productInfo__imgSlider">
       <div>
-        <img src="./images/img/goods img/1.jpg" alt="" />
+        <img src="../images/img/goods img/1.jpg" alt="" />
       </div>
       <div>
-        <img src="./images/img/goods img/2.jpg" alt="" />
+        <img src="../images/img/goods img/2.jpg" alt="" />
       </div>
     </div>
-    {{!-- <div class="dots"> --}}
-      {{!-- <button class="dots__item  dots__item--active"></button>
-      <button class="dots__item"></button>
-      <button class="dots__item"></button> --}}
-      {{!--
-    </div> --}}
+    <div class="dots">
+      {{!-- <button class=" prev dots__item  dots__item--active"></button>
+      <button class=" next dots__item"></button> --}}
+    </div>
 
 
     <p class="productInfo__price">1,200 00 <span>&#8364;</span></p>
@@ -43,9 +41,9 @@
     </button>
     <ul class=" list productInfo__action-list">
       <li class="productInfo__action-item ">В избранное
-        {{!-- <svg class="favorites__icon" width="14" height="12">
+        <svg class="favorites__icon" width="14" height="12">
           <use href="./images/svg/symbol-defs.svg#favorite"></use>
-        </svg> --}}
+        </svg>
       </li>
       <li class="productInfo__action-item  productInfo__action-item--share">Поделиться</li>
     </ul>

@@ -88,13 +88,13 @@
 .dots__item {
   margin: 0 0.5rem;
   padding: 0;
-  width: 7px;
-  height: 7px;
+  width: 17px;
+  height: 17px;
   outline: none;
   border: none;
 
-  // background-color: #c4c4c4;
-  background-color: #792929;
+  background-color: #c4c4c4;
+  // background-color: #792929;
   border-radius: 50%;
 
   &--active {
