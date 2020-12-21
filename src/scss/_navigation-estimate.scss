@@ -1,0 +1,35 @@
+.signUpBtn,
+.signInBtn,
+.logOutBtn,
+.user_btn {
+  display: inline-block;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  color: $header-primary-text-color;
+  transition: 0.5s;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+    color: $accent-color;
+  }
+}
+
+.sign-in-up__stick {
+  border: 1px solid #465363;
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+// .user_btn {
+//   &::before {
+//     background-image: url(../images/svg/icons/nav-estimate/Subtract.svg);
+//   }
+// }
