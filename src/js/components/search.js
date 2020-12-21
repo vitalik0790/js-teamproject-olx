@@ -1,10 +1,11 @@
 const headerInput = document.querySelector('.header__input');
-// console.dir(headerInput);
+console.dir(headerInput);
 
-const shwoValue = () => {
-    const query = headerInput.value;
+const shwoValue = (e) => {
+    const query = e.target.value;
     console.log(query);
 }
+
 headerInput.addEventListener('input', shwoValue)
 
 
