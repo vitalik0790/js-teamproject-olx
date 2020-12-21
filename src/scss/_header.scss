@@ -269,6 +269,7 @@
 .header-filter-list__item-btn:focus {
   color: $accent-color;
   border: 1px solid $accent-color;
+  cursor: pointer;
 }
 
 .clear-filter-svg {
