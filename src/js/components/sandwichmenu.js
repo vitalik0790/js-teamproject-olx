@@ -1,10 +1,13 @@
-export const sandwichmenu = document.getElementById('sandwichmenu');
-  const func = (e) => {
-    e.preventDefault();
-    const getDivMenu = document.querySelector('.js_menu');
+  const sandwichmenu = document.getElementById('sandwichmenu');
+  const getDivMenu = document.querySelector('.js_menu');
 
-    sandwichmenu.classList.toggle("active");
-    getDivMenu.classList.toggle("active");
-  }
+export const func = (e) => {
+  e.preventDefault();
+    
+  sandwichmenu.classList.toggle("activ");
+  getDivMenu.classList.toggle("activ");
+    
+}
   
-  sandwichmenu.addEventListener('click', func); 
+sandwichmenu.addEventListener('click', func); 
+getDivMenu.addEventListener('click', func);

@@ -295,28 +295,38 @@
   fill: $accent-color;
 }
 
-.navigation__button {
-  border: none;
-  background-color: transparent;
+// .navigation__button {
+//   border: none;
+//   background-color: transparent;
 
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
-  &-close {
-    display: none;
-    @media screen and (min-width: 480px) {
-    }
-    @media screen and (min-width: 768px) {
-      display: none;
-    }
-  }
-  &-menu {
-    fill: #445361;
-    @media screen and (min-width: 768px) {
-      display: none;
-    }
-  }
-}
+//   @media screen and (min-width: 768px) {
+//     display: none;
+//   }
+//   &-close {
+//     display: none;
+//     @media screen and (min-width: 480px) {
+//     }
+//     @media screen and (min-width: 768px) {
+//       display: none;
+//     }
+//   }
+  // &-close {
+  //   display: none;
+  //   fill: #445361;
+  //   @media screen and (min-width: 480px) {
+  //   }
+  //   @media screen and (min-width: 768px) {
+  //     display: none;
+  //   }
+  // }
+
+  // &-menu {
+  //   fill: #445361;
+  //   @media screen and (min-width: 768px) {
+  //     display: none;
+  //   }
+  // }
+//}
 
 .search__button {
   border: none;
@@ -326,6 +336,7 @@
   }
   &-svg {
     fill: #445361;
+    margin-right: 15px;
     @media screen and (min-width: 768px) {
       display: none;
     }
