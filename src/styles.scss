@@ -1,8 +1,14 @@
 @import './scss/utils/variables';
-@import './scss/common';
 
+@import './scss/categoriesList';
+@import './scss/common';
 @import './scss/header';
 @import './scss/_modal.scss';
 
 @import './scss/authentication';
-@import './scss//search.scss';
+
+@import './scss/_search.scss';
+
+@import './scss/_hero.scss';
+
+@import './scss/navigation-estimate';

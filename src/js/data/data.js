@@ -3,6 +3,8 @@ export const data = {
   signInURL: 'https://callboard-backend.herokuapp.com/auth/login',
   baseURL: 'https://callboard-backend.herokuapp.com',
   categories: [],
+
+  inCategories: [],
 };
 
 
