@@ -5,8 +5,16 @@ const refs = {
   content: document.querySelector('.modal-content'),
 };
 
+const listeners = {
+  remove: null,
+}
+
 const closeModal = () => {
   refs.backdrop.classList.add('is-hidden');
+  if (listeners.remove !== null) {
+    listeners.remove();
+    listeners.remove = null;
+  }
   refs.content.innerHTML = '';
   refs.close.removeEventListener('click', closeModal);
   refs.backdrop.removeEventListener('click', closeModal);
@@ -21,7 +29,8 @@ const checkBackdrop = ev => {
   if (ev.target === ev.currentTarget) closeModal();
 };
 
-const openInModal = content => {
+const openInModal = (content, removeCallback = null) => {
+  listeners.remove = removeCallback;
   refs.content.innerHTML = content;
   refs.backdrop.classList.remove('is-hidden');
   refs.close.addEventListener('click', closeModal);
