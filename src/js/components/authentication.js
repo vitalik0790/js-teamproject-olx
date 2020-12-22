@@ -102,13 +102,13 @@ const signInHandler = () => {
   signInForm.addEventListener('submit', signInData);
   signInFormSignUpBtn.addEventListener('click', signUpHandler);
 };
-// const testAuth = () => {
-//   const signUpBtn = document.querySelector('.signUpBtn');
-//   const signInBtn = document.querySelector('.signInBtn');
-//   const logOutBtn = document.querySelector('.logOutBtn');
-//   signUpBtn.addEventListener('click', signUpHandler);
-//   signInBtn.addEventListener('click', signInHandler);
-//   logOutBtn.addEventListener('click', logOut);
-// };
-// export { signUpHandler, signInHandler, logOut, testAuth };
-export { signUpHandler, signInHandler, logOut };
+const testAuth = () => {
+  const signUpBtn = document.querySelectorAll('.signUpBtn');
+  const signInBtn = document.querySelectorAll('.signInBtn');
+  const logOutBtn = document.querySelectorAll('.logOutBtn');
+  signUpBtn.forEach(element => element.addEventListener('click', signUpHandler));
+  signInBtn.forEach(element => element.addEventListener('click', signInHandler));
+  logOutBtn.forEach(element => element.addEventListener('click', logOut));  
+};
+export { signUpHandler, signInHandler, logOut, testAuth };
+// export { signUpHandler, signInHandler, logOut };
