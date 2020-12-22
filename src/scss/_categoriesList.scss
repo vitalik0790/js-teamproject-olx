@@ -24,7 +24,13 @@
   &__wrap {
     list-style: none;
     margin: 0;
-    padding-top: 72px;
+    padding-top: 50px;
+    @media screen and (min-width: 768px) {
+      padding-top: 60px;
+    }
+    @media screen and (min-width: 1280px) {
+      padding-top: 72px;
+    }
     padding-bottom: 36px;
   }
   &__list {
@@ -35,6 +41,7 @@
     display: flex;
     align-items: baseline;
     margin-bottom: 16px;
+    margin-left: 10px;
   }
   &__info-name {
     font-size: 20px;
@@ -45,6 +52,11 @@
     color: #ff6b09;
     font-size: 12px;
     font-weight: 400;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover {
+      transform: scale(1.05);
+    }
   }
   &__description {
     font-size: 12px;
@@ -79,7 +91,8 @@
     filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
     transition-duration: 500ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    &:hover {
+    &:hover,
+    &:focus {
       z-index: 1;
       cursor: pointer;
       filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.1));
@@ -165,10 +178,13 @@
   border: none;
   border-radius: 2px;
   cursor: pointer;
+  outline: none;
   box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover {
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
     background-color: $accent-color;
     fill: $primary-bg-color;
   }
@@ -185,5 +201,27 @@
     background-position: center;
     right: -12px;
     bottom: 30%;
+  }
+}
+
+.load-more {
+  color: #fff;
+  size: 20px;
+  background: #02172a;
+  width: 100%;
+  height: 70px;
+  cursor: pointer;
+  outline: none;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+  @media screen and (min-width: 768px) {
+    height: 96px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 106px;
   }
 }
