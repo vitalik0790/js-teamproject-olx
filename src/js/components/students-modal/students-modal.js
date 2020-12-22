@@ -1,26 +1,22 @@
 import './students-modal.css';
 //  import '../../../scss/_modal.scss'
 import {openInModal} from '../modal';
-import {closeModal} from '../modal';
+// import {closeModal} from '../modal';
 import studentsModal from '../../../templates/students-modal.hbs';
 
 
-const studentsCloseBtn = document.querySelector('.modal-close');
+// const studentsCloseBtn = document.querySelector('.modal-close');
 const footerBtn = document.querySelector('.button-students');
-console.log(studentsCloseBtn);
-// const StudentTemplate = studentsModal()
+// console.log(studentsCloseBtn);
+ const StudentTemplate = studentsModal()
 
  const forModal = () => {
-     openInModal(studentsModal())
+      openInModal(studentsModal())
    
  } 
-const closeModall = () => {
-    closeModal()
-}
-
  footerBtn.addEventListener('click', forModal);
 
-studentsCloseBtn.addEventListener('click', closeModall);
+
 // export const modalBackDrop = innerElement => {
 //     const body = document.querySelector('body');
 //     const container = document.querySelector('.modal');
