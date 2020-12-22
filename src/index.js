@@ -8,3 +8,4 @@ import { isLogin } from './js/components/navigation-estimates'
 // import { testAuth } from './js/components/authentication';
 isLogin()
 // testAuth();
+import { sandwichmenu } from './js/components/sandwichmenu';
