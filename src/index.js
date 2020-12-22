@@ -5,4 +5,4 @@ import { isLogin } from './js/components/navigation-estimates'
 //renderHeader();
 import { testAuth } from './js/components/authentication';
 isLogin()
-testAuth();
+// testAuth();

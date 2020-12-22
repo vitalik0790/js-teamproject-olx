@@ -13,6 +13,7 @@ const user = {
 
 const logOut = () => {
   localStorage.clear();
+  signUp()
   console.log('user logged out');
 };
 
