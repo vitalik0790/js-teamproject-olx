@@ -1,7 +1,9 @@
+.slider-hero .container {
+  padding: 0;
+}
 .sliders {
   width: 320px;
   height: 366px;
-  margin: 0;
 }
 .firstImages {
   width: 320px;
@@ -33,6 +35,7 @@
   left: 10px;
   color: $accent-color;
   font-family: Montserrat;
+  font-weight: 700;
   width: 32px;
   height: 17px;
   font-size: 10px;
@@ -85,6 +88,7 @@
     left: 230px;
     color: $accent-color;
     font-family: Montserrat;
+    font-weight: 700;
     width: 32px;
     height: 17px;
     font-size: 14px;
@@ -124,6 +128,7 @@
     left: 60px;
     color: $primary-text-color;
     font-family: Montserrat;
+    font-weight: 700;
     width: 26px;
     height: 14px;
     font-size: 12px;
@@ -152,6 +157,7 @@
     left: 460px;
     color: $accent-color;
     font-family: Montserrat;
+    font-weight: 700;
     width: 26px;
     height: 14px;
     font-size: 12px;
@@ -169,6 +175,7 @@
 @media screen and (min-width: 1280px) {
   .desctop {
     visibility: visible;
+    position: relative;
   }
   .sliders {
     width: 854px;
@@ -203,6 +210,7 @@
     left: 260px;
     color: $accent-color;
     font-family: Montserrat;
+    font-weight: 700;
     width: 32px;
     height: 17px;
     font-size: 14px;
@@ -230,24 +238,24 @@
     font-size: 18px;
     color: $primary-text-color;
     position: absolute;
-    top: 130px;
-    left: 940px;
+    top: 60px;
+    left: 50px;
   }
   .desctop--secImg__word {
     font-weight: 700;
     font-size: 18px;
     color: $primary-text-color;
     position: absolute;
-    top: 380px;
-    left: 940px;
+    top: 310px;
+    left: 30px;
   }
   .desctop-symbol {
     font-size: 12px;
     font-weight: 700;
     color: $primary-text-color;
     position: absolute;
-    top: 210px;
-    left: 940px;
+    top: 140px;
+    left: 40px;
   }
   .desctop-price {
     font-size: 42px;
@@ -262,8 +270,8 @@
     font-weight: 700;
     color: $accent-color;
     position: absolute;
-    top: 450px;
-    left: 940px;
+    top: 370px;
+    left: 40px;
   }
   .desctop-price-sec {
     font-size: 42px;
@@ -284,13 +292,14 @@
   }
   .dec-fir-wor {
     position: absolute;
-    top: 620px;
-    left: 80px;
+    top: 70px;
+    left: 50px;
   }
   .symb-fir-dec {
+    font-weight: 700;
     position: absolute;
-    top: 700px;
-    left: 80px;
+    top: 140px;
+    left: 60px;
   }
   .price-dec-fir {
     position: absolute;
@@ -302,13 +311,13 @@
 
   .dec-sec-wor {
     position: absolute;
-    top: 620px;
-    left: 520px;
+    top: 70px;
+    left: 500px;
   }
   .symb-sec-dec {
     position: absolute;
-    top: 700px;
-    left: 520px;
+    top: 140px;
+    left: 500px;
     color: $accent-color;
   }
   .price-dec-sec {
@@ -322,14 +331,15 @@
   .dec-thir-wor {
     position: absolute;
 
-    top: 620px;
-    left: 940px;
+    top: 70px;
+    left: 910px;
   }
   .symb-thir-dec {
+    font-weight: 700;
     color: $primary-bg-color;
     position: absolute;
-    top: 700px;
-    left: 940px;
+    top: 140px;
+    left: 910px;
   }
   .price-dec-thir {
     color: $primary-bg-color;
