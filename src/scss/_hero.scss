@@ -1,0 +1,352 @@
+.slider-hero .container {
+  padding: 0;
+}
+.sliders {
+  width: 320px;
+  height: 366px;
+}
+.firstImages {
+  width: 320px;
+  height: 366px;
+  object-fit: cover;
+  object-position: 60% 50%;
+}
+
+.aboutInformation {
+  position: relative;
+  text-align: center;
+}
+.words {
+  position: absolute;
+  top: -270px;
+  left: 20px;
+  color: $primary-bg-color;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.22;
+  display: block;
+  color: FF6B09;
+  text-align: center;
+}
+.symbol {
+  position: absolute;
+  top: -220px;
+  left: 10px;
+  color: $accent-color;
+  font-family: Montserrat;
+  font-weight: 700;
+  width: 32px;
+  height: 17px;
+  font-size: 10px;
+}
+.price {
+  position: absolute;
+  top: -10px;
+  left: 25px;
+  color: $accent-color;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 34px;
+}
+.second-img {
+  visibility: hidden;
+  display: none;
+}
+.desctop {
+  visibility: hidden;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .sliders {
+    width: 770px;
+    height: 370px;
+  }
+  .firstImages {
+    width: 770px;
+    height: 370px;
+    object-fit: fill;
+  }
+  .aboutInformation {
+    position: relative;
+  }
+  .words {
+    position: absolute;
+    top: -300px;
+    left: 90px;
+    color: $primary-bg-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.2;
+    display: block;
+    color: FF6B09;
+    text-align: center;
+  }
+  .symbol {
+    position: absolute;
+    top: -210px;
+    left: 230px;
+    color: $accent-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    width: 32px;
+    height: 17px;
+    font-size: 14px;
+  }
+  .price {
+    position: absolute;
+    top: -10px;
+    left: 45px;
+    color: $accent-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 54px;
+  }
+  .second-img {
+    visibility: visible;
+    display: flex;
+    position: relative;
+    width: 384px;
+    height: 216px;
+  }
+  .second--image {
+    width: 384px;
+    height: 216px;
+  }
+  .second--words {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.2;
+    position: absolute;
+    left: 50px;
+    top: 40px;
+  }
+  .second--symbol {
+    position: absolute;
+    top: 120px;
+    left: 60px;
+    color: $primary-text-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    width: 26px;
+    height: 14px;
+    font-size: 12px;
+  }
+  .second--price {
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    color: $primary-text-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 42px;
+  }
+  .third--words {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.2;
+    position: absolute;
+    left: 450px;
+    top: 40px;
+  }
+  .third--symbol {
+    position: absolute;
+    top: 120px;
+    left: 460px;
+    color: $accent-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    width: 26px;
+    height: 14px;
+    font-size: 12px;
+  }
+  .third--price {
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    color: $accent-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 42px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .desctop {
+    visibility: visible;
+    position: relative;
+  }
+  .sliders {
+    width: 854px;
+    height: 485px;
+    display: flex;
+    margin: 0;
+  }
+  .firstImages {
+    width: 854px;
+    height: 485px;
+    object-fit: fill;
+  }
+  .aboutInformation {
+    position: relative;
+  }
+  .words {
+    position: absolute;
+    top: -380px;
+    left: 100px;
+    color: $primary-bg-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.2;
+    display: block;
+    color: FF6B09;
+    text-align: center;
+  }
+  .symbol {
+    position: absolute;
+    top: -290px;
+    left: 260px;
+    color: $accent-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    width: 32px;
+    height: 17px;
+    font-size: 14px;
+  }
+  .price {
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    color: $accent-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 54px;
+  }
+  .horizontal {
+    display: flex;
+  }
+
+  .desctop-img {
+    max-width: 426px;
+    height: 242px;
+    position: relative;
+  }
+  .desctop--firImg__word {
+    font-weight: 700;
+    font-size: 18px;
+    color: $primary-text-color;
+    position: absolute;
+    top: 60px;
+    left: 50px;
+  }
+  .desctop--secImg__word {
+    font-weight: 700;
+    font-size: 18px;
+    color: $primary-text-color;
+    position: absolute;
+    top: 310px;
+    left: 30px;
+  }
+  .desctop-symbol {
+    font-size: 12px;
+    font-weight: 700;
+    color: $primary-text-color;
+    position: absolute;
+    top: 140px;
+    left: 40px;
+  }
+  .desctop-price {
+    font-size: 42px;
+    font-weight: 700;
+    color: $primary-text-color;
+    position: absolute;
+    top: -8px;
+    left: 30px;
+  }
+  .desctop-symbol-sec {
+    font-size: 12px;
+    font-weight: 700;
+    color: $accent-color;
+    position: absolute;
+    top: 370px;
+    left: 40px;
+  }
+  .desctop-price-sec {
+    font-size: 42px;
+    font-weight: 700;
+    color: $accent-color;
+    position: absolute;
+    left: 30px;
+    top: -10px;
+  }
+  .common {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.22;
+  }
+  .common-symb-desc {
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .dec-fir-wor {
+    position: absolute;
+    top: 70px;
+    left: 50px;
+  }
+  .symb-fir-dec {
+    font-weight: 700;
+    position: absolute;
+    top: 140px;
+    left: 60px;
+  }
+  .price-dec-fir {
+    position: absolute;
+    font-size: 42px;
+    font-weight: 700;
+    left: 20px;
+    top: -8px;
+  }
+
+  .dec-sec-wor {
+    position: absolute;
+    top: 70px;
+    left: 500px;
+  }
+  .symb-sec-dec {
+    position: absolute;
+    top: 140px;
+    left: 500px;
+    color: $accent-color;
+  }
+  .price-dec-sec {
+    position: absolute;
+    font-size: 42px;
+    font-weight: 700;
+    color: $accent-color;
+    top: -10px;
+    left: 20px;
+  }
+  .dec-thir-wor {
+    position: absolute;
+
+    top: 70px;
+    left: 910px;
+  }
+  .symb-thir-dec {
+    font-weight: 700;
+    color: $primary-bg-color;
+    position: absolute;
+    top: 140px;
+    left: 910px;
+  }
+  .price-dec-thir {
+    color: $primary-bg-color;
+    position: absolute;
+    font-size: 42px;
+    font-weight: 700;
+    top: -10px;
+    left: 30px;
+  }
+}
