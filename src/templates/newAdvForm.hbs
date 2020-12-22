@@ -1,57 +1,20 @@
-<form class="form">
+<form class="form" name="advForm">
     <b class="form-text">Создать объявление</b>
     <div class="form-fields">
         <label class="product-name">Название товара</label>
-        <input type="text" class="form-input name-product-form" />
+        <input type="text" class="form-input name-product-form" name="title" />
+        <label class="product-name">Фото</label>
         <div class="input-wrapper">
-            <label class="product-name">Фото</label>
+
             <div class="adv-content"></div>
-            <button class="addButton">Add new photo</button>
-            {{!-- <ul class="input-file-list">
-                <li class="input-file-item">
-                    <input type="file" class="form-input-file " />
-                    <label class="input-file">
-                        <img src="" alt="">
-                    </label>
-                </li>
-                <li>
-                    <input type="file" class="form-input-file " />
-                    <label class="input-file">
-                        <img src="" alt="">
-                    </label>
-                </li>
-                <li>
-                    <input type="file" class="form-input-file " />
-                    <label class="input-file">
-                        <img src="" alt="">
-                    </label>
-                </li>
-                <li>
-                    <input type="file" class="form-input-file " />
-                    <label class="input-file">
-                        <img src="" alt="">
-                    </label>
-                </li>
-                <li>
-                    <input type="file" class="form-input-file " />
-                    <label class="input-file">
-                        <img src="" alt="">
-                    </label>
-                </li>
-                <li>
-                    <input type="file" class="form-input-file " />
-                    <label class="input-file">
-                        <img src="" alt="">
-                    </label>
-                </li>
-            </ul> --}}
+
         </div>
         <label class="product-name">Описание товара</label>
-        <textarea name="texarea" class="form-input"></textarea>
+        <textarea class="form-input" name="description"></textarea>
         <label class="product-name">Категория товара</label>
 
-        <select class="form-input">
-            <option class="category visually-hidden" selected disabled>Категория</option>
+        <select class="form-input" name="category">
+            <option value="null" hidden class="category visually-hidden" selected disabled>Категория</option>
             <option value="property" class="select-option">Недвижимость</option>
             <option value="transport" class="select-option">Транспорт</option>
             <option value="work" class="select-option">Работа</option>
@@ -62,10 +25,11 @@
             <option value="exchange" class="select-option">Обмен</option>
         </select>
         <label class="product-name price-label">Цена</label>
-        <input type="number" class="form-input" placeholder="0.00 &euro;" />
+        <input type="number" class="form-input" placeholder="0.00 &euro;" name="price" />
         <label class="product-name tel-label">Телефон</label>
-        <input type="tel" class="form-input tel-input-form" pattern="[\+]\d{3}\s[\(]\d{2}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"
-            placeholder="+38(0--)--- -- --" />
+        <input type="tel" class="form-input tel-input-form" name="phone""
+            {{!-- pattern=" [\+]\d{3}\s[\(]\d{2}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"  --}}
+            placeholder=" +38(0--)--- -- --" />
     </div>
     <button type="submit" class="push-button">
         <span class="button-text">Добавить</span>

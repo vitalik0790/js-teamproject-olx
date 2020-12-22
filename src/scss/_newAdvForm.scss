@@ -1,50 +1,3 @@
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.advert-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.modal-advert {
-  position: absolute;
-  width: 290px;
-  height: 845px;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
-  background-color: $primary-bg-color;
-  padding-top: 54px;
-  padding-right: 19px;
-  padding-bottom: 40px;
-  padding-left: 20px;
-}
-.modal-button-icone {
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: 15px;
-  right: 20px;
-}
-
 .form-text {
   display: block;
   font-family: Montserrat;
@@ -83,6 +36,7 @@
   margin-bottom: 20px;
   border: 1px solid #bbbbbb;
   background-color: $primary-bg-color;
+  resize: none;
 }
 
 .name-product-form {
@@ -128,64 +82,101 @@
 // photo
 
 .input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
-  position: relative;
 }
-.form-input-file {
-  // opacity: 0;
 
-  // position: absolute;
-  // top: 50%;
-  // left: -50%;
-}
 .input-file-list {
   display: flex;
   flex-wrap: wrap;
-  padding: 0%;
-  margin-top: 0%;
-  margin-bottom: 20px;
-  list-style: none;
 }
 
 .nput-file-item {
   margin-right: 5px;
 }
 
-// .input-file-item:not(:nth-child((3 * n) + 3)) {
-//   margin-right: 5px;
-// }
+.file-loader {
+  position: relative;
+  width: 76px;
+  height: 46px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.file-loader-input {
+  display: none;
+}
+.file-loader-label {
+  display: block;
+  width: 76px;
+  height: 46px;
+  background-color: #f5f6fb;
+}
 
-// .input-file {
-//   display: block;
-//   width: 76px;
-//   height: 46px;
-//   margin-right: 10px;
-//   margin-bottom: 10px;
-//   background: #f5f6fb;
-// }
+.file-loader-show-availabel {
+  position: absolute;
+  width: 77.19px;
+  height: 45.94px;
+  left: 30px;
+
+  font-family: Montserrat;
+
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #bbbbbb;
+}
+
+.img-adv-box {
+  width: 77px;
+  height: 46px;
+  object-fit: cover;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.img-adv-box:nth-child(3n + 3) {
+  margin-right: 0;
+}
 
 @media screen and (min-width: 480px) {
-  .modal-advert {
+  .form {
     width: 290px;
     height: 845px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .modal-advert {
+  .form {
     width: 724px;
     height: 698px;
-    padding-right: 55px;
-    padding-bottom: 60px;
-    padding-left: 53px;
+  }
+
+  .img-adv-box {
+    width: 83px;
+    height: 50px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+  .img-adv-box:nth-child(3n + 3) {
+    margin-right: 10px;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .modal-advert {
+  .form {
     width: 950px;
     height: 698px;
-    padding-right: 58px;
-    padding-left: 57px;
+  }
+
+  .img-adv-box {
+    width: 78px;
   }
 }
