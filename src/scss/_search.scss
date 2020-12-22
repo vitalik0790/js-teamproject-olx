@@ -16,8 +16,9 @@
   height: 305px;
   padding: 20px 0;
   cursor: pointer;
-  transition: transform 0.5s, filter 1.5s ease-in-out;
-  text-align: -webkit-match-parent;
+  // filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .search___img {
@@ -30,7 +31,7 @@
 .search__title {
   display: block;
   font-size: 12px;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   line-height: 1.2;
   text-align: center;
@@ -46,7 +47,7 @@
 .search__price {
   display: block;
   font-size: 12px;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.2;
   text-align: center;
   font-weight: bold;

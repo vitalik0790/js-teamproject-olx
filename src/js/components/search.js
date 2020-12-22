@@ -1,6 +1,16 @@
 import { data } from '../data/data'
 import searchCard from '../../templates/search.hbs'
 
+const nameAllCategories = [
+    "property",
+    "transport",
+    "work",
+    "electronics",
+    "business and services",
+    "recreation and sport",
+    "free",
+    "trade"
+]
 
 const headerInput = document.querySelector('.header-logo__input');
 const headerInputTablet = document.querySelector('.header-logo__input-tablet');
@@ -22,7 +32,7 @@ export const updateMarkup = (goods) => {
 
 let inputValue = '';
 
-const getBySearch = (event) => {
+export const getBySearch = (event) => {
     event.preventDefault();
     main.innerHTML = '';
     inputValue = event.target.value;
@@ -36,7 +46,7 @@ const getBySearch = (event) => {
     }
 }
 
-const onPressEnterSearch = event => {
+export const onPressEnterSearch = event => {
     if (event.code === 'Enter') {
         if (headerInput.value.length >= 1 && headerInputTablet.value.length >= 1) {
             getSearchQuery(inputValue)
@@ -45,8 +55,19 @@ const onPressEnterSearch = event => {
                 })
                 .catch(error => console.log(error));
         }
+        inputValue = '';
     }
 };
+
+const isCategorySearch = () => {
+
+}
+
+const getCategory = () => {
+
+}
+
+
 
 
 headerInput.addEventListener('change', getBySearch);
