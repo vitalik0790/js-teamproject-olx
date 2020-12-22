@@ -15,7 +15,7 @@ const newAdvbutton = document.querySelector('.header-btn-adv');
 
 
 export const newAdv = () => {
-    if (localStorage.getItem('accessToken')) {
+    if (!localStorage.getItem('accessToken')) {
         signUpHandler();
         console.log('Hello');
     } else {
