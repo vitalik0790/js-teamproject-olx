@@ -10,3 +10,5 @@ isLogin()
 // testAuth();
 import { sandwichmenu } from './js/components/sandwichmenu';
 testAuth();
+import { renderMenu } from './js/components/sandwichmenu';
+renderMenu();

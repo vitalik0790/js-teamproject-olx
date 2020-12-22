@@ -3,6 +3,12 @@
     text-align: center;
 }
 
+.tpl_hamburger {
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}
+
 .tpl_hamburger.activ svg {
     @media screen and (max-width: 767px) {
         fill: #445361;
@@ -22,15 +28,23 @@ svg:not(:root) {
 }
 
 .js_menu {
-    display: none;
-    position: absolute;
-    left: -93.75vw;
-    top: 0;
-    display: flex;
-    width: 93.75vw;
-    height: 568px;
-    background-color: #031c33;
-    transition: .5s;
+
+    @media screen and (max-width: 767px) {
+        position: absolute;
+        left: -93.75vw;
+        top: 0;
+        //display: flex;
+        width: 93.75vw;
+        height: 568px;
+        background-color: #031c33;
+        transition: .5s;
+        
+    }
+
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+    
     
 }
 
