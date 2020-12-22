@@ -11,19 +11,16 @@
         </div>
         <label class="product-name">Описание товара</label>
         <textarea class="form-input" name="description"></textarea>
+
         <label class="product-name">Категория товара</label>
 
         <select class="form-input" name="category">
-            <option value="null" hidden class="category visually-hidden" selected disabled>Категория</option>
-            <option value="property" class="select-option">Недвижимость</option>
-            <option value="transport" class="select-option">Транспорт</option>
-            <option value="work" class="select-option">Работа</option>
-            <option value="electronics" class="select-option">Электроника</option>
-            <option value="business-and-services" class="select-option">Бизнес и услуги</option>
-            <option value="recreation-and-sports" class="select-option">Отдых и спорт</option>
-            <option value="for-free" class="select-option">Отдам бесплатно</option>
-            <option value="exchange" class="select-option">Обмен</option>
+            {{#each categories}}
+            {{!-- <option value="null" hidden class="category visually-hidden" selected disabled>Категория</option> --}}
+            <option value="property" class="select-option">{{this}}</option>
+            {{/each}}
         </select>
+
         <label class="product-name price-label">Цена</label>
         <input type="number" class="form-input" placeholder="0.00 &euro;" name="price" />
         <label class="product-name tel-label">Телефон</label>

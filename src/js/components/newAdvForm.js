@@ -4,6 +4,8 @@ import secondInput from '../../templates/secondInput.hbs';
 import image from '../../templates/image.hbs';
 import { openInModal, closeModal } from './modal';
 import axios from 'axios';
+import { data } from '../data/data'
+
 
 
 const baseURL = 'https://callboard-backend.herokuapp.com/call'
@@ -71,7 +73,7 @@ const createBox = () => {
 }
 
 const openAdvModal = (e) => {
-    openInModal(newAdvForm());
+    openInModal(newAdvForm(data));
     createBox();
     refs.formAdv = document.forms.advForm;
     refs.formAdv.addEventListener("input", getDataForm);
