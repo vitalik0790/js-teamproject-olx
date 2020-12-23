@@ -1,4 +1,5 @@
 import { data } from '../data/data'
+import { search } from '../api/searchInCategory'
 import searchCard from '../../templates/search.hbs'
 
 const nameAllCategories = [
@@ -17,11 +18,23 @@ const headerInputTablet = document.querySelector('.header-logo__input-tablet');
 const main = document.querySelector('.main')
 
 
+
 export const getSearchQuery = (query) => {
     return fetch(`${data.baseURL}/call/find?search=${query}`)
         .then(response => response.json())
-        .then(data => data);
-};
+}
+
+
+// const getSearchCategory = (category) => {
+//     if (data.categories[category].length) {
+//         return data.categories
+//     } else {
+
+//         return fetch(`${data.baseURL}/call/specific/${category}`)
+//             .then(res => res.json())
+//     }
+// };
+
 
 export const updateMarkup = (goods) => {
     const searchMarkup = searchCard(goods);
@@ -58,14 +71,6 @@ export const onPressEnterSearch = event => {
         inputValue = '';
     }
 };
-
-const isCategorySearch = () => {
-
-}
-
-const getCategory = () => {
-
-}
 
 
 

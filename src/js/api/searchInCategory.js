@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const search = (category) => {
     return axios.get(`${data.baseURL}/call/specific/${category}`)
-    .then(response => data.inCategories.push(...response.data));
+        .then(response => data.inCategories.push(...response.data));
 };
 
 export const clearFilter = () => {
