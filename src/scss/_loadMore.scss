@@ -1,0 +1,21 @@
+.load-more {
+  color: #fff;
+  size: 20px;
+  background: #02172a;
+  width: 100%;
+  height: 70px;
+  cursor: pointer;
+  outline: none;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+  @media screen and (min-width: 768px) {
+    height: 96px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 106px;
+  }
+}
