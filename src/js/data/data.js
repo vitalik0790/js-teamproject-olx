@@ -7,6 +7,14 @@ export const data = {
   categories: [],
   russianCategories: [],
   inCategories: [],
+  auth: {
+    isAuth: true,
+    token: '',
+  },
+  user: {
+    emaill: '',
+    favorites: [],
+  },
   properties: {
     width: 0,
     height: 0,
