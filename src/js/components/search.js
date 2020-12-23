@@ -1,17 +1,9 @@
 import { data } from '../data/data'
-import { search } from '../api/searchInCategory'
 import searchCard from '../../templates/search.hbs'
+import { searchInCategory } from '../api/searchInCategory'
+import { searchInAll } from '../api/searchInAll'
 
-const nameAllCategories = [
-    "property",
-    "transport",
-    "work",
-    "electronics",
-    "business and services",
-    "recreation and sport",
-    "free",
-    "trade"
-]
+
 
 const headerInput = document.querySelector('.header-logo__input');
 const headerInputTablet = document.querySelector('.header-logo__input-tablet');
@@ -19,22 +11,17 @@ const main = document.querySelector('.main')
 
 
 
-export const getSearchQuery = (query) => {
-    return fetch(`${data.baseURL}/call/find?search=${query}`)
-        .then(response => response.json())
+export const getSearchQuery = async (query) => {
+    if (data.categories.length) {
+        if (data.categories.some(item => item.includes(query))) {
+            await searchInCategory(data.categories.find(item => item.includes(query)));
+            return data.inCategories;
+        } else {
+            await searchInAll(query);
+            return data.inAll;
+        }
+    } else return;
 }
-
-
-// const getSearchCategory = (category) => {
-//     if (data.categories[category].length) {
-//         return data.categories
-//     } else {
-
-//         return fetch(`${data.baseURL}/call/specific/${category}`)
-//             .then(res => res.json())
-//     }
-// };
-
 
 export const updateMarkup = (goods) => {
     const searchMarkup = searchCard(goods);
@@ -46,7 +33,7 @@ export const updateMarkup = (goods) => {
 let inputValue = '';
 
 export const getBySearch = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     main.innerHTML = '';
     inputValue = event.target.value;
     // console.log(inputValue);
@@ -61,23 +48,22 @@ export const getBySearch = (event) => {
 
 export const onPressEnterSearch = event => {
     if (event.code === 'Enter') {
-        if (headerInput.value.length >= 1 && headerInputTablet.value.length >= 1) {
-            getSearchQuery(inputValue)
-                .then(goods => {
-                    updateMarkup(goods);
-                })
-                .catch(error => console.log(error));
+        if (headerInput.value.length >= 1 || headerInputTablet.value.length >= 1) {
+
+            updateMarkup(getSearchQuery);
+
+            headerInput.value = '';
         }
-        inputValue = '';
-    }
-};
+    };
+}
 
 
 
 
-headerInput.addEventListener('change', getBySearch);
-headerInputTablet.addEventListener('change', getBySearch);
-document.addEventListener('keydown', onPressEnterSearch);
+// headerInput.addEventListener('change', getBySearch);
+// headerInputTablet.addEventListener('change', getBySearch);
+headerInput.addEventListener('keydown', onPressEnterSearch);
+headerInputTablet.addEventListener('keydown', onPressEnterSearch);
 
 
 

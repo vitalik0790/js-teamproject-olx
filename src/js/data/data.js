@@ -4,7 +4,17 @@ export const data = {
   baseURL: 'https://callboard-backend.herokuapp.com',
 
   inCategories: [],
-  categories: [],
+  inAll: [],
+  categories: [
+    "property",
+    "transport",
+    "work",
+    "electronics",
+    "business and services",
+    "recreation and sport",
+    "free",
+    "trade"
+  ],
 };
 
 
