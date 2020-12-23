@@ -1,25 +1,34 @@
 .slider-hero .container {
   padding: 0;
 }
+
 .sliders {
   width: 320px;
   height: 366px;
+  margin: 0 auto;
 }
 .firstImages {
-  width: 320px;
-  height: 366px;
-  object-fit: cover;
-  object-position: 60% 50%;
-}
-
-.aboutInformation {
   position: relative;
-  text-align: center;
+  //width: 320px;
+  width: 100%;
+  height: 366px;
+  background-color: $secondary-background-color;
+  margin: 0 auto;
 }
-.words {
+.name-firstImages {
   position: absolute;
-  top: -270px;
-  left: 20px;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  max-width: 150px;
+  height: 150px;
+  // object-fit: cover;
+  // object-position: 60% 50%;
+}
+.description-first {
+  position: absolute;
+  top: 130px;
+  left: 15px;
   color: $primary-bg-color;
   font-family: Montserrat;
   font-weight: 700;
@@ -29,9 +38,9 @@
   color: FF6B09;
   text-align: center;
 }
-.symbol {
+.symbol-first {
   position: absolute;
-  top: -220px;
+  top: 170px;
   left: 10px;
   color: $accent-color;
   font-family: Montserrat;
@@ -40,52 +49,63 @@
   height: 17px;
   font-size: 10px;
 }
-.price {
+.price-first {
   position: absolute;
-  top: -10px;
-  left: 25px;
+  top: -8px;
+  left: 20px;
   color: $accent-color;
   font-family: Montserrat;
   font-weight: 700;
   font-size: 34px;
 }
-.second-img {
+.horisontal-desctop {
   visibility: hidden;
   display: none;
 }
-.desctop {
-  visibility: hidden;
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .display {
+    visibility: hidden;
+    display: none;
+  }
 }
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .sliders {
-    width: 770px;
-    height: 370px;
+@media screen and (min-width: 768px) {
+  .display {
+    visibility: visible;
+    display: block;
+    display: flex;
   }
+
   .firstImages {
+    position: relative;
     width: 770px;
     height: 370px;
-    object-fit: fill;
+    background-color: $secondary-background-color;
   }
-  .aboutInformation {
-    position: relative;
-  }
-  .words {
+  .name-firstImages {
     position: absolute;
-    top: -300px;
-    left: 90px;
+    top: 50%;
+    right: 100px;
+    transform: translateY(-50%);
+    max-width: 270px;
+    height: 300px;
+  }
+  .description-first {
+    position: absolute;
+    top: 130px;
+    left: 60px;
     color: $primary-bg-color;
     font-family: Montserrat;
     font-weight: 700;
     font-size: 40px;
-    line-height: 1.2;
+    line-height: 1.22;
     display: block;
     color: FF6B09;
     text-align: center;
   }
-  .symbol {
+  .symbol-first {
     position: absolute;
-    top: -210px;
-    left: 230px;
+    top: 180px;
+    left: 200px;
     color: $accent-color;
     font-family: Montserrat;
     font-weight: 700;
@@ -93,38 +113,42 @@
     height: 17px;
     font-size: 14px;
   }
-  .price {
+  .price-first {
     position: absolute;
-    top: -10px;
-    left: 45px;
+    top: -8px;
+    left: 20px;
     color: $accent-color;
     font-family: Montserrat;
     font-weight: 700;
     font-size: 54px;
   }
-  .second-img {
-    visibility: visible;
-    display: flex;
+  .secondImages {
     position: relative;
     width: 384px;
-    height: 216px;
+    height: 218px;
+    background-color: $categories-list-old-price-text-color;
   }
-  .second--image {
-    width: 384px;
-    height: 216px;
+  .desctop-img {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    //right: 30px;
+    transform: translateY(-50%);
+    max-width: 150px;
+    height: 150px;
   }
-  .second--words {
+  .description-tablet {
     font-family: Montserrat;
     font-weight: 700;
     font-size: 18px;
     line-height: 1.2;
     position: absolute;
-    left: 50px;
+    left: 30px;
     top: 40px;
   }
-  .second--symbol {
+  .symbol-tablet {
     position: absolute;
-    top: 120px;
+    top: 100px;
     left: 60px;
     color: $primary-text-color;
     font-family: Montserrat;
@@ -133,7 +157,18 @@
     height: 14px;
     font-size: 12px;
   }
-  .second--price {
+  .symbol-tablet-acc {
+    position: absolute;
+    top: 100px;
+    left: 60px;
+    font-family: Montserrat;
+    font-weight: 700;
+    width: 26px;
+    height: 14px;
+    font-size: 12px;
+    color: $accent-color;
+  }
+  .price-tablet {
     position: absolute;
     top: -10px;
     left: 30px;
@@ -142,207 +177,164 @@
     font-weight: 700;
     font-size: 42px;
   }
-  .third--words {
-    font-family: Montserrat;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.2;
-    position: absolute;
-    left: 450px;
-    top: 40px;
-  }
-  .third--symbol {
-    position: absolute;
-    top: 120px;
-    left: 460px;
+  .price-tablet-acce {
     color: $accent-color;
-    font-family: Montserrat;
-    font-weight: 700;
-    width: 26px;
-    height: 14px;
-    font-size: 12px;
-  }
-  .third--price {
     position: absolute;
     top: -10px;
     left: 30px;
-    color: $accent-color;
     font-family: Montserrat;
     font-weight: 700;
     font-size: 42px;
   }
+
+  .thirdImages {
+    position: relative;
+    width: 384px;
+    height: 218px;
+    background-color: $primary-bg-color;
+  }
 }
+
 @media screen and (min-width: 1280px) {
-  .desctop {
-    visibility: visible;
-    position: relative;
-  }
-  .sliders {
-    width: 854px;
-    height: 485px;
+  .display {
     display: flex;
-    margin: 0;
+    flex-direction: column;
+    //float: right;
   }
-  .firstImages {
-    width: 854px;
-    height: 485px;
-    object-fit: fill;
-  }
-  .aboutInformation {
-    position: relative;
-  }
-  .words {
-    position: absolute;
-    top: -380px;
-    left: 100px;
-    color: $primary-bg-color;
-    font-family: Montserrat;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 1.2;
-    display: block;
-    color: FF6B09;
-    text-align: center;
-  }
-  .symbol {
-    position: absolute;
-    top: -290px;
-    left: 260px;
-    color: $accent-color;
-    font-family: Montserrat;
-    font-weight: 700;
-    width: 32px;
-    height: 17px;
-    font-size: 14px;
-  }
-  .price {
-    position: absolute;
-    top: -10px;
-    left: 30px;
-    color: $accent-color;
-    font-family: Montserrat;
-    font-weight: 700;
-    font-size: 54px;
-  }
-  .horizontal {
+  .desctop-main {
     display: flex;
+  }
+  .secondImages {
+    position: relative;
+    width: 426px;
+    height: 242px;
+    background-color: $categories-list-old-price-text-color;
+  }
+  .thirdImages {
+    position: relative;
+    width: 426px;
+    height: 242px;
+    background-color: $primary-bg-color;
   }
 
   .desctop-img {
-    max-width: 426px;
-    height: 242px;
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    //right: 30px;
+    transform: translateY(-50%);
+    max-width: 150px;
+    height: 150px;
+  }
+
+  .firstImages {
     position: relative;
+    width: 854px;
+    height: 485px;
+    background-color: $secondary-background-color;
   }
-  .desctop--firImg__word {
-    font-weight: 700;
-    font-size: 18px;
-    color: $primary-text-color;
+  .name-firstImages {
     position: absolute;
-    top: 60px;
-    left: 50px;
+    top: 50%;
+    right: 60px;
+    transform: translateY(-50%);
+    max-width: 350px;
+    height: 400px;
+    // object-fit: cover;
+    // object-position: 60% 50%;
   }
-  .desctop--secImg__word {
-    font-weight: 700;
-    font-size: 18px;
-    color: $primary-text-color;
+  .name-thirdImages {
     position: absolute;
-    top: 310px;
-    left: 30px;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    max-width: 150px;
+    height: 100px;
   }
-  .desctop-symbol {
-    font-size: 12px;
-    font-weight: 700;
-    color: $primary-text-color;
+  .description-first {
     position: absolute;
-    top: 140px;
-    left: 40px;
-  }
-  .desctop-price {
-    font-size: 42px;
-    font-weight: 700;
-    color: $primary-text-color;
-    position: absolute;
-    top: -8px;
-    left: 30px;
-  }
-  .desctop-symbol-sec {
-    font-size: 12px;
-    font-weight: 700;
-    color: $accent-color;
-    position: absolute;
-    top: 370px;
-    left: 40px;
-  }
-  .desctop-price-sec {
-    font-size: 42px;
-    font-weight: 700;
-    color: $accent-color;
-    position: absolute;
-    left: 30px;
-    top: -10px;
-  }
-  .common {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.22;
-  }
-  .common-symb-desc {
-    font-size: 12px;
-    font-weight: 700;
-  }
-  .dec-fir-wor {
-    position: absolute;
-    top: 70px;
-    left: 50px;
-  }
-  .symb-fir-dec {
-    font-weight: 700;
-    position: absolute;
-    top: 140px;
+    top: 130px;
     left: 60px;
-  }
-  .price-dec-fir {
-    position: absolute;
-    font-size: 42px;
+    color: $primary-bg-color;
+    font-family: Montserrat;
     font-weight: 700;
-    left: 20px;
+    font-size: 40px;
+    line-height: 1.22;
+    display: block;
+    color: FF6B09;
+    text-align: center;
+  }
+  .symbol-first {
+    position: absolute;
+    top: 180px;
+    left: 200px;
+    color: $accent-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    width: 32px;
+    height: 17px;
+    font-size: 14px;
+  }
+  .price-first {
+    position: absolute;
     top: -8px;
-  }
-
-  .dec-sec-wor {
-    position: absolute;
-    top: 70px;
-    left: 500px;
-  }
-  .symb-sec-dec {
-    position: absolute;
-    top: 140px;
-    left: 500px;
-    color: $accent-color;
-  }
-  .price-dec-sec {
-    position: absolute;
-    font-size: 42px;
-    font-weight: 700;
-    color: $accent-color;
-    top: -10px;
     left: 20px;
-  }
-  .dec-thir-wor {
-    position: absolute;
-
-    top: 70px;
-    left: 910px;
-  }
-  .symb-thir-dec {
+    color: $accent-color;
+    font-family: Montserrat;
     font-weight: 700;
-    color: $primary-bg-color;
-    position: absolute;
-    top: 140px;
-    left: 910px;
+    font-size: 54px;
   }
-  .price-dec-thir {
+  .horisontal-desctop {
+    visibility: visible;
+    display: block;
+    display: flex;
+  }
+  .desctopImages {
+    position: relative;
+    width: 426px;
+    height: 242px;
+  }
+  .first {
+    background-color: $categories-list-old-price-text-color;
+  }
+  .third {
+    background-color: $accent-color;
+  }
+  .description-third {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.2;
+    position: absolute;
+    left: 30px;
+    top: 70px;
+  }
+
+  .name-thirdImages {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    max-width: 150px;
+    height: 150px;
+  }
+  .symbol-third {
+    position: absolute;
+    top: 120px;
+    left: 50px;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .sec-sym-dec {
+    color: $accent-color;
+  }
+  .thir-sym-dec {
     color: $primary-bg-color;
+  }
+  .price-third {
     position: absolute;
     font-size: 42px;
     font-weight: 700;
