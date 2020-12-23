@@ -4,5 +4,13 @@ export const data = {
   baseURL: 'https://callboard-backend.herokuapp.com',
   categories: [],
   inCategories: [],
-  favorites: [],
+  auth: {
+    isAuth: true,
+    token:
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmRmM2M0ZmU5NjMzYzAwMTdhZjY4Y2QiLCJzaWQiOiI1ZmUzMGQzM2E0ZjYyYzAwMTdhZWE3ZDIiLCJpYXQiOjE2MDg3MTU1NzEsImV4cCI6MTYwODcxOTE3MX0.kPQNlCV3igOaOXpeYQ_2UUqTntDm-Ey6MMlpnRsIWxM',
+  },
+  user: {
+    emaill: '',
+    favorites: [],
+  },
 };

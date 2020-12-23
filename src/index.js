@@ -7,5 +7,5 @@ import { isLogin } from './js/components/navigation-estimates';
 import { testAuth } from './js/components/authentication';
 isLogin();
 testAuth();
-
-import './js/components/productInfo/productInfo';
+import './js/components/productInfo/openProductInfo';
+// import './js/components/productInfo/productInfo';
