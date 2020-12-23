@@ -20,11 +20,11 @@ const logOut = () => {
 
 const signUpHandler = () => {
   if (document.querySelector('.backdrop').classList.contains('is-hidden')) {
-    openInModal(signUpFormTemplate());
+    openInModal(signUpFormTemplate(), removeSignUpListeners);
   } else {
     inCurrentModal(signUpFormTemplate());
   }
-  const errorUp = document.querySelector('.form__errorUp');
+  const errorUp = document.querySelector('.auth-form__errorUp');
   const signUpForm = document.forms.signUpForm;
   const resetUser = () => {
     user.email = '';
@@ -42,28 +42,38 @@ const signUpHandler = () => {
       console.log(response);
       const data = { email: response.data.email };
       console.log('data', data);
+      const responseIn = await axios.post(signInURL, user);
+      localStorage.setItem(
+        'accessToken',
+        JSON.stringify(responseIn.data.accessToken),
+      );
       signUpForm.removeEventListener('input', getUserData);
-      signUpForm.removeEventListener('submit', signUpData);
+      signUpForm.removeEventListener('submit', signUpData);      
       closeModal();
+      isLogin();
     } catch (error) {
       console.log(error.response.data.message);
       errorUp.textContent = error.response.data.message;
     }
   };
+ const removeSignUpListeners = () =>{
+  signUpForm.removeEventListener('input', getUserData);
+  signUpForm.removeEventListener('submit', signUpData);
+ }
   const signUpData = e => {
     e.preventDefault();
-    signUp(user).then(resetUser);
+    signUp(user).then(resetUser).then(console.log('user signed in'));
   };
   signUpForm.addEventListener('input', getUserData);
   signUpForm.addEventListener('submit', signUpData);
 };
 
 const signInHandler = () => {
-  openInModal(signInFormTemplate());
-  const errorIn = document.querySelector('.form__errorIn');
+  openInModal(signInFormTemplate(), removeSignInListeners);
+  const errorIn = document.querySelector('.auth-form__errorIn');
   const signInForm = document.forms.signInForm;
   const signInFormSignUpBtn = document.querySelector(
-    '.form__signInFormSignUpBtn',
+    '.auth-form__signInFormSignUpBtn',
   );
   const resetUser = () => {
     user.email = '';
@@ -97,18 +107,15 @@ const signInHandler = () => {
     e.preventDefault();
     signIn(user).then(resetUser).then(console.log('user signed in'));
   };
+  const removeSignInListeners = () =>{
+    signInForm.removeEventListener('input', getUserData);
+  signInForm.removeEventListener('submit', signInData);
+  signInFormSignUpBtn.removeEventListener('click', signUpHandler);
+   }
 
   signInForm.addEventListener('input', getUserData);
   signInForm.addEventListener('submit', signInData);
   signInFormSignUpBtn.addEventListener('click', signUpHandler);
 };
-const testAuth = () => {
-  const signUpBtn = document.querySelectorAll('.signUpBtn');
-  const signInBtn = document.querySelectorAll('.signInBtn');
-  const logOutBtn = document.querySelectorAll('.logOutBtn');
-  signUpBtn.forEach(element => element.addEventListener('click', signUpHandler));
-  signInBtn.forEach(element => element.addEventListener('click', signInHandler));
-  logOutBtn.forEach(element => element.addEventListener('click', logOut));
-};
-export { signUpHandler, signInHandler, logOut, testAuth };
-// export { signUpHandler, signInHandler, logOut };
+
+export { signUpHandler, signInHandler, logOut };
