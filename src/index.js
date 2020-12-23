@@ -4,9 +4,6 @@ import './styles.scss';
 
 import { refs, openAdvModal } from './js/components/newAdvForm';
 
-
-
-
 // const addButton = document.querySelector('form-input-file');
 // content.innerHTML = listMarkup();
 // addButton.addEventListener('click', addImage)
@@ -17,16 +14,7 @@ import './js/components/hero';
 import { isLogin } from './js/components/navigation-estimates';
 //renderHeader();
 
-
-
-
-
-
-
-
 isLogin()
 
-
 import { sandwichmenu } from './js/components/sandwichmenu';
-
-
+import { newAdv } from './js/components/newAdvButton';
