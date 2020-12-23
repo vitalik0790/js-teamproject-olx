@@ -45,15 +45,16 @@ svg:not(:root) {
     }
 }
 
-.js_menu.activ svg {
+.js_menu-svg {
     opacity: 1;
     z-index: 100;
     fill: #445361;
-    height: 24px;
-    width: 24px;
-    position: absolute;
-    top: 24px;
-    right: 20px;
+    //height: 24px;
+    //width: 24px;
+    //position: absolute;
+    // top: 24px;
+    // right: 20px;
+    margin: 0 auto;
     transform: translate(-24px,24px);
     cursor: pointer;  
     transform: translate3d(0px, 0px, 0px);  
@@ -104,6 +105,8 @@ svg:not(:root) {
 .mobil-filter-clear {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     margin-top: 40px;
     margin-bottom: 30px;
 
@@ -111,14 +114,16 @@ svg:not(:root) {
 
 .header-filter-tablet.is-visible {
     display: flex;
-    margin-right: 50px;
-    margin-left: 51px;
+    margin-right: 56px;
+    
 }
 
 .header-filter-tablet.is-visible,
 .header-clear-filter-btn.is-visible {
     @media screen and (max-width: 767px) {
       display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: transparent;
       outline: none;
       border: none;
@@ -127,20 +132,34 @@ svg:not(:root) {
       font-size: 12px;
       line-height: 1.25;
       letter-spacing: 0.03em;
+      text-align: center;
   
       color: #5E6671;
     }
-  }
+}
 
-  .mobil-filter-list {
-      display: flex;
-      flex-direction: row;
-      margin-left: 14px;
-  }
+.header-filter-tablet-svg {
+    margin-right: 13px;
+}
 
-  .filter__list {
-      display: flex;
-      flex-wrap: wrap;
-  }
+.header-clear-filter-btn-svg {
+    margin-right: 15px;
+}
 
-  
+.mobil-filter-list {
+    display: flex;
+    flex-direction: row;
+    margin-left: 14px;
+}
+.header-filter-tablet-svg:focus {
+    fill: $accent-color;
+}
+.header-filter-tablet.is-visible:focus {
+
+color: $accent-color;
+}
+
+.filter__list {
+    display: flex;
+    flex-wrap: wrap;
+}  
