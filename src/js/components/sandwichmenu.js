@@ -1,38 +1,47 @@
 import sandwichmenu from '../../templates/sandwichMenu.hbs';
-//import { isLogin } from '../components/navigation-estimates';
+import { clearFilter } from '../api/searchInCategory';
 
 const sandwichMenu = document.getElementById('sandwichmenu');
 const getJsMenu = document.querySelector('.js_menu');
-
+const getSvgMenu = document.getElementById('svgMenu');
 
 
 export const func = (e) => {
   e.preventDefault();
-  
-  sandwichMenu.classList.toggle("activ");
   getJsMenu.classList.toggle("activ");
-  createMarkUp();
-  
 }
 
 const createMarkUp = () => {
   getJsMenu.insertAdjacentHTML('beforeend', `${sandwichmenu()}`);
-
+  const categorisFilter = document.getElementById('categorisFilter');
+  const clearFilterBtn = document.getElementById('clearFilter');
+  categorisFilter.addEventListener('click', renderFilter);
+  clearFilterBtn.addEventListener('click', clearFilter)
 };
 
+const fetchCategories = () => {
+  return fetch(
+    `https://callboard-backend.herokuapp.com/call/russian-categories`,
+  ).then(response => {
+    return response.json();
+  });
+};
+
+export const renderFilter = () => {
+  fetchCategories().then(data => {
+    renderCategories(data);
+  });
+};
+
+const renderCategories = categories => {
+  const getUl = document.getElementById('categoriesList');
+  getUl.innerHTML = '';
+  categories.forEach(category => { 
+    getUl.innerHTML += `<li>${category}</li>`;
+  });
+};
+
+createMarkUp();
+
 sandwichMenu.addEventListener('click', func); 
-getJsMenu.addEventListener('click', func);
-
-
-//document.querySelector('.mobil-menu').innerHTML = '';
-
-// const getScreen = () => {
-//   if (window.screen.width >= 320 && window.screen.width <=767) {
-//     data.properties.isMobile = true;
-//     console.log(data);
-//   }
-// };
-
-// if (data.properties.isMobile) {
-//   getJsMenu.insertAdjacentHTML('beforeend', `${sandwichmenu()}`);
-// }
+getSvgMenu.addEventListener('click', func);
