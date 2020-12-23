@@ -1,16 +1,15 @@
 import { getToken } from '../utils/getToken';
-import { openInModal, closeModal, inCurrentModal } from './modal';
-import signUpFormTemplate from '../../templates/signUpFormTemplate.hbs';
 import { signUpHandler} from './authentication';
+import { openAdvModal } from './newAdvForm';
 
-const newAdvbutton = document.querySelector('.header-btn-adv');
+const newAdvbutton = document.getElementById('header-btn-adv');
 
 export const newAdv = () => {
+    console.log('Hi');
     if (!getToken()) {
         signUpHandler();
-        //console.log('Hello');
     } else {
-        console.log('Good bye');
+        openAdvModal();
     }
 };
 
