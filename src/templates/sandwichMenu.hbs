@@ -1,18 +1,11 @@
-<div class="header-auth" id="modal2" style="display: flex;"></div>
-<div class="filter-search-menu">
-    <button class="button header-filter-tablet">
-          {{!-- <svg width="24" height="24" class="clear-filter-tablet-svg">
-            <use href="./images/svg/icons/sprite.svg#tune"></use>
-          </svg>   --}}
-    </button>
-    <button class="button header-clear-filter-btn">
-          {{!-- <svg width="24" height="24" class="clear-filter-svg">
-            <use href="./images/svg/icons/sprite.svg#replay"></use>
-          </svg> --}}
-    </button>
+<div class="mobil-menu">
+  <div class="modal-auth">Registr header-auth</div>
+  <div class="modal-filter-search-menu">
+      <button class="button header-filter-tablet">
+          Filter button header-filter-tablet
+      </button>
+      <button class="button header-clear-filter-btn">
+          Search button header-clear-filter-btn
+      </button>
+  </div>
 </div>
-{{#each categories}}
-<li class="list header-filter-list__item">
-    <button class="header-filter-list__item-btn">{{this}}</button>
-</li>
-{{/each}}

@@ -37,15 +37,12 @@ svg:not(:root) {
         width: 93.75vw;
         height: 568px;
         background-color: #031c33;
-        transition: .5s;
-        
+        transition: .5s;  
     }
 
     @media screen and (min-width: 768px) {
         display: none;
     }
-    
-    
 }
 
 .js_menu.activ svg {
@@ -67,5 +64,8 @@ svg:not(:root) {
     transform: translateX(93.75vw);
     transition: .5s;
     z-index: 25;
+}
 
+.mobil-menu {
+    color:sandybrown;
 }

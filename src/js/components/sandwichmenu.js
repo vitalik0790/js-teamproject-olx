@@ -1,34 +1,38 @@
 import sandwichmenu from '../../templates/sandwichMenu.hbs';
-import { isLogin } from '../components/navigation-estimates';
+//import { isLogin } from '../components/navigation-estimates';
 
-  const sandwichMenu = document.getElementById('sandwichmenu');
-  const getDivMenu = document.querySelector('.js_menu');
+const sandwichMenu = document.getElementById('sandwichmenu');
+const getJsMenu = document.querySelector('.js_menu');
+
+
 
 export const func = (e) => {
   e.preventDefault();
+  
   sandwichMenu.classList.toggle("activ");
-  getDivMenu.classList.toggle("activ");
+  getJsMenu.classList.toggle("activ");
+  createMarkUp();
+  
 }
-const fetchCategories = () => {
-  return fetch(
-    `https://callboard-backend.herokuapp.com/call/russian-categories`,
-  ).then(response => {
-    return response.json();
-  });
+
+const createMarkUp = () => {
+  getJsMenu.insertAdjacentHTML('beforeend', `${sandwichmenu()}`);
+
 };
 
-export const renderMenu = () => {
-  fetchCategories().then(data => {
-    createMarkUp(data);
-    isLogin();
-  });
-  
-};
-
-const createMarkUp = categories => {
-  let categoriesWrapper = { categories: categories };
-  getDivMenu.innerHTML += sandwichmenu(categoriesWrapper);
-  
-};
 sandwichMenu.addEventListener('click', func); 
-getDivMenu.addEventListener('click', func);
+getJsMenu.addEventListener('click', func);
+
+
+//document.querySelector('.mobil-menu').innerHTML = '';
+
+// const getScreen = () => {
+//   if (window.screen.width >= 320 && window.screen.width <=767) {
+//     data.properties.isMobile = true;
+//     console.log(data);
+//   }
+// };
+
+// if (data.properties.isMobile) {
+//   getJsMenu.insertAdjacentHTML('beforeend', `${sandwichmenu()}`);
+// }
