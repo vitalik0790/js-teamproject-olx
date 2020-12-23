@@ -1,32 +1,39 @@
 <form class="form" name="advForm">
     <b class="form-text">Создать объявление</b>
     <div class="form-fields">
-        <label class="product-name">Название товара</label>
-        <input type="text" class="form-input name-product-form" name="title" />
-        <label class="product-name">Фото</label>
-        <div class="input-wrapper">
-
-            <div class="adv-content"></div>
-
+        <div class="flex-input-form">
+            <label class="product-name">Название товара</label>
+            <input type="text" class="form-input name-product-form" name="title" />
         </div>
-        <label class="product-name">Описание товара</label>
-        <textarea class="form-input" name="description"></textarea>
+        <div class="flex-input-form flex-input-form-center">
+            <label class="product-name">Фото</label>
+            <div class="input-wrapper">
+            </div>
+        </div>
+        <div class="flex-input-form flex-input-form-center">
+            <label class="product-name">Описание товара</label>
+            <textarea class="form-input" name="description"></textarea>
+        </div>
+        <div class="flex-input-form">
+            <label class="product-name">Категория товара</label>
 
-        <label class="product-name">Категория товара</label>
-
-        <select class="form-input" name="category">
-            {{#each categories}}
-            {{!-- <option value="null" hidden class="category visually-hidden" selected disabled>Категория</option> --}}
-            <option value="property" class="select-option">{{this}}</option>
-            {{/each}}
-        </select>
-
-        <label class="product-name price-label">Цена</label>
-        <input type="number" class="form-input" placeholder="0.00 &euro;" name="price" />
-        <label class="product-name tel-label">Телефон</label>
-        <input type="tel" class="form-input tel-input-form" name="phone""
+            <select class="form-input" name="category">
+                {{#each categories}}
+                {{!-- <option value="null" hidden class="category visually-hidden" selected disabled>Категория</option> --}}
+                <option value={{this}} class="select-option">{{this}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="flex-input-form">
+            <label class="product-name price-label">Цена</label>
+            <input type="number" class="form-input" placeholder="0.00 &euro;" name="price" />
+        </div>
+        <div class="flex-input-form">
+            <label class="product-name tel-label">Телефон</label>
+            <input type="tel" class="form-input tel-input-form" name="phone""
             {{!-- pattern=" [\+]\d{3}\s[\(]\d{2}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"  --}}
-            placeholder=" +38(0--)--- -- --" />
+            placeholder=" +38(0--) --- -- --" />
+        </div>
     </div>
     <button type="submit" class="push-button">
         <span class="button-text">Добавить</span>
