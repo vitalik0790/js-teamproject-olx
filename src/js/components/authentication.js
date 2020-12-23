@@ -2,7 +2,7 @@ import axios from 'axios';
 import { openInModal, closeModal, inCurrentModal } from './modal';
 import signUpFormTemplate from '../../templates/signUpFormTemplate.hbs';
 import signInFormTemplate from '../../templates/signInFormTemplate.hbs';
-import {isLogin} from './navigation-estimates'
+import { isLogin } from './navigation-estimates'
 
 const signUpURL = 'https://callboard-backend.herokuapp.com/auth/register';
 const signInURL = 'https://callboard-backend.herokuapp.com/auth/login';
@@ -22,7 +22,7 @@ const signUpHandler = () => {
   if (document.querySelector('.backdrop').classList.contains('is-hidden')) {
     openInModal(signUpFormTemplate());
   } else {
-    inCurrentModal(signUpFormTemplate());    
+    inCurrentModal(signUpFormTemplate());
   }
   const errorUp = document.querySelector('.form__errorUp');
   const signUpForm = document.forms.signUpForm;
@@ -75,7 +75,7 @@ const signInHandler = () => {
     const { name, value } = e.target;
     user[name] = value;
   };
-  
+
   const signIn = async user => {
     try {
       const response = await axios.post(signInURL, user);
@@ -108,7 +108,7 @@ const testAuth = () => {
   const logOutBtn = document.querySelectorAll('.logOutBtn');
   signUpBtn.forEach(element => element.addEventListener('click', signUpHandler));
   signInBtn.forEach(element => element.addEventListener('click', signInHandler));
-  logOutBtn.forEach(element => element.addEventListener('click', logOut));  
+  logOutBtn.forEach(element => element.addEventListener('click', logOut));
 };
 export { signUpHandler, signInHandler, logOut, testAuth };
 // export { signUpHandler, signInHandler, logOut };
