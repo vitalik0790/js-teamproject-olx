@@ -76,6 +76,7 @@
 
 .products {
   list-style: none;
+  display: flex;
   &__item {
     @media screen and (max-width: 1279px) {
       width: 334px;
