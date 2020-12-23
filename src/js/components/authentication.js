@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { openInModal, closeModal } from './modal';
+import { openInModal, closeModal, inCurrentModal } from './modal';
 import signUpFormTemplate from '../../templates/signUpFormTemplate.hbs';
 import signInFormTemplate from '../../templates/signInFormTemplate.hbs';
+import { isLogin } from './navigation-estimates'
 
 const signUpURL = 'https://callboard-backend.herokuapp.com/auth/register';
 const signInURL = 'https://callboard-backend.herokuapp.com/auth/login';
@@ -13,12 +14,16 @@ const user = {
 
 const logOut = () => {
   localStorage.clear();
-  signUp()
+  isLogin();
   console.log('user logged out');
 };
 
 const signUpHandler = () => {
-  openInModal(signUpFormTemplate());
+  if (document.querySelector('.backdrop').classList.contains('is-hidden')) {
+    openInModal(signUpFormTemplate());
+  } else {
+    inCurrentModal(signUpFormTemplate());
+  }
   const errorUp = document.querySelector('.form__errorUp');
   const signUpForm = document.forms.signUpForm;
   const resetUser = () => {
@@ -52,6 +57,7 @@ const signUpHandler = () => {
   signUpForm.addEventListener('input', getUserData);
   signUpForm.addEventListener('submit', signUpData);
 };
+
 const signInHandler = () => {
   openInModal(signInFormTemplate());
   const errorIn = document.querySelector('.form__errorIn');
@@ -69,6 +75,7 @@ const signInHandler = () => {
     const { name, value } = e.target;
     user[name] = value;
   };
+
   const signIn = async user => {
     try {
       const response = await axios.post(signInURL, user);
@@ -80,6 +87,7 @@ const signInHandler = () => {
       signInForm.removeEventListener('submit', signInData);
       signInFormSignUpBtn.removeEventListener('click', signUpHandler);
       closeModal();
+      isLogin();
     } catch (error) {
       console.log(error.response.data.message);
       errorIn.textContent = error.response.data.message;
@@ -95,11 +103,12 @@ const signInHandler = () => {
   signInFormSignUpBtn.addEventListener('click', signUpHandler);
 };
 const testAuth = () => {
-  const signUpBtn = document.querySelector('.signUpBtn');
-  const signInBtn = document.querySelector('.signInBtn');
-  const logOutBtn = document.querySelector('.logOutBtn');
-  signUpBtn.addEventListener('click', signUpHandler);
-  signInBtn.addEventListener('click', signInHandler);
-  logOutBtn.addEventListener('click', logOut);
+  const signUpBtn = document.querySelectorAll('.signUpBtn');
+  const signInBtn = document.querySelectorAll('.signInBtn');
+  const logOutBtn = document.querySelectorAll('.logOutBtn');
+  signUpBtn.forEach(element => element.addEventListener('click', signUpHandler));
+  signInBtn.forEach(element => element.addEventListener('click', signInHandler));
+  logOutBtn.forEach(element => element.addEventListener('click', logOut));
 };
 export { signUpHandler, signInHandler, logOut, testAuth };
+// export { signUpHandler, signInHandler, logOut };
