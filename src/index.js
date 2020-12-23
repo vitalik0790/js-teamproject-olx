@@ -10,14 +10,23 @@ import { refs, openAdvModal } from './js/components/newAdvForm';
 // const addButton = document.querySelector('form-input-file');
 // content.innerHTML = listMarkup();
 // addButton.addEventListener('click', addImage)
-import { isLogin } from './js/components/navigation-estimates'
+
+import { sliderGallery } from './js/components/sliderGallery';
+
+import './js/components/hero';
+import { isLogin } from './js/components/navigation-estimates';
 //renderHeader();
 
 
 
-import './js/components/hero'
+
 
 
 import { testAuth } from './js/components/authentication';
+
 isLogin()
-testAuth();
+// testAuth();
+
+import { sandwichmenu } from './js/components/sandwichmenu';
+
+
