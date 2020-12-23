@@ -19,7 +19,47 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
       integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
       crossorigin="anonymous"
-    ></script>
+    ></script>     
+    <script>
+      window.addEventListener('load', () => {
+          $(document).ready(function () {
+              $('.js-slider').slick({
+                  infinite: true,
+                  slidesToShow: 2,
+                  slidesToScroll: 3,
+                  centerMode: true,
+                  centerPadding: '60px',
+                  responsive: [{
+                          breakpoint: 1024,
+                          settings: {
+                              slidesToShow: 2,
+                              slidesToScroll: 2,
+                              infinite: true,
+                              dots: true
+                          }
+                      },
+                      {
+                          breakpoint: 600,
+                          settings: {
+                              slidesToShow: 1,
+                              slidesToScroll: 1
+                          }
+                      },
+                      {
+                          breakpoint: 480,
+                          settings: {
+                              slidesToShow: 1,
+                              slidesToScroll: 1
+                          }
+                      }
+                      // You can unslick at a given breakpoint now by adding:
+                      // settings: "unslick"
+                      // instead of a settings object
+                  ]
+              });
+          });
+      }, false);
+  </script>
   </head>
   <body>
     <header class="header">
@@ -263,7 +303,7 @@
           <button class="gallery__modal-btn"></button>
 
           <ul class="gallery__wrap">
-            <li class="gallery__list electronics-wrap">
+            <!-- <li class="gallery__list electronics-wrap">
               <div class="gallery__info">
                 <h2 class="gallery__info-name">Электроника</h2>
                 <a class="gallery__link_view-all" href="">Смотреть все</a>
@@ -455,7 +495,7 @@
                   </div>
                 </li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </div>
 

@@ -57,12 +57,10 @@ const properties = {
           <div class="gallery__info">
             <h2 class="gallery__info-name">${russianCategories[indexOfCategory]}</h2>
             <a class="gallery__link_view-all" href="#">Смотреть все</a>
-          </div>
-          <button class="slider prev" type="button"></button>
-          <ul class="products list">
-          ${acc}
-          </ul>
-          <button class="slider next" type="button"></button>
+          </div>          
+          <ul class="products js-slider">               
+          ${acc}          
+          </ul>          
       </li>     
     `
   document.querySelector('.gallery__wrap').insertAdjacentHTML('beforeend', list)
@@ -91,22 +89,23 @@ const properties = {
       console.log(data.categories);
     }  
       for (let i = 0; i<categoriesNum; i+=1) {
-        await axios.get(`${baseURL}/call/specific/${data.categories[categoriesShown]}`).then( async response => await createMarkup(response.data, cardsNum))
+        await axios.get(`${baseURL}/call/specific/${data.categories[categoriesShown]}`).then( async response => await createMarkup(response.data, cardsNum))      
         categoriesShown += 1;
         // console.log(categoriesShown);
         // console.log(categories.length);
         if (categoriesShown === data.categories.length){
           loadMoreBtn.disabled = true;
       }
-    }
+    }    
   }
   
   
   export const init = async () =>{
     getViewport()  
-    // await getCategories()
-    // await getRussianCategories()
+    await getCategories()
+    await getRussianCategories()
     await fetcherWithCounter(3, cardsToLoad())
+    
   }
 //   init()
   
