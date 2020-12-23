@@ -50,6 +50,7 @@
       display: none;
 
       @media screen and (min-width: 1280px) {
+        position: relative;
         display: flex;
         color: $primary-text-color;
         width: 410px;
@@ -92,7 +93,7 @@
       margin-left: 266px;
     }
     @media screen and (min-width: 1280px) {
-      margin-left: 282px;
+      margin-left: 280px;
     }
 
     &__btn {
@@ -329,5 +330,38 @@
     @media screen and (min-width: 768px) {
       display: none;
     }
+  }
+}
+
+.header-search {
+  display: none;
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    position: relative;
+  } 
+  
+}
+
+.header-search-tablet {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    position: relative;
+  } 
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+.header-logo__input-svg {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 376px;
+    transform: translateY(-50%);
+  }
+  @media screen and (min-width: 1280px) {
+    left: 434px;
   }
 }
