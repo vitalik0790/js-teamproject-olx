@@ -88,6 +88,7 @@
   &-auth {
     display: none;
     @media screen and (min-width: 768px) {
+      position: relative;
       display: flex;
       justify-content: center;
       margin-left: 266px;
@@ -238,7 +239,6 @@
   }
 }
 
-
 .clear-filter-svg {
   display: none;
   @media screen and (min-width: 768px) {
@@ -277,22 +277,22 @@
 //       display: none;
 //     }
 //   }
-  // &-close {
-  //   display: none;
-  //   fill: #445361;
-  //   @media screen and (min-width: 480px) {
-  //   }
-  //   @media screen and (min-width: 768px) {
-  //     display: none;
-  //   }
-  // }
+// &-close {
+//   display: none;
+//   fill: #445361;
+//   @media screen and (min-width: 480px) {
+//   }
+//   @media screen and (min-width: 768px) {
+//     display: none;
+//   }
+// }
 
-  // &-menu {
-  //   fill: #445361;
-  //   @media screen and (min-width: 768px) {
-  //     display: none;
-  //   }
-  // }
+// &-menu {
+//   fill: #445361;
+//   @media screen and (min-width: 768px) {
+//     display: none;
+//   }
+// }
 //}
 
 .search__button {
@@ -315,8 +315,7 @@
   @media screen and (min-width: 1280px) {
     display: flex;
     position: relative;
-  } 
-  
+  }
 }
 
 .header-search-tablet {
@@ -324,7 +323,7 @@
   @media screen and (min-width: 768px) {
     display: flex;
     position: relative;
-  } 
+  }
   @media screen and (min-width: 1280px) {
     display: none;
   }
