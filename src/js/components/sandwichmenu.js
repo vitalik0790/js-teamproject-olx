@@ -37,8 +37,15 @@ const renderCategories = categories => {
   const getUl = document.getElementById('categoriesList');
   getUl.innerHTML = '';
   categories.forEach(category => { 
-    getUl.innerHTML += `<li>${category}</li>`;
+    getUl.innerHTML += `
+    <li class="filter__list-item">
+      <button class="filter__list-item_btn">
+        ${category}
+      </button>
+    </li>
+    `; 
   });
+  getUl.addEventListener('click', activeCategory);
 };
 
 createMarkUp();
