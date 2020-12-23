@@ -1,13 +1,13 @@
 <div class="productInfo__wrapper">
   <div class="productInfo__images">
     <div class="productInfo__imgMax-wrapper">
-      <img class="productInfo__imgMax" src="" alt="" />
+      <img class="productInfo__imgMax" src="" alt="{{title}}" />
     </div>
 
     <ul class="list productInfo__list-imgMin">
       {{#each imageUrls}}
       <li class="productInfo__item-imgMin" data-url="{{this}}">
-        <img class="productInfo__imgMin" src="{{this}}" alt="" />
+        <img class="productInfo__imgMin" src="{{this}}" alt="{{title}}" />
       </li>
 
       {{/each}}
@@ -17,21 +17,18 @@
 
   <div class="productInfo__info">
     <h2 class="productInfo__title">{{title}}</h2>
-    <p class="productInfo__code">Код товару | 105-С</p>
+    <p class="productInfo__code">Код товару | {{_id}}</p>
 
-    <div class="siema productInfo__imgSlider">
+
+    <div class=" siema  productInfo__imgSlider">
       {{#each imageUrls}}
-      <div>
-        <img src="{{this}}" alt="" />
+      <div class="productInfo__imgSlider-img">
+        <img src="{{this}}" alt="{{title}}" />
       </div>
       {{/each}}
     </div>
-    {{!-- <div class="dots"> --}}
-      {{!-- <button class=" prev dots__item  dots__item--active"></button>
-      <button class=" next dots__item"></button> --}}
-      {{!--
-    </div> --}}
 
+    <div class="dots"></div>
 
     <p class="productInfo__price">{{price}} <span> &#8364;</span></p>
     <button class="productInfo__button" type="button">

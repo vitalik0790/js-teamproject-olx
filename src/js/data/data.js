@@ -4,5 +4,5 @@ export const data = {
   baseURL: 'https://callboard-backend.herokuapp.com',
   categories: [],
   inCategories: [],
-
+  favorites: [],
 };
