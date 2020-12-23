@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -15,41 +16,28 @@
       integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
       crossorigin="anonymous"></script>
   </head>
-
-  <body>
-    <header class="header">
-      <div class="container" id="header">
-        <div class="header-top">
-          <button type="button" class="navigation__button" aria-expanded="true" aria-controls="menu-container"
-            data-menu-button>
-            <svg width="20" height="20" aria-label="Мобильное меню" class="navigation-button-svg">
-              <use class="navigation__button-close" href="./images/svg/icons/sprite.svg#close"></use>
-              <use class="navigation__button-menu" href="./images/svg/icons/sprite.svg#menu"></use>
-            </svg>
-          </button>
-          <div class="header-logo">
-            <a href="#" class="link">
-              <div class="header-logo__ellipse">
-                <span class="header-logo__name">LOGO</span>
-              </div>
-            </a>
-          </div>
-          <input class="header-logo__input" type="text" name="inputSearch" id="inputSearch" placeholder="" />
-          <button type="button" class="search__button" aria-expanded="true" aria-controls="menu-container"
-            data-menu-button>
-            <svg width="24" height="24" aria-label="Мобильное меню" class="search__button-svg">
-              <use class="" href="./images/svg/icons/sprite.svg#search"></use>
-            </svg>
-          </button>
-          <div class="header-auth">
-          </div>
-          <button class="button header-btn-adv">Создать объявление</button>
-        </div>
-        <div class="header-search">
-          <input class="header-logo__input" type="text" name="inputSearch" id="inputSearch" placeholder="" />
-          <svg width="24" height="24" aria-label="Мобильное меню" class="header-logo__input-svg">
-            <use class="" href="./images/svg/icons/sprite.svg#search"></use>
+<body>
+  <header class="header">
+    <div class="container" id="header">
+      <div class="header-top">
+        <div class="tpl_hamburger activ" id="sandwichmenu">
+          <svg width="20" height="20" >
+            <use href="./images/svg/icons/sprite.svg#menu"></use>
           </svg>
+        </div>
+        <div class="js_menu">
+          <svg width="20" height="20"  id="svgMenu">
+            <use href="./images/svg/icons/sprite.svg#close"></use>
+          </svg>
+    
+        </div>  
+        <div class="header-logo">
+          <a href="#" class="link">
+            <div class="header-logo__ellipse">
+              <span class="header-logo__name">LOGO</span>
+            </div>
+          </a>
+
         </div>
         <button type="button" class="search__button" aria-expanded="true" aria-controls="menu-container"
           data-menu-button>
