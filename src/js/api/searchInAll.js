@@ -1,11 +1,9 @@
-import { data } from '../data/data'
+import { data } from '../data/data';
 import axios from 'axios';
 
 const searchAll = (query) => {
     return axios.get(`${data.baseURL}/call/find?search=${query}`)
-        // .then(response => console.log(response))
-        .then(response => data.inAll.push(...response.data))
-
+        .then(response => data.inAll.push(...response.data));
 }
 
 export const clearAll = () => {
