@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {data} from '../data/data'
 const properties = {
     width: 0,
     height: 0,
@@ -27,59 +28,74 @@ const properties = {
   const loadMoreBtn = document.querySelector('.load-more')
 //   const loggerBtn = document.querySelector('.logger')
   const baseURL = 'https://callboard-backend.herokuapp.com';
-  let categories = [];
+  // let categories = [];
   let russianCategories = [];
   let categoriesShown = 0;
-  const createMarkup2 = async (array, num) => {
-   await axios.get(`${baseURL}/call/russian-categories`).then(response => {
-      russianCategories = [...response.data];    
-    }).then(()=>{
-      let acc = ''
-      for (let i = 0; i < (array.length < num? array.length : num); i +=1){
-        acc += `
-        <li class="products__item">
-                <div class="products__img-wrap">
-                  <img class="products__img" src="${array[i].imageUrls[0]}" alt="${array[i].description}">
-                </div>
-                <div class="products__info">
-                  <h3 class="products__info-name">${array[i].title}</h3>
-                  <span class="products__new-price">${array[i].price} €</span>
-                </div>
-              </li>        
-        `
-      }
-      const indexOfCategory = categories.indexOf(array[0].category)
-      const list = `
-        <li class="gallery__list">
-            <div class="gallery__info">
-              <h2 class="gallery__info-name">${russianCategories[indexOfCategory]}</h2>
-              <a class="gallery__link_view-all" href="#">Смотреть все</a>
-            </div>
-            <button class="slider prev" type="button"></button>
-            <ul class="products list">
-            ${acc}
-            </ul>
-            <button class="slider next" type="button"></button>
-        </li>     
+  const createMarkup = async (array, num) => { 
+    if (!russianCategories.length)  {
+      console.log(russianCategories);
+     await getRussianCategories()
+      console.log(russianCategories);
+    }
+    let acc = ''
+    for (let i = 0; i < (array.length < num? array.length : num); i +=1){
+      acc += `
+      <li class="products__item">
+              <div class="products__img-wrap">
+                <img class="products__img" src="${array[i].imageUrls[0]}" alt="${array[i].description}">
+              </div>
+              <div class="products__info">
+                <h3 class="products__info-name">${array[i].title}</h3>
+                <span class="products__new-price">${array[i].price} €</span>
+              </div>
+            </li>        
       `
-    document.querySelector('.gallery__wrap').insertAdjacentHTML('beforeend', list)
-    })
+    }
+    const indexOfCategory = data.categories.indexOf(array[0].category)
+    const list = `
+      <li class="gallery__list">
+          <div class="gallery__info">
+            <h2 class="gallery__info-name">${russianCategories[indexOfCategory]}</h2>
+            <a class="gallery__link_view-all" href="#">Смотреть все</a>
+          </div>
+          <button class="slider prev" type="button"></button>
+          <ul class="products list">
+          ${acc}
+          </ul>
+          <button class="slider next" type="button"></button>
+      </li>     
+    `
+  document.querySelector('.gallery__wrap').insertAdjacentHTML('beforeend', list)
+  
   }
   
   
   const getCategories = async () => {
     await  axios.get(`${baseURL}/call/categories`).then(response => {
-       categories = [...response.data];
-       console.log(categories);
+      data.categories = [...response.data];
+       console.log( data.categories);
     })
   }
-  const fetcherWithCounter = async (categoriesNum, cardsNum) => {  
+
+  const getRussianCategories = async () => {
+    await  axios.get(`${baseURL}/call/russian-categories`).then(response => {
+       russianCategories = [...response.data];
+       console.log(russianCategories);
+    })
+  }
+
+  const fetcherWithCounter = async (categoriesNum, cardsNum) => {
+    if (!data.categories.length)  {
+      console.log(data.categories);
+     await getCategories()
+      console.log(data.categories);
+    }  
       for (let i = 0; i<categoriesNum; i+=1) {
-        await axios.get(`${baseURL}/call/specific/${categories[categoriesShown]}`).then( async response => await createMarkup2(response.data, cardsNum))
+        await axios.get(`${baseURL}/call/specific/${data.categories[categoriesShown]}`).then( async response => await createMarkup(response.data, cardsNum))
         categoriesShown += 1;
-        console.log(categoriesShown);
-        console.log(categories.length);
-        if (categoriesShown === categories.length){
+        // console.log(categoriesShown);
+        // console.log(categories.length);
+        if (categoriesShown === data.categories.length){
           loadMoreBtn.disabled = true;
       }
     }
@@ -88,7 +104,8 @@ const properties = {
   
   export const init = async () =>{
     getViewport()  
-    await getCategories()
+    // await getCategories()
+    // await getRussianCategories()
     await fetcherWithCounter(3, cardsToLoad())
   }
 //   init()
