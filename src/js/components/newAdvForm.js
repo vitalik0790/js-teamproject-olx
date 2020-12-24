@@ -100,7 +100,7 @@ const createBox = () => {
     }
 }
 
-const openAdvModal = (e) => {
+const openAdvModal = () => {
     openInModal(newAdvForm(data));
     createBox();
     refs.formAdv = document.forms.advForm;
@@ -108,7 +108,7 @@ const openAdvModal = (e) => {
     refs.formAdv.addEventListener('submit', postNewAdv);
 }
 
-refs.openModalBtn.addEventListener('click', openAdvModal);
+//refs.openModalBtn.addEventListener('click', openAdvModal);
 
 
 
