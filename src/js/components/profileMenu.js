@@ -1,9 +1,29 @@
-import axios from 'axios';
+// import axios from 'axios';
+import { data } from '../data/data';
+import favoritesList from '../../templates/favoritesList.hbs';
+
+const refs = {
+  menu: '',
+  favoritesBtnInHeaderRef: '',
+  main: document.querySelector('.main'),
+};
 
 export const profileMenu = () => {
-  const menu = document.querySelector('.profile-menu');
-  menu.classList.toggle('is-hidden');
+  refs.menu = document.querySelector('.profile-menu');
+  refs.favoritesBtnInHeaderRef = document.querySelector(
+    '.profile-menu__favorites',
+  );
+  refs.menu.classList.toggle('is-hidden');
+  refs.favoritesBtnInHeaderRef.addEventListener('click', onFavoritBtnClock);
 };
+
+function onFavoritBtnClock() {
+  console.log(data.user.favorites);
+
+  const markup = favoritesList(data.user.favorites);
+  refs.main.innerHTML = markup;
+  refs.menu.classList.toggle('is-hidden');
+}
 
 // const closeMenu = event => {
 //   menu.classList.add('is-hidden');

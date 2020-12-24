@@ -1,0 +1,18 @@
+<section class="favorites container">
+  <h1 class="favorites__title">Избранное</h1>
+  <ul class="favorites__list list">
+    {{#each this}}
+    <li class="favorites__item">
+      <div class="favorites__item-img-wrapper">
+        {{#with this.imageUrls}}
+        <img class="favorites__item-img" src="{{this.[0]}}" alt="{{this.title}}" />
+        {{/with}}
+      </div>
+
+      <h2 class="favorites__item-title">{{this.title}}</h2>
+      <p class="favorites__item-price">{{this.price}} <span> &#8364;</span></p>
+    </li>
+    {{/each}}
+  </ul>
+
+</section>
