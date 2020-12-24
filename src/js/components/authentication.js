@@ -24,6 +24,7 @@ const checkAuth = async () => {
 const logOut = () => {
   localStorage.clear();
   data.auth.isAuth = false;
+  data.auth.token = '';
   isLogin();
   toggleMenuAuth("menuPane");
   console.log('user logged out');
@@ -59,7 +60,9 @@ const signUpHandler = () => {
         JSON.stringify(responseIn.data.accessToken),
       );
       signUpForm.removeEventListener('input', getUserData);
-      signUpForm.removeEventListener('submit', signUpData);      
+      signUpForm.removeEventListener('submit', signUpData);
+      data.auth.isAuth = true;
+      data.auth.token = getToken();
       closeModal();
       isLogin();
       toggleMenuAuth("menuPane");
@@ -110,6 +113,7 @@ const signInHandler = () => {
       signInForm.removeEventListener('submit', signInData);
       signInFormSignUpBtn.removeEventListener('click', signUpHandler);
       data.auth.isAuth = true;
+      data.auth.token = getToken();
       closeModal();
       isLogin();
       toggleMenuAuth("menuPane");
