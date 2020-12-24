@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { data } from '../../data/data';
 import { getToken } from '../../utils/getToken';
-const token = JSON.parse(getToken());
+const token = getToken();
 
 // console.log(token);
 // axios.defaults.headers.common['Authorization'] = `Bearer ${data.auth.token}`;
