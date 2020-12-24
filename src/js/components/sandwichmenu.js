@@ -2,6 +2,7 @@ import sandwichmenu from '../../templates/sandwichMenu.hbs';
 import { clearFilter } from '../api/searchInCategory';
 import signInMenuPane from '../../templates/navigationSignInMenuPane.hbs';
 import { signUpHandler, signInHandler, logOut } from './authentication';
+import { getToken } from '../utils/getToken';
 
 const func = (e) => {
   e.preventDefault();
@@ -16,10 +17,8 @@ export const toggleMenuAuth = (panelId) => {
 
 const createMarkUp = () => {
   getJsMenu.insertAdjacentHTML('beforeend', `${sandwichmenu()}`);
-  //const categorisFilterTabl = document.getElementById('header-filter-tablet');
   const categorisFilter = document.getElementById('categorisFilter');
   const clearFilterBtn = document.getElementById('clearFilter');
-  //categorisFilterTabl.addEventListener('click', renderFilter);
   categorisFilter.addEventListener('click', renderFilter);
   clearFilterBtn.addEventListener('click', clearFilter);
 };
@@ -77,11 +76,19 @@ const renderCategories = categories => {
 
 export const renderAuthMenu = (paneName) => {
   const context = { menuAuth: paneName };
-  //console.log("here1");
   signInDivMenuPane.innerHTML = signInMenuPane(context);
+  const signUpWrappemenu = document.getElementById(paneName + 'SignUpWrapperId');
+    const signInWrappemenu = document.getElementById(paneName + 'SignInWrapperId');
+  if (getToken()) {
+    signUpWrappemenu.classList.remove('element_hidden');
+    signInWrappemenu.classList.add('element_hidden');
+  } else {
+    signInWrappemenu.classList.remove('element_hidden');
+    signUpWrappemenu.classList.add('element_hidden');
+  }
 }
 
-  const setAuthMenuListeners = (paneName) => {
+const setAuthMenuListeners = (paneName) => {
   const signInBtnmenu = document.getElementById(paneName + 'SignInBtnId')
   const signUpBtnmenu = document.getElementById(paneName + 'SignUpBtnId')
   const logOutBtnmenu = document.getElementById(paneName + 'LogOutBtn')
