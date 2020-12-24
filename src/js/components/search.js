@@ -7,27 +7,23 @@ const headerInput = document.querySelector('.header-logo__input');
 const headerInputTablet = document.querySelector('.header-logo__input-tablet');
 const main = document.querySelector('.main')
 
-export const getSearchQuery = (query) => {
+export const getSearchQuery = async (query) => {
     if (data.categories.length) {
         if (data.categories.some(item => item.includes(query))) {
-            searchInCategory(data.categories.find(item => item.includes(query)));
+            await searchInCategory(data.categories.find(item => item.includes(query)));
             return data.inCategories;
         } else {
-            searchInAll(query);
+            await searchInAll(query);
             return data.inAll;
         }
     } else return;
 }
 
 export const updateMarkup = (goods) => {
-    console.log(goods);
-    let searchMarkup = searchCard(goods);
-    console.log(searchMarkup);
-    main.innerHTML = `<div class="container"><ul class="search-gallery">${searchMarkup}</ul></div>`;
+    main.innerHTML = `<div class="container"><ul class="search-gallery">${searchCard(goods)}</ul></div>`;
 }
 
 // let inputValue = '';
-
 // export const getBySearch = (event) => {
 //     // event.preventDefault();
 //     main.innerHTML = '';
@@ -42,17 +38,14 @@ export const updateMarkup = (goods) => {
 //     }
 // }
 
-export const onPressEnterSearch = event => {
+export const onPressEnterSearch = async event => {
     if (event.code === 'Enter') {
         if (headerInput.value.length >= 1 || headerInputTablet.value.length >= 1) {
-            updateMarkup(getSearchQuery(headerInput.value));
+            updateMarkup(await getSearchQuery(headerInput.value));
             headerInput.value = '';
         }
     };
 }
-
-
-
 
 // headerInput.addEventListener('change', getBySearch);
 // headerInputTablet.addEventListener('change', getBySearch);
