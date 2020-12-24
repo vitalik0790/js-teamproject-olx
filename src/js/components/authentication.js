@@ -2,7 +2,8 @@ import axios from 'axios';
 import { openInModal, closeModal, inCurrentModal } from './modal';
 import signUpFormTemplate from '../../templates/signUpFormTemplate.hbs';
 import signInFormTemplate from '../../templates/signInFormTemplate.hbs';
-import { isLogin } from './navigation-estimates'
+import { isLogin } from './navigation-estimates';
+import { toggleMenuAuth } from './sandwichmenu';
 
 const signUpURL = 'https://callboard-backend.herokuapp.com/auth/register';
 const signInURL = 'https://callboard-backend.herokuapp.com/auth/login';
@@ -15,6 +16,7 @@ const user = {
 const logOut = () => {
   localStorage.clear();
   isLogin();
+  toggleMenuAuth("menuPane");
   console.log('user logged out');
 };
 
@@ -51,6 +53,7 @@ const signUpHandler = () => {
       signUpForm.removeEventListener('submit', signUpData);      
       closeModal();
       isLogin();
+      toggleMenuAuth("menuPane");
     } catch (error) {
       console.log(error.response.data.message);
       errorUp.textContent = error.response.data.message;
@@ -98,6 +101,7 @@ const signInHandler = () => {
       signInFormSignUpBtn.removeEventListener('click', signUpHandler);
       closeModal();
       isLogin();
+      toggleMenuAuth("menuPane");
     } catch (error) {
       console.log(error.response.data.message);
       errorIn.textContent = error.response.data.message;
