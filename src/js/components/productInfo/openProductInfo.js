@@ -3,7 +3,7 @@ import { data } from '../../data/data';
 import { openProductInfo } from './productInfo';
 
 const openProductInfoBtnRef = document.querySelector('.openProductInfo-js');
-console.log(openProductInfoBtnRef);
+// console.log(openProductInfoBtnRef);
 async function fetchCards() {
   const response = await axios.get(`${data.baseURL}/call/specific/electronics`);
   const cards = response.data;
@@ -13,5 +13,5 @@ async function fetchCards() {
 }
 openProductInfoBtnRef.addEventListener('click', onClickBtn);
 function onClickBtn() {
-  fetchCards().then(cards => openProductInfo(cards[5]));
+  fetchCards().then(cards => openProductInfo(cards[6]));
 }

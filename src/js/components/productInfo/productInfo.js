@@ -24,8 +24,8 @@ const fetchFavourites = () => {
   fetchFavouritesAPI()
     .then(favorites => {
       data.user.favorites = favorites;
-      // console.log('data после перезагрузки:', data.user.favorites);
 
+      // console.log('data после перезагрузки:', data.user.favorites);
     })
     .catch(error => console.log(error));
 };

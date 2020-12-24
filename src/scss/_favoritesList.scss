@@ -69,6 +69,7 @@
 
 .favorites__item-img-wrapper {
   height: 235px;
+  margin-bottom: 5px;
 
   @media screen and (min-width: 768px) {
     height: 239px;
@@ -76,7 +77,6 @@
 }
 
 .favorites__item-img {
-  margin-bottom: 2px;
   height: 100%;
   width: 100%;
   object-fit: contain;

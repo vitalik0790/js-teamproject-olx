@@ -7,21 +7,23 @@ const refs = {
   favoritesList: '',
 };
 
-const favoritesBtnInHeaderRef = document.querySelector('.profile-menu span');
-// console.log(favoritesBtnInHeaderRef);
+// const favoritesBtnInHeaderRef = document.querySelector('.profile-menu span');
 
 function createMarkupFavoritesList() {
   const markup = favoritesList(data.user.favorites);
-  console.log(data.user.favorites[0]._id);
+
   refs.main.innerHTML = markup;
   refs.favoritesList = document.querySelector('.favorites__list');
   refs.favoritesList.addEventListener('click', onCardClick);
 }
 function onCardClick(event) {
   if (event.target === event.currentTarget) return;
-  console.log(event.target.dataset.card);
-  console.log(event.target);
-  // openProductInfo()
+
+  const targetCard = data.user.favorites.find(
+    card => card._id === event.target.dataset.card,
+  );
+  // console.log(targetCard);
+  openProductInfo(targetCard);
 }
 
 export { createMarkupFavoritesList };

@@ -4,9 +4,10 @@
     {{#each this}}
     <li class="favorites__item" data-card="{{this._id}}">
       <div class="favorites__item-img-wrapper" data-card="{{this._id}}">
-        {{#with this.imageUrls}}
-        <img data-card="{{this._id}}" class="favorites__item-img" src="{{this.[0]}}" alt="{{this.title}}" />
-        {{/with}}
+
+        <img class="favorites__item-img" data-card="{{this._id}}" src="{{#with this.imageUrls}}{{this.[0]}} {{/with}}"
+          alt="{{this.title}}" />
+
       </div>
 
       <h2 class="favorites__item-title" data-card="{{this._id}}">{{this.title}}</h2>
