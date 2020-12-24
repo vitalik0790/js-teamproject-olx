@@ -13,5 +13,5 @@ async function fetchCards() {
 }
 openProductInfoBtnRef.addEventListener('click', onClickBtn);
 function onClickBtn() {
-  fetchCards().then(cards => openProductInfo(cards[6]));
+  fetchCards().then(cards => openProductInfo(cards[11]));
 }
