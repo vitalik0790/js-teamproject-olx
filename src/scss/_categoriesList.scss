@@ -5,7 +5,7 @@
     }
     display: block;
     position: fixed;
-    top: 200px;
+    top: 100px;
     left: 80%;
     z-index: 20;
     background-color: $accent-color;
@@ -23,7 +23,6 @@
   }
   &__wrap {
     list-style: none;
-    margin: 0;
     padding-top: 50px;
     @media screen and (min-width: 768px) {
       padding-top: 60px;
@@ -34,14 +33,17 @@
     padding-bottom: 36px;
   }
   &__list {
-    position: relative;
+    @media screen and(max-width: 767px) {
+      margin: auto;
+      width: 290px;
+    }
     padding-bottom: 40px;
   }
   &__info {
     display: flex;
     align-items: baseline;
-    margin-bottom: 16px;
-    margin-left: 10px;
+    padding-bottom: 16px;
+    padding-left: 10px;
   }
   &__info-name {
     font-size: 20px;
@@ -73,6 +75,7 @@
 }
 
 .products {
+  list-style: none;
   display: flex;
   &__item {
     @media screen and (max-width: 1279px) {
@@ -93,32 +96,11 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     &:hover,
     &:focus {
-      z-index: 1;
+      outline: none;
+      z-index: 999;
       cursor: pointer;
       filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.1));
-      transform: scale(1.15);
-    }
-    display: none;
-    @media screen and (min-width: 768px) {
-      &:nth-child(1) {
-        margin-right: 20px;
-      }
-    }
-    @media screen and (min-width: 1280px) {
-      display: block;
-      &:not(:last-child) {
-        margin-right: 20px;
-      }
-    }
-    @media screen and (max-width: 1279px) {
-      &:nth-child(-n + 2) {
-        display: block;
-      }
-    }
-    @media screen and (max-width: 767px) {
-      &:nth-child(n + 2) {
-        display: none;
-      }
+      transform: scale(1.05);
     }
   }
   &__img {
@@ -166,62 +148,88 @@
   }
 }
 
-.slider {
-  @media screen and (max-width: 767px) {
-    display: none;
+.js-slider {
+  position: relative;
+  .slick-arrow {
+    @media screen and (max-width: 768px) {
+      opacity: 0;
+    }
+    top: 50%;
+    position: absolute;
+    font-size: 0;
+    z-index: 10;
+    background-color: #f4f4f4;
+    width: 32px;
+    height: 60px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+      background-color: $accent-color;
+      fill: $primary-bg-color;
+    }
+    // &.slick-disabled {
+    //   opacity: 0.5;
+    // }
   }
-  z-index: 10;
-  position: absolute;
-  background-color: #f4f4f4;
-  width: 32px;
-  height: 60px;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-  outline: none;
-  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
-  transition-duration: 500ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-    background-color: $accent-color;
-    fill: $primary-bg-color;
-  }
-  &.prev {
+  .slick-prev {
     background-image: url(./images/svg/icons/arrow-1/left.svg);
     background-repeat: no-repeat;
     background-position: center;
     left: -12px;
-    bottom: 30%;
   }
-  &.next {
+  .slick-next {
     background-image: url(./images/svg/icons/arrow-1/right.svg);
     background-repeat: no-repeat;
     background-position: center;
     right: -12px;
-    bottom: 30%;
   }
-}
-
-.load-more {
-  color: #fff;
-  size: 20px;
-  background: #02172a;
-  width: 100%;
-  height: 70px;
-  cursor: pointer;
-  outline: none;
-  transition-duration: 500ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover,
-  &:focus {
-    color: $accent-color;
+  /* Ограничивающая оболочка */
+  .slick-list {
+    overflow: hidden;
   }
-  @media screen and (min-width: 768px) {
-    height: 96px;
+  /* Лента слайдов */
+  .slick-track {
+    display: flex;
+    align-items: center;
+    padding: 10px;
   }
-  @media screen and (min-width: 1280px) {
-    height: 106px;
+  /* Слайд */
+  .slick-slide {
+    margin-right: 20px;
+  }
+  /* Точки (булиты) */
+  .slick-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slick-dots li {
+    list-style: none;
+  }
+  /* Активная точка */
+  .slick-dots li.slick-active button {
+    background-color: $accent-color;
+  }
+  /* Элемент точки */
+  .slick-dots li button {
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+    font-size: 0;
+    cursor: pointer;
+    height: 6px;
+    width: 6px;
+    margin: 20px 4px;
+    background-color: #ddd;
+    outline: none;
+    border: none;
+    border-radius: 50%;
   }
 }
