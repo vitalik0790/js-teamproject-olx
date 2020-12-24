@@ -1,6 +1,6 @@
 // import axios from 'axios';
 import { data } from '../data/data';
-import favoritesList from '../../templates/favoritesList.hbs';
+import { createMarkupFavoritesList } from '../components/favoritesList/favoritesList';
 
 const refs = {
   menu: '',
@@ -19,9 +19,8 @@ export const profileMenu = () => {
 
 function onFavoritBtnClock() {
   console.log(data.user.favorites);
+  createMarkupFavoritesList();
 
-  const markup = favoritesList(data.user.favorites);
-  refs.main.innerHTML = markup;
   refs.menu.classList.toggle('is-hidden');
 }
 
