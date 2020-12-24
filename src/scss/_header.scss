@@ -94,14 +94,14 @@
   &__input-btn {
     position: absolute;
     cursor: pointer;
-    transform: translate(380px, 8px);
+    transform: translate(380px, 10px);
     border: none;
     outline: none;
     width: 24px;
     height: 24px;
     background: url('https://i.ibb.co/QF9Cnjt/Vector-1.jpg');
     background-repeat: no-repeat;
-
+    // background-size: contain;
     @media screen and (min-width: 1280px) {
       transform: translate(435px, 12px);
     }
@@ -326,6 +326,7 @@
 }
 
 .search__button {
+  outline: none;
   width: 24px;
   height: 24px;
   position: absolute;
@@ -406,7 +407,8 @@
     display: none;
   }
 }
-.header-logo__input-svg {
+
+.header-search__btn {
   display: none;
   @media screen and (min-width: 768px) {
     display: flex;
@@ -414,10 +416,16 @@
     top: 50%;
     left: 346px;
     transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    outline: none;
   }
   @media screen and (min-width: 1280px) {
     left: 425px;
   }
+}
+
+.header-logo__input-svg {
 }
 
 .is-visible {

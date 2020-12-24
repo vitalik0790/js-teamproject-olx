@@ -7,6 +7,9 @@ const headerInput = document.querySelector('.header-logo__input');
 const headerInputTablet = document.querySelector('.header-logo__input-tablet');
 const headerInputMob = document.querySelector('.mobile-search-input')
 const main = document.querySelector('.main')
+const searchDesIcon = document.querySelector('.header-search__btn')
+const searchTabIcon = document.querySelector('.header__input-btn')
+console.dir(searchDesIcon);
 
 export const getSearchQuery = async (query) => {
     if (data.categories.length) {
@@ -44,8 +47,28 @@ export const onPressEnterSearch = async event => {
     };
 }
 
-// headerInput.addEventListener('change', getBySearch);
-// headerInputTablet.addEventListener('change', getBySearch);
+export const onPressSearchIcon = async event => {
+
+    if (headerInput.value.length >= 1) {
+        updateMarkup(await getSearchQuery(headerInput.value))
+        headerInput.value = '';
+    }
+
+    if (headerInputTablet.value.length >= 1) {
+        updateMarkup(await getSearchQuery(headerInputTablet.value))
+        headerInputTablet.value = '';
+    }
+
+    if (headerInputMob.value.length >= 1) {
+        updateMarkup(await getSearchQuery(headerInputMob.value))
+        headerInputMob.value = '';
+    }
+}
+
+
 headerInput.addEventListener('keydown', onPressEnterSearch);
 headerInputTablet.addEventListener('keydown', onPressEnterSearch);
 headerInputMob.addEventListener('keydown', onPressEnterSearch);
+
+searchDesIcon.addEventListener('click', onPressSearchIcon)
+searchTabIcon.addEventListener('click', onPressSearchIcon) 
