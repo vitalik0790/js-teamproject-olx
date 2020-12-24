@@ -1,6 +1,6 @@
 import { data } from '../data/data'
 import searchCard from '../../templates/search.hbs'
-import { searchInCategory, search } from '../api/searchInCategory'
+import { searchInCategory } from '../api/searchInCategory'
 import { searchInAll } from '../api/searchInAll'
 
 const headerInput = document.querySelector('.header-logo__input');
@@ -23,20 +23,6 @@ export const updateMarkup = (goods) => {
     main.innerHTML = `<div class="container"><ul class="search-gallery">${searchCard(goods)}</ul></div>`;
 }
 
-// let inputValue = '';
-// export const getBySearch = (event) => {
-//     // event.preventDefault();
-//     main.innerHTML = '';
-//     inputValue = event.target.value;
-//     // console.log(inputValue);
-
-//     if (inputValue.length >= 1) {
-//         getSearchQuery(inputValue)
-//             .then(goods => {
-//                 updateMarkup(goods)
-//             })
-//     }
-// }
 
 export const onPressEnterSearch = async event => {
     if (event.code === 'Enter') {
@@ -51,12 +37,3 @@ export const onPressEnterSearch = async event => {
 // headerInputTablet.addEventListener('change', getBySearch);
 headerInput.addEventListener('keydown', onPressEnterSearch);
 headerInputTablet.addEventListener('keydown', onPressEnterSearch);
-
-
-
-
-
-
-
-
-
