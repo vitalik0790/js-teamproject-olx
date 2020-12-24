@@ -26,10 +26,13 @@ export const updateMarkup = (goods) => {
 
 export const onPressEnterSearch = async event => {
     if (event.code === 'Enter') {
-        if (headerInput.value.length >= 1 || headerInputTablet.value.length >= 1) {
-            updateMarkup(await getSearchQuery(headerInput.value));
-            updateMarkup(await getSearchQuery(headerInputTablet.value));
+        if (headerInput.value.length >= 1) {
+            updateMarkup(await getSearchQuery(headerInput.value))
             headerInput.value = '';
+        }
+
+        if (headerInputTablet.value.length >= 1) {
+            updateMarkup(await getSearchQuery(headerInputTablet.value))
             headerInputTablet.value = '';
         }
     };
