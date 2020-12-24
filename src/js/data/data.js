@@ -8,7 +8,7 @@ export const data = {
   russianCategories: [],
   inCategories: [],
   auth: {
-    isAuth: true,
+    isAuth: false,
     token: '',
   },
   user: {
