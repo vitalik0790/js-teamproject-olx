@@ -23,4 +23,4 @@ initialisation();
 import { sandwichmenu } from './js/components/sandwichmenu';
 import { newAdv } from './js/components/newAdvButton';
 import hero_template from './hero_template';
-import './js/components/productInfo/openProductInfo';
+//import './js/components/productInfo/openProductInfo';

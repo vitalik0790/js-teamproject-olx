@@ -3,17 +3,15 @@ import { clearFilter } from '../api/searchInCategory';
 import signInMenuPane from '../../templates/navigationSignInMenuPane.hbs';
 import { signUpHandler, signInHandler, logOut } from './authentication';
 
-export const func = (e) => {
+const func = (e) => {
   e.preventDefault();
   getJsMenu.classList.toggle("activ");
   setAuthMenuListeners("menuPane");
 
 }
 export const toggleMenuAuth = (panelId) => {
-  
   document.getElementById(panelId + 'SignUpWrapperId').classList.toggle("element_hidden");
   document.getElementById(panelId + 'SignInWrapperId').classList.toggle("element_hidden");
-
 } 
 
 const createMarkUp = () => {
@@ -83,14 +81,18 @@ export const renderAuthMenu = (paneName) => {
   signInDivMenuPane.innerHTML = signInMenuPane(context);
 }
 
-export const setAuthMenuListeners = (paneName) => {
+  const setAuthMenuListeners = (paneName) => {
   const signInBtnmenu = document.getElementById(paneName + 'SignInBtnId')
   const signUpBtnmenu = document.getElementById(paneName + 'SignUpBtnId')
   const logOutBtnmenu = document.getElementById(paneName + 'LogOutBtn')
-      // const userBtnmenu = document.querySelector(paneName + 'User_btn')
+  const userBtnmenu = document.getElementById(paneName + 'User_btn')
   signUpBtnmenu.addEventListener('click', signUpHandler);
   signInBtnmenu.addEventListener('click', signInHandler);
   logOutBtnmenu.addEventListener('click', logOut);
+  userBtnmenu.addEventListener('click', () => {
+    const menuMobil = document.querySelector('.profile-menuMobil');
+    menuMobil.classList.toggle('mobil-hidden');
+  });
 }
 
 const sandwichMenu = document.getElementById('sandwichmenu');

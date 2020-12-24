@@ -49,16 +49,18 @@ svg:not(:root) {
     opacity: 1;
     z-index: 100;
     fill: #445361;
-    //height: 24px;
-    //width: 24px;
     position: absolute;
-    // top: 24px;
-    // right: 20px;
+    top: 24px;
+    right: 20px;
     margin: 0 auto;
     transform: translate(-24px,24px);
     cursor: pointer;  
     transform: translate3d(0px, 0px, 0px);  
 }
+
+.js_menu-svg:focus {
+    fill: $accent-color;
+} 
 
 .js_menu.activ {
     display: block;
@@ -170,3 +172,6 @@ color: $accent-color;
 .element_hidden{
     display: none;
 }
+
+
+  
