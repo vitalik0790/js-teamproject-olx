@@ -140,10 +140,12 @@ svg:not(:root) {
 }
 
 .header-filter-tablet-svg {
+    fill: $header-primary-text-color;
     margin-right: 13px;
 }
 
 .header-clear-filter-btn-svg {
+    fill: $header-primary-text-color;
     margin-right: 15px;
 }
 
@@ -164,3 +166,7 @@ color: $accent-color;
     display: flex;
     flex-wrap: wrap;
 }  
+
+.element_hidden{
+    display: none;
+}

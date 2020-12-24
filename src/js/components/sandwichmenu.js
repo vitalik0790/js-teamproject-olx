@@ -1,13 +1,20 @@
 import sandwichmenu from '../../templates/sandwichMenu.hbs';
 import { clearFilter } from '../api/searchInCategory';
 import signInMenuPane from '../../templates/navigationSignInMenuPane.hbs';
-import signUpMenuPane from '../../templates/navigationSignUpMenuPane.hbs';
 import { signUpHandler, signInHandler, logOut } from './authentication';
 
 export const func = (e) => {
   e.preventDefault();
   getJsMenu.classList.toggle("activ");
+  setAuthMenuListeners("menuPane");
+
 }
+export const toggleMenuAuth = (panelId) => {
+  
+  document.getElementById(panelId + 'SignUpWrapperId').classList.toggle("element_hidden");
+  document.getElementById(panelId + 'SignInWrapperId').classList.toggle("element_hidden");
+
+} 
 
 const createMarkUp = () => {
   getJsMenu.insertAdjacentHTML('beforeend', `${sandwichmenu()}`);
@@ -72,24 +79,18 @@ const renderCategories = categories => {
 
 export const renderAuthMenu = (paneName) => {
   const context = { menuAuth: paneName };
-  if (!localStorage.getItem('accessToken')) {
-    signInDivMenuPane.innerHTML = signInMenuPane(context);
-      const signInBtnmenu = document.getElementById(paneName + 'SignInBtnId')
-      const signUpBtnmenu = document.getElementById(paneName + 'SignUpBtnId')
-      if (signUpBtnmenu.addEventListener('click', signUpHandler)) {
-          signUpBtnmenu.removeEventListener('click', signUpHandler)
-      } if (signInBtnmenu.addEventListener('click', signInHandler)) {
-          signInBtnmenu.removeEventListener('click', signInHandler)
-      }
-  }
-  else {
-    signInDivMenuPane.innerHTML = signUpMenuPane(context)
-      const logOutBtnmenu = document.getElementById(paneName + 'LogOutBtn')
+  //console.log("here1");
+  signInDivMenuPane.innerHTML = signInMenuPane(context);
+}
+
+export const setAuthMenuListeners = (paneName) => {
+  const signInBtnmenu = document.getElementById(paneName + 'SignInBtnId')
+  const signUpBtnmenu = document.getElementById(paneName + 'SignUpBtnId')
+  const logOutBtnmenu = document.getElementById(paneName + 'LogOutBtn')
       // const userBtnmenu = document.querySelector(paneName + 'User_btn')
-      if (logOutBtnmenu.addEventListener('click', logOut)) {
-          logOutBtnmenu.removeEventListener('click', logOut)
-      }
-  }
+  signUpBtnmenu.addEventListener('click', signUpHandler);
+  signInBtnmenu.addEventListener('click', signInHandler);
+  logOutBtnmenu.addEventListener('click', logOut);
 }
 
 const sandwichMenu = document.getElementById('sandwichmenu');
