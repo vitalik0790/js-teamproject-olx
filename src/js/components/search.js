@@ -28,7 +28,9 @@ export const onPressEnterSearch = async event => {
     if (event.code === 'Enter') {
         if (headerInput.value.length >= 1 || headerInputTablet.value.length >= 1) {
             updateMarkup(await getSearchQuery(headerInput.value));
+            updateMarkup(await getSearchQuery(headerInputTablet.value));
             headerInput.value = '';
+            headerInputTablet.value = '';
         }
     };
 }
