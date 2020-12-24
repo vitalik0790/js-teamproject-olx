@@ -20,16 +20,15 @@ const refs = {
   favoritesTextRef: '',
 };
 
-// Выполняет запрос в базу данных
+const fetchFavourites = () => {
+  fetchFavouritesAPI()
+    .then(favorites => {
+      data.user.favorites = favorites;
 
-// async function fetchCards() {
-//   const response = await axios.get(`${data.baseURL}/call/specific/electronics`);
-//   const cards = response.data;
-//   console.log(cards);
-
-//   return cards;
-// }
-// fetchCards().then(cards => openProductInfo(cards[11]));
+      // console.log('data после перезагрузки:', data.user.favorites);
+    })
+    .catch(error => console.log(error));
+};
 
 //=============== открытие информации о товаре =================
 function openProductInfo(card) {
@@ -48,16 +47,9 @@ function openProductInfo(card) {
   mobSlider(refs.dotsRef);
   isAuth(refs.activeListRef);
 
-  fetchFavouritesAPI()
-    .then(favorites => {
-      data.user.favorites = favorites;
-      console.log('data после перезагрузки:', data.user.favorites);
-
-      if (findCardInFavoritesById(card)) {
-        changeFavoriteBtnOnActive();
-      }
-    })
-    .catch(error => console.log(error));
+  if (findCardInFavoritesById(card)) {
+    changeFavoriteBtnOnActive();
+  }
 
   refs.maxImgRef.setAttribute('src', card.imageUrls[0]);
   refs.minImgRef.classList.add('productInfo__item-imgMin--active');
@@ -146,4 +138,4 @@ function removeEventListeners() {
   refs.favoritesRef.removeEventListener('click', onFavoritesClick);
 }
 
-export { openProductInfo };
+export { openProductInfo, fetchFavourites };
