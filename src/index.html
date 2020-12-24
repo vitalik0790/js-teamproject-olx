@@ -37,17 +37,28 @@
           </a>
         </div>
         <div class="header-search">
-          <input class="header-logo__input" type="text" name="inputSearch" id="inputSearch" placeholder="" />
+          <input class="header-logo__input" type="text" name="inputSearch" id="inputSearch"
+            placeholder="Поиск товаров..." />
           <svg width="24" height="24" aria-label="Мобильное меню" class="header-logo__input-svg">
             <use class="" href="./images/svg/icons/sprite.svg#search"></use>
-          </svg>
+          </svg> -->
+          <!-- <button class="header__input-btn"></button> -->
         </div>
-        <button type="button" class="search__button" aria-expanded="true" aria-controls="menu-container"
-          data-menu-button>
-          <svg width="24" height="24" aria-label="Мобильное меню" class="search__button-svg">
-            <use class="" href="./images/svg/icons/sprite.svg#search"></use>
-          </svg>
-        </button>
+
+        <!-- моя кнопка -->
+        <div class="relative">
+          <button type="button" class="search__button is-open" aria-expanded="false" aria-controls="menu-container"
+            data-menu-button>
+            <svg width="24" height="24" aria-label="Мобильное меню" class="search__button-svg">
+              <use class="input-open" href="./images/svg/icons/sprite.svg#close"></use>
+              <use class="input-close" href="./images/svg/icons/sprite.svg#search"></use>'
+            </svg>
+          </button>
+          <input class="mobile-search-input" type="text" placeholder="Поиск товаров..." data-menu>
+        </div>
+
+
+
         <div class="header-auth"></div>
         <button type="button" class="button header-btn-adv" id="header-btn-adv">
           Создать объявление
@@ -56,10 +67,11 @@
       <div class="header-filter">
         <div class="header-search-tablet">
           <input class="header-logo__input-tablet" type="text" name="inputSearchTabl" id="inputSearchTabl"
-            placeholder="" />
-          <svg width="24" height="24" aria-label="Мобильное меню" class="header-logo__input-svg">
+            placeholder="Поиск товаров..." />
+          <!-- <svg width="24" height="24" aria-label="Мобильное меню" class="header-logo__input-svg">
             <use class="" href="./images/svg/icons/sprite.svg#search"></use>
-          </svg>
+          </svg> -->
+          <button class="header__input-btn"></button>
         </div>
 
         <button class="button header-filter-tablet">

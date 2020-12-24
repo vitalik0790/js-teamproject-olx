@@ -5,6 +5,7 @@ import { searchInAll } from '../api/searchInAll'
 
 const headerInput = document.querySelector('.header-logo__input');
 const headerInputTablet = document.querySelector('.header-logo__input-tablet');
+const headerInputMob = document.querySelector('.mobile-search-input')
 const main = document.querySelector('.main')
 
 export const getSearchQuery = async (query) => {
@@ -35,6 +36,11 @@ export const onPressEnterSearch = async event => {
             updateMarkup(await getSearchQuery(headerInputTablet.value))
             headerInputTablet.value = '';
         }
+
+        if (headerInputMob.value.length >= 1) {
+            updateMarkup(await getSearchQuery(headerInputMob.value))
+            headerInputMob.value = '';
+        }
     };
 }
 
@@ -42,3 +48,4 @@ export const onPressEnterSearch = async event => {
 // headerInputTablet.addEventListener('change', getBySearch);
 headerInput.addEventListener('keydown', onPressEnterSearch);
 headerInputTablet.addEventListener('keydown', onPressEnterSearch);
+headerInputMob.addEventListener('keydown', onPressEnterSearch);

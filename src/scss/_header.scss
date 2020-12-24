@@ -25,6 +25,10 @@
   &-logo {
     display: flex;
 
+    &.is-open {
+      display: block;
+    }
+
     &__ellipse {
       width: 44px;
       height: 44px;
@@ -60,6 +64,7 @@
         padding-top: 10px;
         padding-bottom: 10px;
         border: none;
+        padding-left: 7px;
       }
     }
 
@@ -74,6 +79,7 @@
         padding-top: 10px;
         padding-bottom: 10px;
         border: none;
+        padding-left: 7px;
       }
       @media screen and (min-width: 1280px) {
         display: none;
@@ -82,6 +88,22 @@
 
     &__input-svg {
       fill: $header-primary-text-color;
+    }
+  }
+
+  &__input-btn {
+    position: absolute;
+    cursor: pointer;
+    transform: translate(380px, 8px);
+    border: none;
+    outline: none;
+    width: 24px;
+    height: 24px;
+    background: url('https://i.ibb.co/QF9Cnjt/Vector-1.jpg');
+    background-repeat: no-repeat;
+
+    @media screen and (min-width: 1280px) {
+      transform: translate(435px, 12px);
     }
   }
 
@@ -153,7 +175,8 @@
       border: none;
       background: $accent-color;
 
-      transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     @media screen and (min-width: 1280px) {
@@ -295,13 +318,34 @@
 // }
 //}
 
+// ==================================================
+.relative {
+  width: 44px;
+  height: 44px;
+  position: relative;
+}
+
 .search__button {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
   border: none;
   background-color: transparent;
+  z-index: 2;
   @media screen and (min-width: 768px) {
     display: none;
   }
   &-svg {
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
     fill: #445361;
     margin-right: 15px;
     @media screen and (min-width: 768px) {
@@ -310,11 +354,45 @@
   }
 }
 
+.search__button .input-close {
+  display: none;
+}
+
+.search__button.is-open .input-close {
+  display: block;
+}
+
+.search__button.is-open .input-open {
+  display: none;
+}
+
+.mobile-search-input {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-family: MontserratLight, sans-serif;
+  outline: none;
+  color: #000;
+  font-size: 12px;
+  width: 300px;
+  height: 44px;
+  padding-left: 10px;
+  z-index: 1;
+
+  &.is-open {
+    display: block;
+  }
+}
+
+// ====================================================
+
 .header-search {
   display: none;
   @media screen and (min-width: 1280px) {
     display: flex;
     position: relative;
+    height: 44px;
   }
 }
 
@@ -334,11 +412,11 @@
     display: flex;
     position: absolute;
     top: 50%;
-    left: 376px;
+    left: 346px;
     transform: translateY(-50%);
   }
   @media screen and (min-width: 1280px) {
-    left: 434px;
+    left: 425px;
   }
 }
 
