@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { data } from '../data/data';
-
+import {camelize} from '../utils/camelCase'
+import {camelCase} from 'lodash'
 // const properties = {
 //     width: 0,
 //     height: 0,
@@ -16,7 +17,7 @@ const getViewport = () => {
   } else if (data.properties.width >= 768 && data.properties.width <= 1279) {
     data.properties.isTablet = true;
   } else data.properties.isDesktop = true;
-  console.log(data.properties);
+  // console.log(data.properties);
 };
 
 // const cardsToLoad = () => {
@@ -34,9 +35,9 @@ const baseURL = 'https://callboard-backend.herokuapp.com';
 let categoriesShown = 0;
 const createMarkup = async (array, num) => {
   if (!data.russianCategories.length) {
-    console.log(data.russianCategories);
+    // console.log(data.russianCategories);
     await getRussianCategories();
-    console.log(data.russianCategories);
+    // console.log(data.russianCategories);
   }
   let acc = '';
   for (let i = 0; i < (array.length < num ? array.length : num); i += 1) {
@@ -70,10 +71,26 @@ const createMarkup = async (array, num) => {
 };
 
 const getCategories = async () => {
-  await axios.get(`${baseURL}/call/categories`).then(response => {
-    data.categories = [...response.data];
+  const result = await axios.get(`${baseURL}/call/categories`);
+  result.data.forEach(element => data.categories.push(camelCase(element)));
+  result.data.forEach(
+    element => (data.categoriesList[camelCase(element)] = []),
+  );
+  // data.categories = [...camelCase(result.data)];
     //  console.log( data.categories);
-  });
+    //  console.log(data.categoriesList);
+    // console.log(data);
+};
+
+const getCategory = async categoryName => {
+  try {
+    const result = await axios.get(
+      `https://callboard-backend.herokuapp.com/call/specific/${categoryName}`,
+    );
+    data.categoriesList[categoryName] = [...result.data];
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const getRussianCategories = async () => {
@@ -120,7 +137,13 @@ export const init = async () => {
     for (let i = 0; i < categoriesNum; i += 1) {
       await axios
         .get(`${baseURL}/call/specific/${data.categories[categoriesShown]}`)
-        .then(async response => await createMarkup(response.data, cardsNum))
+        .then(async response => {
+          await createMarkup(response.data, cardsNum);
+          getCategory(data.categories[categoriesShown])
+          data.renderedCategories.push(data.categories[categoriesShown])
+          console.log(data.renderedCategories);
+          console.log(data);
+        })
         .catch(error => console.log(error));
       categoriesShown += 1;
       // console.log(categoriesShown);
