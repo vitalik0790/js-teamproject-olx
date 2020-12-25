@@ -26,6 +26,8 @@ const logOut = () => {
   localStorage.clear();
   data.auth.isAuth = false;
   data.auth.token = '';
+  data.user.favorites = [];
+  data.user.ownCalls = [];
   isLogin();
   toggleMenuAuth("menuPane");
   console.log('user logged out');
