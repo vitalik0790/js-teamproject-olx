@@ -82,9 +82,10 @@ const createMarkup = async (array, num) => {
 const getCategories = async () => {
   const result = await axios.get(`${baseURL}/call/categories`);
   result.data.forEach(element => data.categories.push(camelCase(element)));
-  result.data.forEach(
-    element => (data.categoriesList[camelCase(element)] = []),
-  );
+  result.data.forEach(element => {
+    data.categoriesList[camelCase(element)] = [];
+    getCategory(camelCase(element));
+  });
   // data.categories = [...camelCase(result.data)];
   //  console.log( data.categories);
   //  console.log(data.categoriesList);
@@ -148,8 +149,11 @@ export const init = async () => {
         .get(`${baseURL}/call/specific/${data.categories[categoriesShown]}`)
         .then(async response => {
           await createMarkup(response.data, cardsNum);
-          getCategory(data.categories[categoriesShown]);
           data.renderedCategories.push(data.categories[categoriesShown]);
+
+          // getCategory(data.categories[categoriesShown])
+          data.renderedCategories.push(data.categories[categoriesShown]);
+
           // console.log(data.renderedCategories);
           console.log(data);
 
