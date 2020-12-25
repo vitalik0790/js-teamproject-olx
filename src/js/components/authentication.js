@@ -2,7 +2,11 @@ import axios from 'axios';
 import { openInModal, closeModal, inCurrentModal } from './modal';
 import signUpFormTemplate from '../../templates/signUpFormTemplate.hbs';
 import signInFormTemplate from '../../templates/signInFormTemplate.hbs';
-import { isLogin } from './navigation-estimates'
+import { isLogin } from './navigation-estimates';
+import { toggleMenuAuth } from './sandwichmenu';
+import {fetchFavourites} from './productInfo/productInfo'
+import { data } from '../data/data';
+import { getToken} from '../utils/getToken'
 
 const signUpURL = 'https://callboard-backend.herokuapp.com/auth/register';
 const signInURL = 'https://callboard-backend.herokuapp.com/auth/login';
@@ -11,10 +15,19 @@ const user = {
   email: '',
   password: '',
 };
-
+const checkAuth = async () => {
+  const token = await getToken()
+    if (token) {
+   data.auth.isAuth = true;
+   data.auth.token = getToken()   
+  }
+}
 const logOut = () => {
   localStorage.clear();
+  data.auth.isAuth = false;
+  data.auth.token = '';
   isLogin();
+  toggleMenuAuth("menuPane");
   console.log('user logged out');
 };
 
@@ -48,9 +61,13 @@ const signUpHandler = () => {
         JSON.stringify(responseIn.data.accessToken),
       );
       signUpForm.removeEventListener('input', getUserData);
-      signUpForm.removeEventListener('submit', signUpData);      
+      signUpForm.removeEventListener('submit', signUpData);
+      data.auth.isAuth = true;
+      data.auth.token = getToken();
       closeModal();
       isLogin();
+      toggleMenuAuth("menuPane");
+      fetchFavourites()
     } catch (error) {
       console.log(error.response.data.message);
       errorUp.textContent = error.response.data.message;
@@ -96,8 +113,13 @@ const signInHandler = () => {
       signInForm.removeEventListener('input', getUserData);
       signInForm.removeEventListener('submit', signInData);
       signInFormSignUpBtn.removeEventListener('click', signUpHandler);
+      data.auth.isAuth = true;
+      data.auth.token = getToken();
       closeModal();
       isLogin();
+      toggleMenuAuth("menuPane");
+      fetchFavourites();
+      
     } catch (error) {
       console.log(error.response.data.message);
       errorIn.textContent = error.response.data.message;
@@ -118,4 +140,4 @@ const signInHandler = () => {
   signInFormSignUpBtn.addEventListener('click', signUpHandler);
 };
 
-export { signUpHandler, signInHandler, logOut };
+export { signUpHandler, signInHandler, logOut, checkAuth };
