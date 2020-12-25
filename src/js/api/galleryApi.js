@@ -71,7 +71,10 @@ const createMarkup = async (array, num) => {
 
 const getCategories = async () => {
   const result = await axios.get(`${baseURL}/call/categories`);
-  result.data.forEach(element => data.categories.push(camelCase(element)));
+  result.data.forEach(element => {
+    data.categories.push(camelCase(element));
+    data.originalCategories.push(element);
+  });
   result.data.forEach(
     element => {
       data.categoriesList[camelCase(element)] = [];
