@@ -9,6 +9,7 @@ export const data = {
   renderedCategories: [],
   categoriesList: {},
   inCategories: [],
+  inAll: [],
   auth: {
     isAuth: false,
     token: '',
@@ -25,3 +26,5 @@ export const data = {
     isDesktop: false,
   },
 };
+
+
