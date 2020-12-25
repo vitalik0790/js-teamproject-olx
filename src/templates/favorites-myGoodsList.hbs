@@ -1,11 +1,11 @@
 <section class="favorites-myGoods container">
   <h1 class="favorites-myGoods__title">{{title}}</h1>
   <ul class="favorites-myGoods__list list">
-    {{#each this}}
+    {{#each arr}}
     <li class="favorites-myGoods__item" data-card="{{this._id}}">
       <div class="favorites-myGoods__item-img-wrapper">
 
-        <img class="favorites-myGoods__item-img" src="{{#with this.imageUrls}}{{this.[0]}}{{/with}}"
+        <img class="favorites-myGoods__item-img" src="{{#with this.imageUrls}} {{this.[0]}} {{/with}}"
           alt="{{this.title}}" />
 
       </div>

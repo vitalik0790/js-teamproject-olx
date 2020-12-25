@@ -8,16 +8,16 @@ const refs = {
 };
 
 function createMarkupFavoritesGoodsList(title, arr) {
-  if (!arr.length) {
-    refs.main.innerHTML = `<section class="favorites-myGoods container">
-  <h1 class="favorites-myGoods__title">${title}</h1>
-  </section>`;
-    return;
-  }
+  // if (!arr.length) {
+  //   refs.main.innerHTML = `<section class="favorites-myGoods container">
+  // <h1 class="favorites-myGoods__title">${title}</h1>
+  // </section>`;
+  //   return;
+  // }
 
-  const markup = listTemplate({ ...arr, title });
-
+  const markup = listTemplate({ arr, title });
   refs.main.innerHTML = markup;
+
   refs.list = document.querySelector('.favorites-myGoods__list');
   refs.list.addEventListener('click', onCardClick);
 
