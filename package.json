@@ -52,6 +52,8 @@
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "handlebars": "^4.7.6",
-    "modern-normalize": "^1.0.0"
+    "inputmask": "^5.0.5",
+    "modern-normalize": "^1.0.0",
+    "pnotify": "^5.2.0"
   }
 }

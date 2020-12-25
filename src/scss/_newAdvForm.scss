@@ -1,7 +1,13 @@
+//
+
+.in-visible {
+  visibility: hidden;
+}
+
 .form-text {
   display: block;
   font-family: Montserrat;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
@@ -41,6 +47,12 @@
   border: 1px solid #bbbbbb;
   background-color: $primary-bg-color;
   resize: none;
+  &:invalid:not(:placeholder-shown) {
+    border-color: red;
+  }
+  &:valid:not(:placeholder-shown) {
+    border-color: green;
+  }
 }
 
 .name-product-form {
@@ -54,6 +66,10 @@
 .form-fields {
   display: flex;
   flex-direction: column;
+}
+
+.textarea {
+  padding-top: 15px;
 }
 
 .push-button {
@@ -70,7 +86,7 @@
 
 .button-text {
   font-family: Montserrat;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 12px;
   line-height: 1.166;
   text-align: center;
@@ -85,11 +101,21 @@
 }
 
 // photo
+.gallery-box {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.grey-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  // flex-direction: row;
+  // width: 100%;
+}
+// ====================
 .input-wrapper {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
 }
 
 .input-file-list {
@@ -104,20 +130,25 @@
 .file-loader {
   position: relative;
   width: 76px;
+  width: 100%;
   height: 46px;
   display: inline-block;
   vertical-align: top;
-  margin-right: 10px;
+  // margin-right: 10px;
   margin-bottom: 10px;
 }
 .file-loader-input {
   display: none;
+  // visibility: hidden;
 }
 .file-loader-label {
   display: block;
   width: 76px;
   height: 46px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   background-color: #f5f6fb;
+  border: 1px solid orange;
 }
 
 .file-loader-show-availabel {
@@ -190,9 +221,9 @@
     align-items: baseline;
     justify-content: space-between;
   }
-  .flex-input-form-center {
-    align-items: center;
-  }
+  // .flex-input-form-center {
+  //   align-items: center;
+  // }
   .form-input {
     width: 458px;
   }
@@ -205,12 +236,15 @@
       margin-right: 0px;
     }
   }
-
+  // ====================
   .input-wrapper {
-    margin-left: 228px;
+    flex-wrap: nowrap;
+    // margin-left: 150px;
+  }
+  .grey-wrapper {
+    flex-wrap: nowrap;
   }
 }
-
 @media screen and (min-width: 1200px) {
   .form {
     width: 950px;
@@ -228,6 +262,7 @@
     height: 60px;
     margin-left: 338px;
   }
+  // ====================
   .input-wrapper {
     margin-left: 303px;
   }

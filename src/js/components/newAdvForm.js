@@ -1,20 +1,44 @@
 import newAdvForm from '../../templates/newAdvForm.hbs';
-import firstInput from '../../templates/firstInput.hbs';
-import secondInput from '../../templates/secondInput.hbs';
 import { openInModal, closeModal } from './modal';
 import axios from 'axios';
 import { data } from '../data/data'
 import { getToken } from '../utils/getToken'
+import '@pnotify/core/dist/BrightTheme.css';
+import '@pnotify/core/dist/PNotify.css';
+import { error, success, notice } from '@pnotify/core';
 
-
-// axios.defaults.headers.common['Authorization'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmUzMWI2MWE0ZjYyYzAwMTdhZWE3ZTIiLCJzaWQiOiI1ZmUzMWI2NGE0ZjYyYzAwMTdhZWE3ZTQiLCJpYXQiOjE2MDg3MTkyMDQsImV4cCI6MTYwODcyMjgwNH0.aqHR6o_1qA-DsEvG1OFvQ9awNLm8BItSmhJBT4Y5BRc';
 const baseURL = 'https://callboard-backend.herokuapp.com/call';
-// axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
+
+// const alert = {
+//     text: `${text}`,
+//     sticker: false,
+//     closer: false,
+//     delay: 3000,
+// }
+
+const errorAlert = (text) => error({
+    text: `${text}`,
+    sticker: false,
+    closer: false,
+    delay: 3000,
+})
+const noticeAlert = (text) => notice({
+    text: `${text}`,
+    sticker: false,
+    closer: false,
+    delay: 3000,
+})
+const successAlert = (text) => success({
+    text: `${text}`,
+    sticker: false,
+    closer: false,
+    delay: 3000,
+})
 
 const options = {
     headers: {
-        Authorization: 'Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZmUzMWI2MWE0ZjYyYzAwMTdhZWE3ZTIiLCJzaWQiOiI1ZmUzMWI2NGE0ZjYyYzAwMTdhZWE3ZTQiLCJpYXQiOjE2MDg3MTkyMDQsImV4cCI6MTYwODcyMjgwNH0.aqHR6o_1qA-DsEvG1OFvQ9awNLm8BItSmhJBT4Y5BRc',
-        'Content-Type': 'multipart/form-data; boundary=<calculated when request is sent>',
+        Authorization: "Bearer " + getToken(),
+        'Content-Type': 'multipart/form-data',
     }
 }
 
@@ -24,6 +48,9 @@ const refs = {
     closeModalBtn: document.querySelector('.modal-button-icone'),
     contentAdvForm: document.querySelector('.contentAdvForm'),
     formAdv: document.forms.advForm,
+    inputs: document.querySelector('.tel-label'),
+    inputWrapper: document.querySelector('.input-wrapper'),
+    cleanButton: document.querySelector('.clean-button'),
 }
 
 // =========================== input Img ===========================================
@@ -35,7 +62,8 @@ const toDataURL = (element) => {
     });
 };
 
-// ============================= Modal ===================================
+
+// ============================= DATA===================================
 const newAdv = {
     title: "",
     file: [],
@@ -45,24 +73,20 @@ const newAdv = {
     phone: "",
 }
 
+const formData = new FormData();
 
-const postNewAdv = async (e) => {
-    e.preventDefault();
-    const getAdvToken = getToken();
-    if (getAdvToken) {
-        newAdv.file = newAdv.file.join('')
-        newAdv.price = Number(newAdv.price)
-        console.log(newAdv.file);
-        try {
-            await axios.post(baseURL, { ...newAdv }, options)
-            // closeModal();
-        } catch (error) {
-            console.log("sendForm", error);
-            alert("Something went wrong. Try again")
-        }
+const getPrice = () => {
+    if (newAdv.category === "free" || newAdv.category === "work" || newAdv.category === "trade") {
+        noticeAlert('Цена должна быть 0 в категориях "work","free", "trade". Данные были откорректированы автоматически').open()
+        return 0
+    } else {
+        return Number(newAdv.price)
     }
-
 }
+
+// ================================= MARKUP =========================================
+
+
 const getDataForm = (e) => {
     if (e.target.type === "file") {
         return;
@@ -71,49 +95,124 @@ const getDataForm = (e) => {
     newAdv[name] = value;
 }
 
+const createFirstInput = (id) => {
+    return `
+    <li data-id="${id}" class="file-loader">
+ <label for="file_loader${id}"   class="file-loader-label">
+    <input type="file" id="file_loader${id}"    class="file-loader-input" name='file'>
+   
+        <span class="file-loader-show-availabel">+</span>
+    </label>
+
+</li>
+    `
+    let label = document.getElementById(`file_loader${id}`).style.marginRight = '10px'
+
+}
+const createSecondBlock = () => {
+    let greyWrapp = '';
+    const greyList = document.querySelector('.grey-wrapper');
+    for (let i = newAdv.file.length; i < 4; i += 1) {
+        greyWrapp += `<li class="file-loader-label"></li>`
+    }
+    greyList.innerHTML = greyWrapp;
+}
+
 const createBox = () => {
-    let quantityImg = 0;
-    let iFor = 0;
-    if (window.screen.width > 320 && window.screen.width < 768) {
-        quantityImg = 6;
-        iFor = 5;
-    } else {
-        quantityImg = 5;
-        iFor = 4;
+    // let quantityImg = 0;
+    // if (window.screen.width > 320 && window.screen.width < 768) {
+    //     quantityImg = 6;
+    // } else {
+    //     quantityImg = 5;
+    // }
+    if (newAdv.file.length < 5) {
+        refs.inputWrapper.insertAdjacentHTML('beforeend', createFirstInput(newAdv.file.length))
     }
-    const inputWrapper = document.querySelector('.input-wrapper');
-    inputWrapper.innerHTML = '';
-    newAdv.file.forEach(img => inputWrapper.insertAdjacentHTML('beforeend', `<img src=${img} alt="" class ="img-adv-box" name="file">`))
+    createSecondBlock()
+}
 
-    if (newAdv.file.length < quantityImg) {
-        inputWrapper.insertAdjacentHTML('beforeend', firstInput())
-        const input = document.querySelector('.file-loader-input');
-        input.addEventListener('change', async (e) => {
-            await toDataURL(e.target)
-                .then(data => newAdv.file.push(data))
-            createBox();
+const onHandleChange = async (e) => {
+    const { type } = e.target;
+    if (type !== 'file') return
+    const id = e.target.closest('[data-id]').dataset.id;
+    await toDataURL(e.target).then(img => {
+        const image = document.createElement('img');
+        const li = document.querySelector(`[data-id="${id}"]`);
+        const label = li.querySelector('label');
+        image.src = img;
+        image.alt = 'picture';
+        image.classList.add('img-adv-box');
+        label.append(image);
+        const span = label.querySelector('.file-loader-show-availabel');
+        span.classList.add('in-visible')
+        newAdv.file.push(img);
 
-        })
-    }
-    for (let i = newAdv.file.length; i < iFor; i += 1) {
-        inputWrapper.insertAdjacentHTML('beforeend', secondInput())
+    })
+    if (newAdv.file.length < 5) {
+        refs.inputWrapper.insertAdjacentHTML('beforeend', createFirstInput(newAdv.file.length))
+
+        createSecondBlock()
     }
 }
 
+const clearMarkup = () => {
+    refs.formAdv.reset();
+    const parentImg = document.querySelector('.file-loader-input');
+    const fullImg = document.querySelector('.img-adv-box');
+    if (parentImg.contains(fullImg)) {
+        // fullImg.remove()
+        console.log('gggggggg');
+    }
+}
+// ===============================Open Modal =================================
 const openAdvModal = () => {
     openInModal(newAdvForm(data));
-    createBox();
+    const select = document.querySelector(".select-option").text = "";
     refs.formAdv = document.forms.advForm;
+    refs.inputWrapper = refs.formAdv.querySelector('.input-wrapper')
+    refs.cleanButton = document.querySelector('.clean-button')
+    createBox();
     refs.formAdv.addEventListener("input", getDataForm);
     refs.formAdv.addEventListener('submit', postNewAdv);
+    refs.formAdv.addEventListener('change', onHandleChange)
+    refs.cleanButton.addEventListener('click', clearMarkup)
 }
 
-//refs.openModalBtn.addEventListener('click', openAdvModal);
+// ================================= POST ADV ================================
+const postNewAdv = async (e) => {
+    e.preventDefault();
+    const getAdvToken = getToken();
+    if (newAdv.file.length === 0) {
+        errorAlert("Необходимо загрузить минимум 1 фото!").open()
+    }
+    if (getAdvToken) {
+        console.log(newAdv.file);
+        try {
+            const allInputsFiles = refs.formAdv.querySelectorAll('.file-loader-input')
+            console.log(allInputsFiles);
+            formData.append('title', newAdv.title)
+            formData.append('description', newAdv.description)
+            formData.append('category', newAdv.category)
+            formData.append('price', getPrice())
+            formData.append('phone', newAdv.phone)
+            for (let i = 0; i < allInputsFiles.length; i += 1) {
+                if (allInputsFiles[i].files.length) {
+                    formData.append('file', allInputsFiles[i].files[0]);
+                }
+            }
+            await axios.post(baseURL, formData, options)
+            await closeModal();
+            successAlert("Объявление успешно записано!").open()
+        } catch (error) {
+            console.log("sendForm", error);
+            errorAlert("Что-то пошло не так( Попробуйте еще раз").open()
+        }
 
+    }
 
+}
 
 // =================================================================
-
 
 export { refs, openAdvModal }
 
