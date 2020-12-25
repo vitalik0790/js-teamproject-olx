@@ -186,17 +186,18 @@ const onHandleChange = async (e) => {
 //                     </path>
 //                 </svg>
 //                 <span class="delete-button-text">Удалить объявление</span>
-//             </button>`
-//     // const newObjAdv = {...newAdv}
-//     // refs.formAdv.title.value = ewObjAdv.title
-//     // refs.formAdv.description.value = ewObjAdv.description
-//     // refs.formAdv.category.value = ewObjAdv.category
-//     // refs.formAdv.price.value = ewObjAdv.price
-//     // refs.formAdv.phone.value = ewObjAdv.phone
+//             </button>
+// </div>`
+// //     // const newObjAdv = {...newAdv}
+// //     // refs.formAdv.title.value = ewObjAdv.title
+// //     // refs.formAdv.description.value = ewObjAdv.description
+// //     // refs.formAdv.category.value = ewObjAdv.category
+// //     // refs.formAdv.price.value = ewObjAdv.price
+// //     // refs.formAdv.phone.value = ewObjAdv.phone
 
-//     const createImagesMarkup = () => {
-//         newAdv.imageUrl.reduce((acc, item) => {
-//             acc += `
+// //     const createImagesMarkup = () => {
+// //         newAdv.imageUrl.reduce((acc, item) => {
+// //             acc += `
 //              <li data-id="${id}" class="file-loader">
 //  <label for="file_loader${id}"   class="file-loader-label">
 //     <input type="file" id="file_loader${id}"    class="file-loader-input" name='file'>
