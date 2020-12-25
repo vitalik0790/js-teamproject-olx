@@ -153,21 +153,22 @@ export const init = async () => {
       }
     }
     $(document).ready(function () {
-      $('.js-slider').slick({
+      $('.js-slider').not('.slick-initialized').slick({
         dots: true,
         variableWidth: true,
       });
-    });
+    });   
   };
   const loadMore = async () => {
     await fetcherWithCounter(1, 8);
-    await $('.js-slider').slick('unslick');
-    await $(document).ready(function () {
-      $('.js-slider').slick({
-        dots: true,
-        variableWidth: true,
-      });
-    });
+    // await $('.js-slider').slick('unslick');
+    // $('.js-slider').not('.slick-initialized').slick()
+    // await $(document).ready(function () {
+    //   $('.js-slider').not('.slick-initialized').slick({
+    //     dots: true,
+    //     variableWidth: true,
+    //   });
+    // });    
   };
 
   loadMoreBtn.addEventListener('click', loadMore);
