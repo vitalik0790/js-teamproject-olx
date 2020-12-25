@@ -18,7 +18,8 @@ const user = {
 const checkAuth = async () => {
   const token = await getToken()
     if (token) {
-   data.auth.isAuth = true;   
+   data.auth.isAuth = true;
+   data.auth.token = getToken()   
   }
 }
 const logOut = () => {
