@@ -60,7 +60,7 @@
 }
 
 .tel-input-form {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .form-fields {
@@ -180,6 +180,38 @@
     margin-right: 0;
   }
 }
+.button-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.clean-button {
+  margin-bottom: 30px;
+  padding: 5px;
+  width: 185px;
+  border-color: transparent;
+  background-color: $primary-bg-color;
+
+  &:hover,
+  &:focus {
+    border-color: $accent-color;
+    border-radius: 5px;
+  }
+}
+
+.delete-adv-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.delete-button-text {
+  font-family: Montserrat;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.07em;
+
+  color: $primary-text-color;
+}
 
 @media screen and (min-width: 480px) {
   .form {
@@ -215,6 +247,9 @@
     width: 266px;
     height: 60px;
     margin-left: 265px;
+  }
+  .clean-button {
+    margin-left: 255px;
   }
   .flex-input-form {
     display: flex;
@@ -261,6 +296,9 @@
     width: 286px;
     height: 60px;
     margin-left: 338px;
+  }
+  .clean-button {
+    margin-left: 333px;
   }
   // ====================
   .input-wrapper {

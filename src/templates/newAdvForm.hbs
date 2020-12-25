@@ -21,11 +21,10 @@
         <div class="flex-input-form">
             <label class="product-name">Категория товара</label>
 
-            <select class="form-input" name="category">
-                {{#each categories}}
-                {{!-- <option value="null" hidden class="category visually-hidden" selected disabled>Категория</option> --}}
-                <option required value={{this}} class="select-option">{{this}}</option>
-                {{/each}}
+            <select class="form-input select-input" name="category">
+
+
+
             </select>
         </div>
         <div class="flex-input-form">
@@ -39,10 +38,9 @@
                 placeholder=" +380-- --- -- --" title="The value is too short, it must be at least 17 symbols" />
         </div>
     </div>
-    <button type="reset" class="clean-button">
-        <span class="button-text">Удалить объявление</span>
-    </button>
+
     <button type="submit" class="push-button">
         <span class="button-text">Добавить</span>
     </button>
+    {{!-- </div> --}}
 </form>

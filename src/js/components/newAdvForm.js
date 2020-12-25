@@ -20,7 +20,7 @@ const errorAlert = (text) => error({
     text: `${text}`,
     sticker: false,
     closer: false,
-    delay: 3000,
+    delay: 2000,
 })
 const noticeAlert = (text) => notice({
     text: `${text}`,
@@ -32,7 +32,7 @@ const successAlert = (text) => success({
     text: `${text}`,
     sticker: false,
     closer: false,
-    delay: 3000,
+    delay: 2000,
 })
 
 const options = {
@@ -84,6 +84,16 @@ const getPrice = () => {
     }
 }
 
+const createMarkupCategories = () => {
+    let categoriesMarkup = '';
+    const selectInput = document.querySelector('.select-input');
+    for (let i = 0; i < data.categories.length; i += 1) {
+        categoriesMarkup += `<option required value=${data.categories[i]} class="select-option">${data.russianCategories[i]}
+                </option> `
+    }
+    selectInput.innerHTML = categoriesMarkup;
+}
+
 // ================================= MARKUP =========================================
 
 
@@ -106,7 +116,6 @@ const createFirstInput = (id) => {
 
 </li>
     `
-    let label = document.getElementById(`file_loader${id}`).style.marginRight = '10px'
 
 }
 const createSecondBlock = () => {
@@ -155,18 +164,44 @@ const onHandleChange = async (e) => {
     }
 }
 
-const clearMarkup = () => {
-    refs.formAdv.reset();
-    const parentImg = document.querySelector('.file-loader-input');
-    const fullImg = document.querySelector('.img-adv-box');
-    if (parentImg.contains(fullImg)) {
-        // fullImg.remove()
-        console.log('gggggggg');
-    }
+// const clearMarkup = () => {
+//     refs.formAdv.reset();
+//     const parentImg = document.querySelector('.file-loader-input');
+//     const fullImg = document.querySelector('.img-adv-box');
+//     if (parentImg.contains(fullImg)) {
+//         // fullImg.remove()
+//         console.log('gggggggg');
+//     }
+// }
+// =============================== EDIT ADV ==========================================
+
+const editAdvForm = () => {
+    const formTitle = document.querySelector('.form-text');
+    formTitle.textContent = 'Редактировать объявление'
+    const cltanButton = document.querySelector('.clean-button');
+    cltanButton.innerHTML = `
+    < div class="button-box" >
+            <button type="reset" class="clean-button">
+                <svg class="delete-adv-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                    viewBox="0 0 32 32">
+                    <title>file-1</title>
+                    <path fill="#bbb"
+                        d="M20.8 0h-19.2v32h28.8v-22.4l-9.6-9.6zM20.8 4.528l5.072 5.072h-5.072v-5.072zM27.2 28.8h-22.4v-25.6h12.8v9.6h9.6v16z">
+                    </path>
+                    <path fill="#bbb"
+                        d="M22.016 15.471l-2.256-2.272-3.728 3.728-3.904-3.904-2.256 2.272 3.888 3.888-3.696 3.712 2.256 2.256 3.712-3.696 3.728 3.728 2.256-2.272-3.728-3.728 3.728-3.712z">
+                    </path>
+                </svg>
+                <span class="delete-button-text">Удалить объявление</span>
+            </button>`
 }
+
+// data ? editAdvForm : createBox();
 // ===============================Open Modal =================================
 const openAdvModal = () => {
-    openInModal(newAdvForm(data));
+    openInModal(newAdvForm(data)
+    );
+    createMarkupCategories(data);
     const select = document.querySelector(".select-option").text = "";
     refs.formAdv = document.forms.advForm;
     refs.inputWrapper = refs.formAdv.querySelector('.input-wrapper')
@@ -175,7 +210,7 @@ const openAdvModal = () => {
     refs.formAdv.addEventListener("input", getDataForm);
     refs.formAdv.addEventListener('submit', postNewAdv);
     refs.formAdv.addEventListener('change', onHandleChange)
-    refs.cleanButton.addEventListener('click', clearMarkup)
+    // refs.cleanButton.addEventListener('click', clearMarkup)
 }
 
 // ================================= POST ADV ================================
@@ -201,6 +236,7 @@ const postNewAdv = async (e) => {
                 }
             }
             await axios.post(baseURL, formData, options)
+
             await closeModal();
             successAlert("Объявление успешно записано!").open()
         } catch (error) {
