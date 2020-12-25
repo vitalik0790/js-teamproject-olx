@@ -4,7 +4,7 @@ export const data = {
   baseURL: 'https://callboard-backend.herokuapp.com',
   // categories: ["Недвижимость", "Транспорт", "Работа", "Электроника", "Бизнес_и_услуги", "Отдых_и_спорт", "Отдам_бесплатно", "Обмен"],
   // categories: ["property", "transport", "work", "electronics", "bussines and services", "recreation and sport", "free", "trade"],
-
+  originalCategories: [],
   categories: [],
   russianCategories: [],
   renderedCategories: [],
@@ -18,7 +18,7 @@ export const data = {
   user: {
     emaill: '',
     favorites: [],
-    adv: [],
+    ownCalls: [],
   },
   properties: {
     width: 0,
