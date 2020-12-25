@@ -3,6 +3,7 @@ import searchCard from '../../templates/search.hbs';
 import { searchInCategory } from '../api/searchInCategory';
 import { searchInAll } from '../api/searchInAll';
 import { openProductInfo } from '../components/productInfo/productInfo';
+import { camelCase } from 'lodash';
 
 const headerInput = document.querySelector('.header-logo__input');
 const headerInputTablet = document.querySelector('.header-logo__input-tablet');
@@ -38,7 +39,7 @@ export const updateMarkup = goods => {
   function onCardClickInSearch(event) {
     if (event.target === event.currentTarget) return;
 
-    const currentCategory = event.target.closest('li').dataset.category;
+    const currentCategory = camelCase(event.target.closest('li').dataset.category);
     const targetCard = data.categoriesList[currentCategory].find(
       card => card._id === event.target.closest('li').dataset.id,
     );
