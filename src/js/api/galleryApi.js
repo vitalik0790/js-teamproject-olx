@@ -52,7 +52,7 @@ const createMarkup = async (array, num) => {
             </li>        
       `;
   }
-  const indexOfCategory = data.categories.indexOf(array[0].category);
+  const indexOfCategory = data.categories.indexOf(camelCase(array[0].category));
   const list = `
       <li class="gallery__list">
           <div class="gallery__info">
