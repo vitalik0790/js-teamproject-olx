@@ -68,7 +68,7 @@ const createMarkup = async (array, num) => {
             <h2 class="gallery__info-name">${
               data.russianCategories[indexOfCategory]
             }</h2>
-            <a class="gallery__link_view-all" href="#" data-link="${array[0].category}">Смотреть все</a>
+            <a class="gallery__link_view-all" href="#" data-link="${camelCase(array[0].category)}">Смотреть все</a>
           </div>          
           <ul class="products js-slider">               
           ${acc}          
@@ -158,7 +158,7 @@ export const init = async () => {
           data.renderedCategories.push(data.categories[categoriesShown]);
 
           // getCategory(data.categories[categoriesShown])
-          data.renderedCategories.push(data.categories[categoriesShown]);
+          // data.renderedCategories.push(data.categories[categoriesShown]);
 
           // console.log(data.renderedCategories);
           console.log(data);
@@ -187,7 +187,9 @@ export const init = async () => {
               updateMarkup(data.inCategories);
             }
           };
-          const galleryLinkRef = document.querySelector( `[data-link="${data.categories[categoriesShown]}"]`)
+          // const index = data.renderedCategories.length -1 ;
+          // console.log(index);
+          const galleryLinkRef = document.querySelector( `[data-link="${camelCase(data.categories[categoriesShown])}"]`)
           galleryLinkRef.addEventListener('click', linkShowAllCategory);
           
         })
