@@ -17,6 +17,7 @@ export const data = {
   user: {
     emaill: '',
     favorites: [],
+    ownCalls: [],
   },
   properties: {
     width: 0,
