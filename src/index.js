@@ -16,7 +16,6 @@ import { filterListener} from './js/api/filterSearch';
 import { clearFilterListener } from './js/components/clearBtn';
 //renderHeader();
 
-import { filterListener } from './js/api/filterSearch';
 import { newAdvMobileListener } from './js/components/newAdvButton';
 
 //renderHeader();
