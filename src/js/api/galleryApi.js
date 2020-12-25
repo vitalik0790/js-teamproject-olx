@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { data } from '../data/data';
-import {camelize} from '../utils/camelCase'
 import {camelCase} from 'lodash'
 // const properties = {
 //     width: 0,
