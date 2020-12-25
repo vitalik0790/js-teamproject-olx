@@ -1,12 +1,15 @@
-import { clearAll } from '../api/searchInAll';
 import { clearFilter } from '../api/searchInCategory';
+import { createMain } from './createMain';
+import { createHero } from '../../hero_template';
+import { init } from '../api/galleryApi';
 
 const clearBtn = document.getElementById('clear-filter-btn');
 
+const clearMain = () => {
+    clearFilter();
+    createMain();
+    createHero();
+    init()
+}
 
-console.log(clearBtn);
-
-
-
-clearBtn.addEventListener('click', clearAll);
-clearBtn.addEventListener('click', clearFilter)
+clearBtn.addEventListener('click', clearMain);
