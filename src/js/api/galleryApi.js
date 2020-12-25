@@ -41,7 +41,7 @@ const createMarkup = async (array, num) => {
   let acc = '';
   for (let i = 0; i < (array.length < num ? array.length : num); i += 1) {
     acc += `
-      <li class="products__item" data-id="${array[i]._id}">
+      <li class="products__item" data-id="${array[i]._id}" data-category="${camelCase(array[i].category)}">
               <div class="products__img-wrap">
                 <img class="products__img" src="${array[i].imageUrls[0]}" alt="${array[i].description}">
               </div>
