@@ -12,7 +12,10 @@ import { checkAuth } from './js/components/authentication';
 import { createHero } from './hero_template';
 import { isLogin } from './js/components/navigation-estimates';
 import { fetchFavourites } from './js/components/productInfo/productInfo';
+
 import { filterListener } from './js/api/filterSearch';
+import { newAdvMobileListener } from './js/components/newAdvButton';
+
 //renderHeader();
 
 import './js/components/footer/footer';
@@ -29,11 +32,19 @@ const initialisation = async () => {
     await fetchFavourites();
   }
   filterListener();
+  newAdvMobileListener();
 };
 initialisation();
 import { sandwichmenu } from './js/components/sandwichmenu';
 import { newAdv } from './js/components/newAdvButton';
 // import hero_template from './hero_template';
+
+//import './js/components/productInfo/openProductInfo';
+
+
+import './js/components/search'
+import mobileSearh from './js/components/header-mob-search';
+
 
 import './js/components/search';
 import mobileSearh from './js/components/header-mob-search';
