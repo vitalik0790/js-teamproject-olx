@@ -1,7 +1,7 @@
-.signUpBtn,
-.signInBtn,
-.logOutBtn,
-.user_btn {
+.signUpBtnmenu,
+.signInBtnmenu,
+.logOutBtnmenu,
+.user_btnmenu {
   position: relative;
   display: inline-block;
   font-family: Montserrat;
@@ -23,7 +23,7 @@
   }
 }
 
-.logOutBtn {
+.logOutBtnmenu {
   margin-top: auto;
   margin-bottom: auto;
   width: 20px;
@@ -33,7 +33,7 @@
     fill: $accent-color;
   }
 }
-.sign-in-up__stick {
+.sign-in-up__stickmenu {
   margin-left: 12px;
   margin-right: 12px;
   margin-top: auto;
@@ -43,7 +43,7 @@
   border: 1px solid rgba(70, 83, 99, 1);
 }
 
-.user_btn::before {
+.user_btnmenu::before {
   position: absolute;
   bottom: 25%;
   right: 110%;
@@ -51,4 +51,41 @@
   &:hover {
     fill: $accent-color;
   }
+}
+
+.profile-menuMobil {
+  position: absolute;
+  left: -60px;
+  background-color: #fff;
+  width: 206px;
+  height: 94px;
+  z-index: 10;
+  padding: 20px;
+  top: 100%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  &.mobil-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  &__nameMobil {
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: none;
+  }
+
+  &__name {
+    background-color: transparent;
+    border: none;
+    margin-bottom: 20px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.21;
+
+    letter-spacing: 0.02em;
+  }
+}
+
+.profile-Mobil {
+  position: relative;
 }

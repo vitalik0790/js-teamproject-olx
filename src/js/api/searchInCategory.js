@@ -1,20 +1,20 @@
 import { data } from '../data/data';
 import axios from 'axios';
 
-const search = (category) => {
-    return axios.get(`${data.baseURL}/call/specific/${category}`)
-    .then(response => data.inCategories.push(...response.data));
+const search = async (category) => {
+    await axios.get(`${data.baseURL}/call/specific/${category}`)
+        .then(response => data.inCategories.push(...response.data));
 };
 
 export const clearFilter = () => {
     data.inCategories = [];
 };
 
-export const searchInCategory = (category) => {
+export const searchInCategory = async (category) => {
     if (data.inCategories.length === 0) {
-        return search(category)
+        await search(category)
     } else {
         clearFilter();
-        return search(category);
+        await search(category);
     }
 };

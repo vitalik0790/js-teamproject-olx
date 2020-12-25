@@ -1,7 +1,7 @@
-.form {
+.auth-form {
   width: 100%;
 }
-.form__body {
+.auth-form__body {
   min-width: 253px;
   display: block;
   width: 100%;
@@ -9,7 +9,7 @@
     width: 426px;
   }
 }
-.form__title {
+.auth-form__title {
   margin-top: 0;
   margin-bottom: 20px;
   font-weight: 500;
@@ -20,8 +20,8 @@
     line-height: 1.21;
   }
 }
-.form__email,
-.form__password {
+.auth-form__email,
+.auth-form__password {
   box-sizing: border-box;
   position: relative;
   //   display: block;
@@ -45,37 +45,37 @@
     line-height: 1.21;
   }
 }
-.form__email::placeholder,
-.form__password::placeholder {
+.auth-form__email::placeholder,
+.auth-form__password::placeholder {
   color: #bbbbbb;
 }
-.form__email:required:valid:not(:placeholder-shown),
-.form__password:required:valid:not(:placeholder-shown) {
+.auth-form__email:required:valid:not(:placeholder-shown),
+.auth-form__password:required:valid:not(:placeholder-shown) {
   border: 1px solid green;
 }
-.form__email:required:invalid:not(:placeholder-shown),
-.form__password:required:invalid:not(:placeholder-shown) {
+.auth-form__email:required:invalid:not(:placeholder-shown),
+.auth-form__password:required:invalid:not(:placeholder-shown) {
   border: 1px solid red;
 }
 
-.form__email {
+.auth-form__email {
   margin-bottom: 26px;
 }
-.form__password {
+.auth-form__password {
   margin-bottom: 30px;
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
   }
 }
-.form__errorUp,
-.form__errorIn {
+.auth-form__errorUp,
+.auth-form__errorIn {
   display: block;
   margin: 0 auto 20px;
   font-weight: 700;
   text-align: center;
   color: red;
 }
-.form__signupbtn {
+.auth-form__signupbtn {
   min-width: 120px;
   margin: 0 auto;
   padding: 18px 10px;
@@ -103,8 +103,8 @@
   }
 }
 
-.form__signinbtn {
-  @extend .form__signupbtn;
+.auth-form__signinbtn {
+  @extend .auth-form__signupbtn;
   margin-bottom: 10px;
   background-color: $accent-color;
   color: $primary-bg-color;
@@ -119,7 +119,7 @@
     border-color: #bbbbbb;
   }
 }
-.form__text {
+.auth-form__text {
   display: block;
   margin: 0 auto 10px;
   width: max-content;
@@ -129,7 +129,7 @@
   letter-spacing: 0.02em;
   color: #bbbbbb;
 }
-.form__signInFormSignUpBtn {
+.auth-form__signInFormSignUpBtn {
   display: block;
   margin: 0 auto;
   padding: 5px;

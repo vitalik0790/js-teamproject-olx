@@ -52,6 +52,7 @@
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "handlebars": "^4.7.6",
-    "modern-normalize": "^1.0.0"
+    "modern-normalize": "^1.0.0",
+    "siema": "^1.5.1"
   }
 }

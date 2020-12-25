@@ -1,0 +1,28 @@
+.profile-menu {
+  position: absolute;
+  background-color: #fff;
+  width: 206px;
+  height: 94px;
+  z-index: 10;
+  padding: 20px;
+  top: 100%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  &__name {
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  &__favorites {
+    cursor: pointer;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__name:hover,
+  &__favorites:hover {
+    color: $accent-color;
+  }
+}
