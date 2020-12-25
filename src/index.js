@@ -13,6 +13,7 @@ import { createHero } from './hero_template';
 import { isLogin } from './js/components/navigation-estimates';
 import { fetchFavourites } from './js/components/productInfo/productInfo';
 import { filterListener} from './js/api/filterSearch';
+import { newAdvMobileListener } from './js/components/newAdvButton';
 //renderHeader();
 
 
@@ -30,6 +31,7 @@ const initialisation = async () => {
     await fetchFavourites();
   }
   filterListener();
+  newAdvMobileListener();
 };
 initialisation();
 import { sandwichmenu } from './js/components/sandwichmenu';
@@ -39,5 +41,5 @@ import './js/components/productInfo/openProductInfo';
 
 
 import './js/components/search'
-import mobileSearh from './js/components/header-mob-search'
+import mobileSearh from './js/components/header-mob-search';
 
