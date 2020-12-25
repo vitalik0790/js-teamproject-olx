@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { data } from '../data/data';
-import {camelCase} from 'lodash'
+import { camelCase } from 'lodash';
+import { openProductInfo } from '../components/productInfo/productInfo';
+
 // const properties = {
 //     width: 0,
 //     height: 0,
@@ -41,9 +43,13 @@ const createMarkup = async (array, num) => {
   let acc = '';
   for (let i = 0; i < (array.length < num ? array.length : num); i += 1) {
     acc += `
-      <li class="products__item" data-id="${array[i]._id}" data-category="${camelCase(array[i].category)}">
+      <li class="products__item" data-id="${
+        array[i]._id
+      }" data-category="${camelCase(array[i].category)}">
               <div class="products__img-wrap">
-                <img class="products__img" src="${array[i].imageUrls[0]}" alt="${array[i].description}">
+                <img class="products__img" src="${
+                  array[i].imageUrls[0]
+                }" alt="${array[i].description}">
               </div>
               <div class="products__info">
                 <h3 class="products__info-name">${array[i].title}</h3>
@@ -54,9 +60,13 @@ const createMarkup = async (array, num) => {
   }
   const indexOfCategory = data.categories.indexOf(camelCase(array[0].category));
   const list = `
-      <li class="gallery__list">
+  <li class="gallery__list" data-category-name="${camelCase(
+    array[0].category,
+  )}">
           <div class="gallery__info">
-            <h2 class="gallery__info-name">${data.russianCategories[indexOfCategory]}</h2>
+            <h2 class="gallery__info-name">${
+              data.russianCategories[indexOfCategory]
+            }</h2>
             <a class="gallery__link_view-all" href="#">Смотреть все</a>
           </div>          
           <ul class="products js-slider">               
@@ -71,20 +81,20 @@ const createMarkup = async (array, num) => {
 
 const getCategories = async () => {
   const result = await axios.get(`${baseURL}/call/categories`);
+
   result.data.forEach(element => {
     data.categories.push(camelCase(element));
     data.originalCategories.push(element);
   });
-  result.data.forEach(
-    element => {
-      data.categoriesList[camelCase(element)] = [];
-      getCategory(camelCase(element));
-    }
-  );
+  result.data.forEach(element => {
+    data.categoriesList[camelCase(element)] = [];
+    getCategory(camelCase(element));
+  });
+
   // data.categories = [...camelCase(result.data)];
-    //  console.log( data.categories);
-    //  console.log(data.categoriesList);
-    // console.log(data);
+  //  console.log( data.categories);
+  //  console.log(data.categoriesList);
+  // console.log(data);
 };
 
 const getCategory = async categoryName => {
@@ -144,10 +154,29 @@ export const init = async () => {
         .get(`${baseURL}/call/specific/${data.categories[categoriesShown]}`)
         .then(async response => {
           await createMarkup(response.data, cardsNum);
+          data.renderedCategories.push(data.categories[categoriesShown]);
+
           // getCategory(data.categories[categoriesShown])
-          data.renderedCategories.push(data.categories[categoriesShown])
+          data.renderedCategories.push(data.categories[categoriesShown]);
+
           // console.log(data.renderedCategories);
           console.log(data);
+
+          // ================= открытие ProductInfo по клику на карточку ======
+          const galleryLisRef = document.querySelector(
+            `[data-category-name="${data.categories[categoriesShown]}"]`,
+          );
+          galleryLisRef.addEventListener('click', onCardClickInGallery);
+
+          function onCardClickInGallery(event) {
+            if (!event.target.closest('li[data-id]')) return;
+            const currentCategory = event.target.closest('li').dataset.category;
+            const targetCard = data.categoriesList[currentCategory].find(
+              card => card._id === event.target.closest('li').dataset.id,
+            );
+            // console.log(targetCard);
+            openProductInfo(targetCard);
+          }
         })
         .catch(error => console.log(error));
       categoriesShown += 1;
@@ -163,7 +192,7 @@ export const init = async () => {
         dots: true,
         variableWidth: true,
       });
-    });   
+    });
   };
   const loadMore = async () => {
     await fetcherWithCounter(1, 8);
@@ -174,7 +203,7 @@ export const init = async () => {
     //     dots: true,
     //     variableWidth: true,
     //   });
-    // });    
+    // });
   };
 
   loadMoreBtn.addEventListener('click', loadMore);
