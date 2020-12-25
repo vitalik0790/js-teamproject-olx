@@ -18,7 +18,7 @@ export const profileMenu = () => {
 };
 
 function onFavoritBtnClock() {
-  console.log(data.user.favorites);
+  console.log('Избранное в data:', data.user.favorites);
   createMarkupFavoritesList();
 
   refs.menu.classList.toggle('is-hidden');
