@@ -140,7 +140,7 @@ export const init = async () => {
           await createMarkup(response.data, cardsNum);
           getCategory(data.categories[categoriesShown])
           data.renderedCategories.push(data.categories[categoriesShown])
-          console.log(data.renderedCategories);
+          // console.log(data.renderedCategories);
           console.log(data);
         })
         .catch(error => console.log(error));
