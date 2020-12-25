@@ -1,21 +1,20 @@
 import { data } from '../../data/data';
-import favoritesList from '../../../templates/favoritesList.hbs';
+import listTemplate from '../../../templates/favorites-myGoodsList.hbs';
 import { openProductInfo } from '../productInfo/productInfo';
 
 const refs = {
   main: document.querySelector('.main'),
-  favoritesList: '',
+  list: '',
 };
 
-// const favoritesBtnInHeaderRef = document.querySelector('.profile-menu span');
-
-function createMarkupFavoritesList() {
-  const markup = favoritesList(data.user.favorites);
+function createMarkupFavoritesGoodsList(title) {
+  const markup = listTemplate({ ...data.user.favorites, title });
 
   refs.main.innerHTML = markup;
-  refs.favoritesList = document.querySelector('.favorites__list');
-  refs.favoritesList.addEventListener('click', onCardClick);
+  refs.list = document.querySelector('.favorites-myGoods__list');
+  refs.list.addEventListener('click', onCardClick);
 }
+
 function onCardClick(event) {
   if (event.target === event.currentTarget) return;
 
@@ -26,4 +25,4 @@ function onCardClick(event) {
   openProductInfo(targetCard);
 }
 
-export { createMarkupFavoritesList };
+export { createMarkupFavoritesGoodsList };
