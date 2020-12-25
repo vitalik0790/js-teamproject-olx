@@ -12,6 +12,7 @@ import {checkAuth} from './js/components/authentication'
 import { createHero } from './hero_template';
 import { isLogin } from './js/components/navigation-estimates';
 import { fetchFavourites } from './js/components/productInfo/productInfo';
+import { filterListener} from './js/api/filterSearch';
 //renderHeader();
 
 
@@ -28,6 +29,7 @@ const initialisation = async () => {
   if (data.auth.isAuth === true){
     await fetchFavourites();
   }
+  filterListener();
 };
 initialisation();
 import { sandwichmenu } from './js/components/sandwichmenu';
