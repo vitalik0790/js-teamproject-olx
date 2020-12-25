@@ -1,0 +1,41 @@
+.confirm-modal {
+  position: absolute;
+  background-color: #fff;
+  width: 290px;
+  height: 205px;
+  text-align: center;
+  font-weight: 700;
+  z-index: 99;
+  @media screen and (min-width: 768px) {
+    width: 650px;
+    height: 230px;
+    padding-top: 62px;
+  }
+  &__question {
+    margin-bottom: 30px;
+  }
+  &__btns {
+  }
+  &__btn_go {
+    width: 118px;
+    height: 50px;
+    background-color: $accent-color;
+    border: 1px solid #bbbbbb;
+    color: #fff;
+    outline: none;
+    @media screen and (min-width: 768px) {
+      width: 210px;
+      height: 60px;
+    }
+  }
+  &__btn_cancl {
+    width: 118px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #bbbbbb;
+    @media screen and (min-width: 768px) {
+      width: 210px;
+      height: 60px;
+    }
+  }
+}
