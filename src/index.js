@@ -44,7 +44,3 @@ import { newAdv } from './js/components/newAdvButton';
 
 import './js/components/search'
 import mobileSearh from './js/components/header-mob-search';
-
-
-import './js/components/search';
-import mobileSearh from './js/components/header-mob-search';
