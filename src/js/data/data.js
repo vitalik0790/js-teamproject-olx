@@ -6,9 +6,12 @@ export const data = {
   // categories: ["property", "transport", "work", "electronics", "bussines and services", "recreation and sport", "free", "trade"],
   categories: [],
   russianCategories: [],
+  renderedCategories: [],
+  categoriesList: {},
   inCategories: [],
+  inAll: [],
   auth: {
-    isAuth: true,
+    isAuth: false,
     token: '',
   },
   user: {
@@ -23,3 +26,5 @@ export const data = {
     isDesktop: false,
   },
 };
+
+

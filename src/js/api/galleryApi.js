@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { data } from '../data/data';
-
+import {camelCase} from 'lodash'
 // const properties = {
 //     width: 0,
 //     height: 0,
@@ -34,14 +34,14 @@ const baseURL = 'https://callboard-backend.herokuapp.com';
 let categoriesShown = 0;
 const createMarkup = async (array, num) => {
   if (!data.russianCategories.length) {
-    console.log(data.russianCategories);
+    // console.log(data.russianCategories);
     await getRussianCategories();
-    console.log(data.russianCategories);
+    // console.log(data.russianCategories);
   }
   let acc = '';
   for (let i = 0; i < (array.length < num ? array.length : num); i += 1) {
     acc += `
-      <li class="products__item">
+      <li class="products__item" data-id="${array[i]._id}" data-category="${camelCase(array[i].category)}">
               <div class="products__img-wrap">
                 <img class="products__img" src="${array[i].imageUrls[0]}" alt="${array[i].description}">
               </div>
@@ -52,7 +52,7 @@ const createMarkup = async (array, num) => {
             </li>        
       `;
   }
-  const indexOfCategory = data.categories.indexOf(array[0].category);
+  const indexOfCategory = data.categories.indexOf(camelCase(array[0].category));
   const list = `
       <li class="gallery__list">
           <div class="gallery__info">
@@ -70,10 +70,26 @@ const createMarkup = async (array, num) => {
 };
 
 const getCategories = async () => {
-  await axios.get(`${baseURL}/call/categories`).then(response => {
-    data.categories = [...response.data];
+  const result = await axios.get(`${baseURL}/call/categories`);
+  result.data.forEach(element => data.categories.push(camelCase(element)));
+  result.data.forEach(
+    element => (data.categoriesList[camelCase(element)] = []),
+  );
+  // data.categories = [...camelCase(result.data)];
     //  console.log( data.categories);
-  });
+    //  console.log(data.categoriesList);
+    // console.log(data);
+};
+
+const getCategory = async categoryName => {
+  try {
+    const result = await axios.get(
+      `https://callboard-backend.herokuapp.com/call/specific/${categoryName}`,
+    );
+    data.categoriesList[categoryName] = [...result.data];
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const getRussianCategories = async () => {
@@ -120,7 +136,13 @@ export const init = async () => {
     for (let i = 0; i < categoriesNum; i += 1) {
       await axios
         .get(`${baseURL}/call/specific/${data.categories[categoriesShown]}`)
-        .then(async response => await createMarkup(response.data, cardsNum))
+        .then(async response => {
+          await createMarkup(response.data, cardsNum);
+          getCategory(data.categories[categoriesShown])
+          data.renderedCategories.push(data.categories[categoriesShown])
+          // console.log(data.renderedCategories);
+          console.log(data);
+        })
         .catch(error => console.log(error));
       categoriesShown += 1;
       // console.log(categoriesShown);
@@ -131,21 +153,22 @@ export const init = async () => {
       }
     }
     $(document).ready(function () {
-      $('.js-slider').slick({
+      $('.js-slider').not('.slick-initialized').slick({
         dots: true,
         variableWidth: true,
       });
-    });
+    });   
   };
   const loadMore = async () => {
     await fetcherWithCounter(1, 8);
-    await $('.js-slider').slick('unslick');
-    await $(document).ready(function () {
-      $('.js-slider').slick({
-        dots: true,
-        variableWidth: true,
-      });
-    });
+    // await $('.js-slider').slick('unslick');
+    // $('.js-slider').not('.slick-initialized').slick()
+    // await $(document).ready(function () {
+    //   $('.js-slider').not('.slick-initialized').slick({
+    //     dots: true,
+    //     variableWidth: true,
+    //   });
+    // });    
   };
 
   loadMoreBtn.addEventListener('click', loadMore);
