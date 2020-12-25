@@ -3,15 +3,15 @@
   <ul class="favorites__list list">
     {{#each this}}
     <li class="favorites__item" data-card="{{this._id}}">
-      <div class="favorites__item-img-wrapper" data-card="{{this._id}}">
+      <div class="favorites__item-img-wrapper" ">
 
-        <img class="favorites__item-img" data-card="{{this._id}}" src="{{#with this.imageUrls}}{{this.[0]}} {{/with}}"
-          alt="{{this.title}}" />
+        <img class=" favorites__item-img" " src=" {{#with this.imageUrls}}{{this.[0]}} {{/with}}"
+        alt="{{this.title}}" />
 
       </div>
 
-      <h2 class="favorites__item-title" data-card="{{this._id}}">{{this.title}}</h2>
-      <p class="favorites__item-price" data-card="{{this._id}}">{{this.price}} <span> &#8364;</span></p>
+      <h2 class="favorites__item-title">{{this.title}}</h2>
+      <p class="favorites__item-price">{{this.price}} <span> &#8364;</span></p>
     </li>
     {{/each}}
   </ul>

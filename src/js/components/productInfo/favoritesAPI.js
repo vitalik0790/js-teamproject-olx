@@ -18,7 +18,7 @@ export const fetchFavouritesAPI = async () => {
     const response = await axios.get(url, options);
 
     const favorites = response.data.favourites;
-    console.log('избранное в базе', favorites);
+    // console.log('избранное в базе', favorites);
     return favorites;
   } catch (error) {
     console.log(error);

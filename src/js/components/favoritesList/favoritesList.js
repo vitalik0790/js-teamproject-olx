@@ -20,7 +20,7 @@ function onCardClick(event) {
   if (event.target === event.currentTarget) return;
 
   const targetCard = data.user.favorites.find(
-    card => card._id === event.target.dataset.card,
+    card => card._id === event.target.closest(`li[data-card]`).dataset.card,
   );
   // console.log(targetCard);
   openProductInfo(targetCard);
