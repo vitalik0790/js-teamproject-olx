@@ -9,13 +9,6 @@ import { error, success, notice } from '@pnotify/core';
 
 const baseURL = 'https://callboard-backend.herokuapp.com/call';
 
-// const alert = {
-//     text: `${text}`,
-//     sticker: false,
-//     closer: false,
-//     delay: 3000,
-// }
-
 const errorAlert = (text) => error({
     text: `${text}`,
     sticker: false,
@@ -88,7 +81,7 @@ const createMarkupCategories = () => {
     let categoriesMarkup = '';
     const selectInput = document.querySelector('.select-input');
     for (let i = 0; i < data.categories.length; i += 1) {
-        categoriesMarkup += `<option required value=${data.categories[i]} class="select-option">${data.russianCategories[i]}
+        categoriesMarkup += `<option required value='${data.originalCategories[i]}' class="select-option">${data.russianCategories[i]}
                 </option> `
     }
     selectInput.innerHTML = categoriesMarkup;
@@ -175,26 +168,60 @@ const onHandleChange = async (e) => {
 // }
 // =============================== EDIT ADV ==========================================
 
-const editAdvForm = () => {
-    const formTitle = document.querySelector('.form-text');
-    formTitle.textContent = 'Редактировать объявление'
-    const cltanButton = document.querySelector('.clean-button');
-    cltanButton.innerHTML = `
-    < div class="button-box" >
-            <button type="reset" class="clean-button">
-                <svg class="delete-adv-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                    viewBox="0 0 32 32">
-                    <title>file-1</title>
-                    <path fill="#bbb"
-                        d="M20.8 0h-19.2v32h28.8v-22.4l-9.6-9.6zM20.8 4.528l5.072 5.072h-5.072v-5.072zM27.2 28.8h-22.4v-25.6h12.8v9.6h9.6v16z">
-                    </path>
-                    <path fill="#bbb"
-                        d="M22.016 15.471l-2.256-2.272-3.728 3.728-3.904-3.904-2.256 2.272 3.888 3.888-3.696 3.712 2.256 2.256 3.712-3.696 3.728 3.728 2.256-2.272-3.728-3.728 3.728-3.712z">
-                    </path>
-                </svg>
-                <span class="delete-button-text">Удалить объявление</span>
-            </button>`
-}
+// const editAdvForm = () => {
+//     const formTitle = document.querySelector('.form-text');
+//     formTitle.textContent = 'Редактировать объявление'
+//     const cltanButton = document.querySelector('.clean-button');
+//     cltanButton.innerHTML = `
+//     < div class="button-box" >
+//             <button type="reset" class="clean-button">
+//                 <svg class="delete-adv-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+//                     viewBox="0 0 32 32">
+//                     <title>file-1</title>
+//                     <path fill="#bbb"
+//                         d="M20.8 0h-19.2v32h28.8v-22.4l-9.6-9.6zM20.8 4.528l5.072 5.072h-5.072v-5.072zM27.2 28.8h-22.4v-25.6h12.8v9.6h9.6v16z">
+//                     </path>
+//                     <path fill="#bbb"
+//                         d="M22.016 15.471l-2.256-2.272-3.728 3.728-3.904-3.904-2.256 2.272 3.888 3.888-3.696 3.712 2.256 2.256 3.712-3.696 3.728 3.728 2.256-2.272-3.728-3.728 3.728-3.712z">
+//                     </path>
+//                 </svg>
+//                 <span class="delete-button-text">Удалить объявление</span>
+//             </button>`
+//     // const newObjAdv = {...newAdv}
+//     // refs.formAdv.title.value = ewObjAdv.title
+//     // refs.formAdv.description.value = ewObjAdv.description
+//     // refs.formAdv.category.value = ewObjAdv.category
+//     // refs.formAdv.price.value = ewObjAdv.price
+//     // refs.formAdv.phone.value = ewObjAdv.phone
+
+//     const createImagesMarkup = () => {
+//         newAdv.imageUrl.reduce((acc, item) => {
+//             acc += `
+//              <li data-id="${id}" class="file-loader">
+//  <label for="file_loader${id}"   class="file-loader-label">
+//     <input type="file" id="file_loader${id}"    class="file-loader-input" name='file'>
+//    <img src='${item}' alt='picture' class='img-adv-box'/>
+//     </label>
+
+// </li>
+//     `
+//             newAdv.file.push(toDataURL(item))
+//             // formData.append('file', allInputsFiles[i].files[0])
+//             return acc
+//         }, '')
+//     }
+
+//     newAdv.imageUrl.forEach((item, i) => {
+//         item.value = newAdv.imageUrl[i]
+
+//     })
+//     // inputWrapper.innerHTML=
+//     if (newAdv.file.length < 5) {
+//         refs.inputWrapper.insertAdjacentHTML('beforeend', createFirstInput(newAdv.file.length))
+//     }
+//     createSecondBlock()
+// }
+
 
 // data ? editAdvForm : createBox();
 // ===============================Open Modal =================================
@@ -235,8 +262,8 @@ const postNewAdv = async (e) => {
                     formData.append('file', allInputsFiles[i].files[0]);
                 }
             }
-            await axios.post(baseURL, formData, options)
-
+            const result = await axios.post(baseURL, formData, options)
+            // data.user.ownCall = [...data.user.ownCall, result.data]
             await closeModal();
             successAlert("Объявление успешно записано!").open()
         } catch (error) {
