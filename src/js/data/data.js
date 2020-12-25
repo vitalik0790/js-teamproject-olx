@@ -6,9 +6,11 @@ export const data = {
   // categories: ["property", "transport", "work", "electronics", "bussines and services", "recreation and sport", "free", "trade"],
   categories: [],
   russianCategories: [],
+  renderedCategories: [],
+  categoriesList: {},
   inCategories: [],
   auth: {
-    isAuth: true,
+    isAuth: false,
     token: '',
   },
   user: {
