@@ -27,6 +27,7 @@
   @media screen and (min-width: 768px) {
     width: 281px;
     height: 333px;
+    overflow: hidden;
   }
 
   @media screen and (min-width: 1280px) {
@@ -83,6 +84,7 @@
   margin-bottom: 15px;
   margin-left: auto;
   margin-right: auto;
+
   width: 253px;
   height: 253px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
@@ -181,7 +183,8 @@
   background-color: $accent-color;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover {
+  &:hover,
+  &:focus {
     transform: scale(1.03);
     // box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 10px 0 rgba(8, 45, 126, 0.24),
@@ -237,7 +240,6 @@
 .productInfo__action-item--share-icon {
   margin-left: 13px;
 
-  // stroke: #878686;
   fill: #878686;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
