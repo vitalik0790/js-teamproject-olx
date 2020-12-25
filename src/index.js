@@ -13,6 +13,7 @@ import { createHero } from './hero_template';
 import { isLogin } from './js/components/navigation-estimates';
 import { fetchFavourites } from './js/components/productInfo/productInfo';
 import { filterListener} from './js/api/filterSearch';
+import { clearFilterListener } from './js/components/clearBtn';
 //renderHeader();
 
 
@@ -30,6 +31,7 @@ const initialisation = async () => {
     await fetchFavourites();
   }
   filterListener();
+  clearFilterListener();
 };
 initialisation();
 import { sandwichmenu } from './js/components/sandwichmenu';

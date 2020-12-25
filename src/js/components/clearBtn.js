@@ -10,6 +10,11 @@ const clearMain = () => {
     createMain();
     createHero();
     init()
-}
+};
 
 clearBtn.addEventListener('click', clearMain);
+
+export const clearFilterListener= () => {
+    const clearBtnMobile = document.getElementById('clearFilter');
+    clearBtnMobile.addEventListener('click', clearMain)
+};
