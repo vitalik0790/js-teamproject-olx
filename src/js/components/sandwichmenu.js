@@ -2,7 +2,7 @@ import sandwichmenu from '../../templates/sandwichMenu.hbs';
 import { clearFilter } from '../api/searchInCategory';
 import signInMenuPane from '../../templates/navigationSignInMenuPane.hbs';
 import { signUpHandler, signInHandler, logOut } from './authentication';
-import { renderFilter } from './search-mobile';
+import { renderFilterMobile } from './filter-mobile';
 import { getToken } from '../utils/getToken';
 
 //********************* 
@@ -26,7 +26,7 @@ export const createMarkUp = () => {
   const categorisFilter = document.getElementById('categorisFilter');
   const clearFilterBtn = document.getElementById('clearFilter');
   //categorisFilterTabl.addEventListener('click', renderFilter);
-  categorisFilter.addEventListener('click', function(){renderFilter(refs)});
+  categorisFilter.addEventListener('click', function(){renderFilterMobile(refs)});
   clearFilterBtn.addEventListener('click', clearFilter);
 };
 
@@ -60,13 +60,11 @@ const setAuthMenuListeners = (paneName) => {
   });
 }
 
-
 //код исполняющийся при загрузке страницы
 
 //const getUl = document.getElementById('categoriesList');
 let refs = {
   isCategoriesShown : false,
-  selectedCategory : '',
   getUl : '',
   getJsMenu : document.querySelector('.js_menu'),
 }
@@ -77,10 +75,7 @@ const getSvgMenu = document.getElementById('svgMenu');
 
 createMarkUp();
 refs.getUl = document.getElementById('categoriesList');
-console.log("markup created");
-
-
-
+//console.log("markup created");
 
 const signInDivMenuPane = document.getElementById('mobile-auth');
 

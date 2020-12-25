@@ -2,19 +2,25 @@ import { clearFilter } from '../api/searchInCategory';
 import { createMain } from './createMain';
 import { createHero } from '../../hero_template';
 import { init } from '../api/galleryApi';
-
-const clearBtn = document.getElementById('clear-filter-btn');
+import { data } from '../data/data';
 
 const clearMain = () => {
     clearFilter();
     createMain();
     createHero();
-    init()
+    init();
+    clearSelectedFilter();
 };
 
-clearBtn.addEventListener('click', clearMain);
+const clearSelectedFilter = () => {
+    data.russianCategories.forEach(category => {
+        document.getElementById(category).classList.remove('selected');
+    });
+}
 
 export const clearFilterListener= () => {
     const clearBtnMobile = document.getElementById('clearFilter');
-    clearBtnMobile.addEventListener('click', clearMain)
+    const clearBtn = document.getElementById('clear-filter-btn');
+    clearBtnMobile.addEventListener('click', clearMain);
+    clearBtn.addEventListener('click', clearMain);
 };
