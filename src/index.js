@@ -38,4 +38,4 @@ import './js/components/productInfo/openProductInfo';
 
 import './js/components/search'
 import mobileSearh from './js/components/header-mob-search'
-
+import './js/components/clearBtn';
