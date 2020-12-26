@@ -161,6 +161,7 @@ export const init = async () => {
           // data.renderedCategories.push(data.categories[categoriesShown]);
 
           // console.log(data.renderedCategories);
+          //console.log(data);
           console.log(data);
 
           // ================= открытие ProductInfo по клику на карточку ======
