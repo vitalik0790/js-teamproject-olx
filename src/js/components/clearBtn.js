@@ -5,6 +5,10 @@ import { init } from '../api/galleryApi';
 import { data } from '../data/data';
 
 const clearMain = () => {
+    data.categories = [];
+    data.russianCategories = [];
+    data.originalCategories = [];
+    data.renderedCategories = [];
     clearFilter();
     createMain();
     createHero();
