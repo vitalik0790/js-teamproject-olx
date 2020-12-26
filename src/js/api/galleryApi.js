@@ -116,30 +116,30 @@ const getRussianCategories = async () => {
   });
 };
 
-const fetcherWithCounter = async (categoriesNum, cardsNum) => {
-  if (!data.categories.length) {
-    // console.log(data.categories);
-    await getCategories();
-    // console.log(data.categories);
-  }
-  for (let i = 0; i < categoriesNum; i += 1) {
-    await axios
-      .get(`${baseURL}/call/specific/${data.categories[categoriesShown]}`)
-      .then(async response => await createMarkup(response.data, cardsNum));
-    categoriesShown += 1;
-    // console.log(categoriesShown);
-    // console.log(categories.length);
-    //   if (categoriesShown === data.categories.length){
-    //     loadMoreBtn.disabled = true;
-    // }
-  }
-  $(document).ready(function () {
-    $('.js-slider').slick({
-      dots: true,
-      variableWidth: true,
-    });
-  });
-};
+// const fetcherWithCounter = async (categoriesNum, cardsNum) => {
+//   if (!data.categories.length) {
+//     // console.log(data.categories);
+//     await getCategories();
+//     // console.log(data.categories);
+//   }
+//   for (let i = 0; i < categoriesNum; i += 1) {
+//     await axios
+//       .get(`${baseURL}/call/specific/${data.categories[categoriesShown]}`)
+//       .then(async response => await createMarkup(response.data, cardsNum));
+//     categoriesShown += 1;
+//     // console.log(categoriesShown);
+//     // console.log(categories.length);
+//     //   if (categoriesShown === data.categories.length){
+//     //     loadMoreBtn.disabled = true;
+//     // }
+//   }
+//   $(document).ready(function () {
+//     $('.js-slider').slick({
+//       dots: true,
+//       variableWidth: true,
+//     });
+//   });
+// };
 // const loadMoreBtn = document.querySelector('.load-more')
 
 export const init = async () => {
@@ -152,10 +152,14 @@ export const init = async () => {
     }
     for (let i = 0; i < categoriesNum; i += 1) {
       await axios
-        .get(`${baseURL}/call/specific/${data.categories[categoriesShown]}`)
+        .get(`${baseURL}/call/specific/${data.categories[data.renderedCategories.length]}`)
         .then(async response => {
           await createMarkup(response.data, cardsNum);
-          data.renderedCategories.push(data.categories[categoriesShown]);
+          if (data.renderedCategories.includes(data.categories[data.renderedCategories.length])){
+            return
+          } else {
+            data.renderedCategories.push(data.categories[data.renderedCategories.length]);
+          }
 
           // getCategory(data.categories[categoriesShown])
           // data.renderedCategories.push(data.categories[categoriesShown]);
@@ -163,10 +167,11 @@ export const init = async () => {
           // console.log(data.renderedCategories);
           //console.log(data);
           console.log(data);
+          console.log(data.renderedCategories.length);
 
           // ================= открытие ProductInfo по клику на карточку ======
           const galleryLisRef = document.querySelector(
-            `[data-category-name="${data.categories[categoriesShown]}"]`,
+            `[data-category-name="${data.categories[data.renderedCategories.length-1]}"]`,
           );
           galleryLisRef.addEventListener('click', onCardClickInGallery);
 
@@ -190,15 +195,15 @@ export const init = async () => {
           };
           // const index = data.renderedCategories.length -1 ;
           // console.log(index);
-          const galleryLinkRef = document.querySelector( `[data-link="${camelCase(data.categories[categoriesShown])}"]`)
+          const galleryLinkRef = document.querySelector( `[data-link="${camelCase(data.categories[data.renderedCategories.length-1])}"]`)
           galleryLinkRef.addEventListener('click', linkShowAllCategory);
           
         })
         .catch(error => console.log(error));
-      categoriesShown += 1;
+      // categoriesShown += 1;
       // console.log(categoriesShown);
       // console.log(data.categories.length);
-      if (categoriesShown === data.categories.length) {
+      if (data.renderedCategories.length === data.categories.length) {
         loadMoreBtn.disabled = true;
         loadMoreBtn.classList.add('is-disabled');
       }
