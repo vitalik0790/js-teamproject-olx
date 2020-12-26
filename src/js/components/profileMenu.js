@@ -26,7 +26,11 @@ export const profileMenu = () => {
 function onProfileMenuClick(event) {
   if (event.target === refs.favoritesBtnInHeaderRef) {
     console.log('Избранное в data:', data.user.favorites);
-    createMarkupFavoritesGoodsList('Избранное', data.user.favorites);
+    createMarkupFavoritesGoodsList(
+      'Избранное',
+      data.user.favorites,
+      'В избранном пока пусто',
+    );
     refs.profileMenu.removeEventListener('click', onProfileMenuClick);
     refs.menu.classList.toggle('is-hidden');
     return;
@@ -34,7 +38,11 @@ function onProfileMenuClick(event) {
   if (event.target === refs.myGoodsBtnInHeaderRef) {
     console.log('Мои объявления в data:', data.user.ownCalls);
     console.log(data.user.ownCalls);
-    createMarkupFavoritesGoodsList('Мои объявления', data.user.favorites);
+    createMarkupFavoritesGoodsList(
+      'Мои объявления',
+      data.user.ownCalls,
+      'У вас пока нет объявлений',
+    );
     refs.profileMenu.removeEventListener('click', onProfileMenuClick);
     refs.menu.classList.toggle('is-hidden');
     refs.btnInCardRef = document.querySelectorAll('.myGoods-btn');

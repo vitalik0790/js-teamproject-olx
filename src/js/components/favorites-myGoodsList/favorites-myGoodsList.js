@@ -7,13 +7,15 @@ const refs = {
   list: '',
 };
 
-function createMarkupFavoritesGoodsList(title, arr) {
-  // if (!arr.length) {
-  //   refs.main.innerHTML = `<section class="favorites-myGoods container">
-  // <h1 class="favorites-myGoods__title">${title}</h1>
-  // </section>`;
-  //   return;
-  // }
+function createMarkupFavoritesGoodsList(title, arr, message) {
+  if (!arr.length) {
+    refs.main.innerHTML = `<section class="favorites-myGoods-massage container">
+  <h1 class="favorites-myGoods__title">${title}</h1>
+
+  <p class="favorites-myGoods__message-text">${message}</p>
+  </section>`;
+    return;
+  }
 
   const markup = listTemplate({ arr, title });
   refs.main.innerHTML = markup;
