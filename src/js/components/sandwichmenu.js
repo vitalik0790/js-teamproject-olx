@@ -5,6 +5,7 @@ import { clearCategories, renderCategories, showCategoriesMobile } from './filte
 import { getToken } from '../utils/getToken';
 import { confirmModal } from './confirmModal';
 import { data } from '../data/data';
+import { profileMenuMobile } from './profileMenuMobile';
 
 //********************* 
 //Открывает панель категорий
@@ -53,10 +54,7 @@ const setAuthMenuListeners = (paneName) => {
   signUpBtnmenu.addEventListener('click', signUpHandler);
   signInBtnmenu.addEventListener('click', signInHandler);
   logOutBtnmenu.addEventListener('click', confirmModal);
-  userBtnmenu.addEventListener('click', () => {
-    const menuMobil = document.querySelector('.profile-menuMobil');
-    menuMobil.classList.toggle('mobil-hidden');
-  });
+  userBtnmenu.addEventListener('click', profileMenuMobile);
 }
 
 const setJsPaneListeners = () => {
