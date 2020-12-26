@@ -6,6 +6,7 @@ export const data = {
   // categories: ["property", "transport", "work", "electronics", "bussines and services", "recreation and sport", "free", "trade"],
   originalCategories: [],
   categories: [],
+  selectedCategory: '',
   russianCategories: [],
   renderedCategories: [],
   categoriesList: {},
