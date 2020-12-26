@@ -69,7 +69,7 @@ const newAdv = {
 const formData = new FormData();
 
 const getPrice = () => {
-    if (newAdv.category === "free" || newAdv.category === "work" || newAdv.category === "trade") {
+    if ((newAdv.category === "free" || newAdv.category === "work" || newAdv.category === "trade") && newAdv.price > 0) {
         noticeAlert('Цена должна быть 0 в категориях "work","free", "trade". Данные были откорректированы автоматически').open()
         return 0
     } else {
