@@ -13,9 +13,12 @@ const clearMain = () => {
 };
 
 const clearSelectedFilter = () => {
+    const getJsMenu = document.querySelector('.js_menu');
+    getJsMenu.classList.toggle("activ");
     data.russianCategories.forEach(category => {
         document.getElementById(category).classList.remove('selected');
     });
+    
 }
 
 export const clearFilterListener= () => {
@@ -23,4 +26,5 @@ export const clearFilterListener= () => {
     const clearBtn = document.getElementById('clear-filter-btn');
     clearBtnMobile.addEventListener('click', clearMain);
     clearBtn.addEventListener('click', clearMain);
+    
 };

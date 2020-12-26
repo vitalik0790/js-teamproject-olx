@@ -5,6 +5,7 @@ import { signUpHandler, signInHandler, logOut } from './authentication';
 import { renderFilterMobile } from './filter-mobile';
 import { getToken } from '../utils/getToken';
 import { confirmModal } from './confirmModal';
+import { profileMenuMobile } from './profileMenuMobile';
 
 //********************* 
 //Открывает панель категорий
@@ -55,10 +56,7 @@ const setAuthMenuListeners = (paneName) => {
   signUpBtnmenu.addEventListener('click', signUpHandler);
   signInBtnmenu.addEventListener('click', signInHandler);
   logOutBtnmenu.addEventListener('click', confirmModal);
-  userBtnmenu.addEventListener('click', () => {
-    const menuMobil = document.querySelector('.profile-menuMobil');
-    menuMobil.classList.toggle('mobil-hidden');
-  });
+  userBtnmenu.addEventListener('click', profileMenuMobile);
 }
 
 //код исполняющийся при загрузке страницы
