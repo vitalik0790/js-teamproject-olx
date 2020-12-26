@@ -17,6 +17,8 @@ import { clearFilterListener } from './js/components/clearBtn';
 //renderHeader();
 
 import { newAdvMobileListener } from './js/components/newAdvButton';
+import { filterMainListener } from "./js/components/filter-tablet";
+import { createCategoryMarkup } from "./js/components/filter-tablet";
 
 //renderHeader();
 
@@ -30,12 +32,14 @@ const initialisation = async () => {
   await init();
   await isLogin();
   await checkAuth();
+  await createCategoryMarkup();
   if (data.auth.isAuth === true) {
     await fetchFavourites();
   }
   filterListener();
   clearFilterListener();
   newAdvMobileListener();
+  filterMainListener();
 };
 initialisation();
 import { sandwichmenu } from './js/components/sandwichmenu';
@@ -44,6 +48,8 @@ import { newAdv } from './js/components/newAdvButton';
 
 //import './js/components/productInfo/openProductInfo';
 
+
 import './js/components/search'
 import mobileSearh from './js/components/header-mob-search'
 import './js/components/clearBtn';
+

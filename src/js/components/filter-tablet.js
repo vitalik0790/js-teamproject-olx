@@ -1,28 +1,30 @@
 import { data } from '../data/data';
-import { selectCategory } from './selectCategory';
- 
-export const renderFilter = () => {
-    //console.log(data.russianCategories);
-    //renderCategories(data.russianCategories);
-    data.russianCategories.forEach(category => {
-    document.getElementById(category).addEventListener('click', selectCategory);
-     
-    });
+
+import filterMenu from '../../templates/filterMenu.hbs'
+
+export const filterMainListener = () => {
+    const getFilter = document.getElementById('mainFilterSelector');
+    const getDivWithUl = document.querySelector('.header-category-tablet');
+    
+    getFilter.addEventListener('click', openDiv);
+    // console.log(getFilter);
+    // console.log(getDivWithUl);
+    // console.log(getFilterTablet);
 };
 
-//   const clearCategories = () =>{
-//     document.querySelector('.header-filter-list').innerHTML = '';
-//   }
 
-// const renderCategories = (categories) => {
-//     clearCategories(refs);
-//     categories.forEach(category => { 
-//         document.querySelector('.header-filter-list').innerHTML += `
-//       <li class="filter__list-item" >
-//         <button class="filter__list-item_btn" id="${category}" data-filter="">
-//           ${category}
-//         </button>
-//       </li>
-//       `; 
-//     });
-//   }
+const openDiv = () => {
+    const getDivWithUl = document.querySelector('.header-category-tablet');
+    getDivWithUl.classList.toggle('openCategory');
+    
+    // console.log("object");
+    // console.log(getDivWithUl);
+}
+
+export const createCategoryMarkup = () => {
+    const getFilterTablet = document.getElementById('categoryTablet');
+    // console.log(getFilterTablet);
+    let tabletCtegories = {categories: data.russianCategories};
+    getFilterTablet.innerHTML = filterMenu(tabletCtegories);
+};
+
