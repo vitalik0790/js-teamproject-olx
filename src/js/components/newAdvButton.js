@@ -5,7 +5,6 @@ import { openAdvModal } from './newAdvForm';
 const newAdvbutton = document.getElementById('header-btn-adv');
 
 export const newAdv = () => {
-    console.log('Hi');
     if (!getToken()) {
         signUpHandler();
     } else {
@@ -14,3 +13,8 @@ export const newAdv = () => {
 };
 
 newAdvbutton.addEventListener('click', newAdv);
+
+export const newAdvMobileListener = () => {
+    const newAdvbuttonMobile = document.querySelector('.gallery__modal-btn');
+    newAdvbuttonMobile.addEventListener('click', newAdv);
+}
