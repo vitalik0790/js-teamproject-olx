@@ -2,7 +2,8 @@ import axios from 'axios';
 import { data } from '../data/data';
 import { camelCase } from 'lodash';
 import { openProductInfo } from '../components/productInfo/productInfo';
-
+import { searchInCategory } from './searchInCategory';
+import { updateMarkup } from '../components/search';
 // const properties = {
 //     width: 0,
 //     height: 0,
@@ -67,7 +68,7 @@ const createMarkup = async (array, num) => {
             <h2 class="gallery__info-name">${
               data.russianCategories[indexOfCategory]
             }</h2>
-            <a class="gallery__link_view-all" href="#">Смотреть все</a>
+            <a class="gallery__link_view-all" href="#" data-link="${camelCase(array[0].category)}">Смотреть все</a>
           </div>          
           <ul class="products js-slider">               
           ${acc}          
@@ -157,9 +158,10 @@ export const init = async () => {
           data.renderedCategories.push(data.categories[categoriesShown]);
 
           // getCategory(data.categories[categoriesShown])
-          data.renderedCategories.push(data.categories[categoriesShown]);
+          // data.renderedCategories.push(data.categories[categoriesShown]);
 
           // console.log(data.renderedCategories);
+          //console.log(data);
           console.log(data);
 
           // ================= открытие ProductInfo по клику на карточку ======
@@ -177,6 +179,20 @@ export const init = async () => {
             // console.log(targetCard);
             openProductInfo(targetCard);
           }
+
+
+          const linkShowAllCategory = async e => {
+            e.preventDefault()            
+            if (e.target.nodeName === "A") {
+              await searchInCategory(e.target.dataset.link);
+              updateMarkup(data.inCategories);
+            }
+          };
+          // const index = data.renderedCategories.length -1 ;
+          // console.log(index);
+          const galleryLinkRef = document.querySelector( `[data-link="${camelCase(data.categories[categoriesShown])}"]`)
+          galleryLinkRef.addEventListener('click', linkShowAllCategory);
+          
         })
         .catch(error => console.log(error));
       categoriesShown += 1;

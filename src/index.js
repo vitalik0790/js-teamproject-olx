@@ -12,8 +12,10 @@ import { checkAuth } from './js/components/authentication';
 import { createHero } from './hero_template';
 import { isLogin } from './js/components/navigation-estimates';
 import { fetchFavourites } from './js/components/productInfo/productInfo';
+import { filterListener} from './js/api/filterSearch';
+import { clearFilterListener } from './js/components/clearBtn';
+//renderHeader();
 
-import { filterListener } from './js/api/filterSearch';
 import { newAdvMobileListener } from './js/components/newAdvButton';
 import { filterMainListener } from "./js/components/filter-tablet";
 import { createCategoryMarkup } from "./js/components/filter-tablet";
@@ -35,6 +37,7 @@ const initialisation = async () => {
     await fetchFavourites();
   }
   filterListener();
+  clearFilterListener();
   newAdvMobileListener();
   filterMainListener();
 };
@@ -46,9 +49,7 @@ import { newAdv } from './js/components/newAdvButton';
 //import './js/components/productInfo/openProductInfo';
 
 
-import './js/components/search';
-import mobileSearh from './js/components/header-mob-search';
+import './js/components/search'
+import mobileSearh from './js/components/header-mob-search'
+import './js/components/clearBtn';
 
-
-//import './js/components/search';
-//import mobileSearh from './js/components/header-mob-search';

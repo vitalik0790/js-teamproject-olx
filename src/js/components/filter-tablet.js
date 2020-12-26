@@ -1,4 +1,5 @@
 import { data } from '../data/data';
+
 import filterMenu from '../../templates/filterMenu.hbs'
 
 export const filterMainListener = () => {
@@ -26,3 +27,4 @@ export const createCategoryMarkup = () => {
     let tabletCtegories = {categories: data.russianCategories};
     getFilterTablet.innerHTML = filterMenu(tabletCtegories);
 };
+
