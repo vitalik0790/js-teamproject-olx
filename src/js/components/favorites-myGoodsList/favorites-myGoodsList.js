@@ -1,6 +1,7 @@
 import { data } from '../../data/data';
 import listTemplate from '../../../templates/favorites-myGoodsList.hbs';
 import { openProductInfo } from '../productInfo/productInfo';
+import { editAdvForm } from '../newAdvForm';
 
 const refs = {
   main: document.querySelector('.main'),
@@ -27,6 +28,7 @@ function createMarkupFavoritesGoodsList(title, arr, message) {
     if (event.target === event.currentTarget) return;
 
     if (event.target.nodeName === 'BUTTON') {
+      // editAdvForm(findTargetCard());
       console.log(findTargetCard());
       return;
     }

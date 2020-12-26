@@ -37,7 +37,7 @@ function onProfileMenuClick(event) {
   }
   if (event.target === refs.myGoodsBtnInHeaderRef) {
     console.log('Мои объявления в data:', data.user.ownCalls);
-    console.log(data.user.ownCalls);
+
     createMarkupFavoritesGoodsList(
       'Мои объявления',
       data.user.ownCalls,
