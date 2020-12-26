@@ -1,20 +1,23 @@
+// div.confirm-modal.is-hidden {
+//   padding: 0;
+//   padding: -60px -90px -70px;
+// }
 .confirm-modal {
-  position: absolute;
   background-color: #fff;
   width: 290px;
   height: 205px;
   text-align: center;
   font-weight: 700;
+  padding: 47px;
   z-index: 99;
+  margin: -60px -90px -70px;
   @media screen and (min-width: 768px) {
     width: 650px;
     height: 230px;
-    padding-top: 62px;
+    padding: 62px;
   }
   &__question {
     margin-bottom: 30px;
-  }
-  &__btns {
   }
   &__btn_go {
     width: 118px;
@@ -23,6 +26,8 @@
     border: 1px solid #bbbbbb;
     color: #fff;
     outline: none;
+    font-weight: 700;
+    cursor: pointer;
     @media screen and (min-width: 768px) {
       width: 210px;
       height: 60px;
@@ -33,6 +38,8 @@
     height: 50px;
     background-color: #fff;
     border: 1px solid #bbbbbb;
+    font-weight: 700;
+    cursor: pointer;
     @media screen and (min-width: 768px) {
       width: 210px;
       height: 60px;
