@@ -1,31 +1,45 @@
 import { data } from '../data/data';
 import { selectCategory } from './selectCategory';
+import { clearFilter } from '../api/searchInCategory';
  
-export const renderFilterMobile = (refs) => {
-    if (!refs.isCategoriesShown) {
-        renderCategories(data.categories, refs);
-        //console.log(data);
-        data.categories.forEach(category => {
-            console.log(category);
-          document.getElementById(category).addEventListener('click', selectCategory);
-          document.getElementById(category).addEventListener('click', function(){refs.getJsMenu.classList.toggle("activ");})
-        });
-      refs.isCategoriesShown = true;
-    } else {
-      clearCategories(refs);
-      refs.isCategoriesShown = false;
-    }
-  };
+// export const renderFilterMobile = () => {
+//     if (!data.isCategoriesShown) {
+//         renderCategories(data.categories);
+//        data.categories.forEach(category => {
+//           document.getElementById(category).addEventListener('click', selectCategory);
+//         });
+//       data.isCategoriesShown = true;
+//     } else {
+//       clearCategories();
+//       data.isCategoriesShown = false;
+//     }
+//   };
+
+export const showCategoriesMobile = () => {
+  console.log("showCategoriesMobile");
+  // data.categories.forEach(category => {
+  //   document.getElementById(category).addEventListener('click', selectCategory);
+  // });
+  //document.getElementById('categoriesList').classList.toggle('element_hidden');
+  //data.isCategoriesShown = true;
+  //if (document.getElementById('categoriesList').classList.contains('element_hidden')){
+    document.getElementById('categoriesList').classList.remove('element_hidden');
+  //} 
+}
   
-const clearCategories = (refs) =>{
-    refs.getUl.innerHTML = '';
-  }
+export const clearCategories = () =>{
+  console.log("clearCategories");
+  clearFilter();
+  //TODO remove selection
+  if (!document.getElementById('categoriesList').classList.contains('element_hidden')){
+    document.getElementById('categoriesList').classList.add('element_hidden');
+  }  
+}
   
-const renderCategories = (categories, refs) => {
-    clearCategories(refs);
-    categories.forEach(category => { 
+export const renderCategories = () => {
+    data.categories.forEach(category => { 
       const index = data.categories.indexOf(category)
-        refs.getUl.innerHTML += `
+      document.getElementById('categoriesList').innerHTML += `
       <li class="filter__list-item" >
         <button class="filter__list-item_btn" id="${category}">
           ${ data.russianCategories[index]}

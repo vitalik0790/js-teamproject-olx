@@ -19,6 +19,8 @@ import { clearFilterListener } from './js/components/clearBtn';
 import { newAdvMobileListener } from './js/components/newAdvButton';
 import { filterMainListener } from "./js/components/filter-tablet";
 import { createCategoryMarkup } from "./js/components/filter-tablet";
+import { serFiltersListeners } from './js/components/setFiltersListeners';
+import {renderJsMenu} from './js/components/sandwichmenu'
 
 //renderHeader();
 
@@ -36,13 +38,16 @@ const initialisation = async () => {
   if (data.auth.isAuth === true) {
     await fetchFavourites();
   }
+  await renderJsMenu();
   filterListener();
   clearFilterListener();
   newAdvMobileListener();
   filterMainListener();
+
+  //serFiltersListeners();
 };
 initialisation();
-import { sandwichmenu } from './js/components/sandwichmenu';
+
 import { newAdv } from './js/components/newAdvButton';
 // import hero_template from './hero_template';
 

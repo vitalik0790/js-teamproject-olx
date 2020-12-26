@@ -1,7 +1,6 @@
 import { data } from '../data/data';
-
 import filterMenu from '../../templates/filterMenu.hbs'
-
+console.log(data);
 export const filterMainListener = () => {
     const getFilter = document.getElementById('mainFilterSelector');
     const getDivWithUl = document.querySelector('.header-category-tablet');
@@ -24,7 +23,8 @@ const openDiv = () => {
 export const createCategoryMarkup = () => {
     const getFilterTablet = document.getElementById('categoryTablet');
     // console.log(getFilterTablet);
-    let tabletCtegories = {categories: data.russianCategories};
+    
+    let tabletCtegories = {categories: data.categories};
     getFilterTablet.innerHTML = filterMenu(tabletCtegories);
 };
 
