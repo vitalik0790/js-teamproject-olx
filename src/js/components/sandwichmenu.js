@@ -4,6 +4,7 @@ import signInMenuPane from '../../templates/navigationSignInMenuPane.hbs';
 import { signUpHandler, signInHandler, logOut } from './authentication';
 import { renderFilterMobile } from './filter-mobile';
 import { getToken } from '../utils/getToken';
+import { confirmModal } from './confirmModal';
 
 //********************* 
 //Открывает панель категорий
@@ -53,7 +54,7 @@ const setAuthMenuListeners = (paneName) => {
   const userBtnmenu = document.getElementById(paneName + 'User_btn')
   signUpBtnmenu.addEventListener('click', signUpHandler);
   signInBtnmenu.addEventListener('click', signInHandler);
-  logOutBtnmenu.addEventListener('click', logOut);
+  logOutBtnmenu.addEventListener('click', confirmModal);
   userBtnmenu.addEventListener('click', () => {
     const menuMobil = document.querySelector('.profile-menuMobil');
     menuMobil.classList.toggle('mobil-hidden');
