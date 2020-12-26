@@ -3,10 +3,10 @@ import { selectCategory } from './selectCategory';
  
 export const renderFilterMobile = (refs) => {
     if (!refs.isCategoriesShown) {
-        renderCategories(data.russianCategories, refs);
+        renderCategories(data.categories, refs);
         //console.log(data);
-        data.russianCategories.forEach(category => {
-            //console.log(refs);
+        data.categories.forEach(category => {
+            console.log(category);
           document.getElementById(category).addEventListener('click', selectCategory);
           document.getElementById(category).addEventListener('click', function(){refs.getJsMenu.classList.toggle("activ");})
         });
@@ -24,10 +24,11 @@ const clearCategories = (refs) =>{
 const renderCategories = (categories, refs) => {
     clearCategories(refs);
     categories.forEach(category => { 
+      const index = data.categories.indexOf(category)
         refs.getUl.innerHTML += `
       <li class="filter__list-item" >
         <button class="filter__list-item_btn" id="${category}">
-          ${category}
+          ${ data.russianCategories[index]}
         </button>
       </li>
       `; 
