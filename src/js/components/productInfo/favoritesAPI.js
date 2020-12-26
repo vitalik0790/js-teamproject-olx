@@ -19,7 +19,7 @@ export const fetchFavouritesAPI = async () => {
 
     const favorites = response.data.favourites;
 
-    // console.log('избранное в базе', favorites);
+    console.log('избранное в базе', favorites);
 
     return favorites;
   } catch (error) {
@@ -42,7 +42,7 @@ export const fetchOwnCallsAPI = async () => {
 
     const ownCalls = response.data.favourites;
 
-    // console.log('Мои обьявления в базе', ownCalls);
+    console.log('Мои обьявления в базе', ownCalls);
 
     return ownCalls;
   } catch (error) {

@@ -169,6 +169,9 @@ export const newAdvFormComponent = advData => {
         try {
           const result = await axios.post(baseURL, formData, options);
           data.user.ownCalls = [...data.user.ownCalls, result.data];
+          // Я добавила вот эту  строку==================================
+          data.user.ownCalls[result.data.category].push(result.data);
+
           await closeModal();
           successAlert('Объявление успешно записано!').open();
         } catch (error) {

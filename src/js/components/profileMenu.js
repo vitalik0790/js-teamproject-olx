@@ -46,7 +46,6 @@ function onProfileMenuClick(event) {
     refs.profileMenu.removeEventListener('click', onProfileMenuClick);
     refs.menu.classList.toggle('is-hidden');
     refs.btnInCardRef = document.querySelectorAll('.myGoods-btn');
-
     refs.btnInCardRef.forEach(btn => btn.classList.add('myGoods-btn--active'));
 
     return;
