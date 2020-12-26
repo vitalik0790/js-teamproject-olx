@@ -24,11 +24,20 @@ function createMarkupFavoritesGoodsList(title, arr) {
   function onCardClick(event) {
     if (event.target === event.currentTarget) return;
 
-    const targetCard = arr.find(
-      card => card._id === event.target.closest(`li[data-card]`).dataset.card,
-    );
+    if (event.target.nodeName === 'BUTTON') {
+      console.log(findTargetCard());
+      return;
+    }
+
     // console.log(targetCard);
-    openProductInfo(targetCard);
+    openProductInfo(findTargetCard());
+
+    function findTargetCard() {
+      const targetCard = arr.find(
+        card => card._id === event.target.closest(`li[data-card]`).dataset.card,
+      );
+      return targetCard;
+    }
   }
 }
 
