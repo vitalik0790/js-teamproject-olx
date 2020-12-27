@@ -3,6 +3,7 @@ import navSignUp from '../../templates/navigationSignUp.hbs';
 import { signUpHandler, signInHandler, logOut } from './authentication';
 import profileMenuTemplate from '../../templates/profileMenu.hbs';
 import { profileMenu } from './profileMenu';
+import { loading } from './loader/loader';
 import { confirmModal } from './confirmModal';
 
 const refs = {
@@ -10,6 +11,7 @@ const refs = {
 };
 
 export const isLogin = () => {
+
   if (!localStorage.getItem('accessToken')) {
     refs.signInDiv.innerHTML = `${navigationEstimate()}`;
     const signInBtn = document.querySelector('.signInBtn');
@@ -31,4 +33,5 @@ export const isLogin = () => {
       userBtn.removeEventListener('click', profileMenu);
     }
   }
+  loading()
 };
