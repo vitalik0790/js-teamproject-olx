@@ -5,6 +5,7 @@ import { getToken } from '../utils/getToken';
 import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
 import { error, success, notice } from '@pnotify/core';
+import { camelCase } from 'lodash';
 
 const baseURL = 'https://callboard-backend.herokuapp.com/call';
 
@@ -171,9 +172,8 @@ export const newAdvFormComponent = advData => {
           const object = { ...result.data, _id: result.data.id };
 
           data.user.ownCalls = [...data.user.ownCalls, object];
-
-          // ==================Руслана добавила вот эту  строку==================================
-          data.categoriesList[result.data.category].push(object);
+          const category = result.data.category;
+          data.categoriesList[camelCase(category)].push(object);
 
           closeModal();
           successAlert('Объявление успешно записано!').open();
@@ -195,6 +195,9 @@ export const newAdvFormComponent = advData => {
             item._id === newAdv._id ? object : item,
           ),
         ];
+
+        const category = result.data.category;
+        data.categoriesList[camelCase(category)].unshift(object);
 
         await closeModal();
         successAlert('Объявление успешно записано!').open();
