@@ -170,7 +170,7 @@ export const newAdvFormComponent = advData => {
           const result = await axios.post(baseURL, formData, options);
           data.user.ownCalls = [...data.user.ownCalls, result.data];
 
-          // ==================Я добавила вот эту  строку==================================
+          // ==================Руслана добавила вот эту  строку==================================
           data.categoriesList[result.data.category].push(result.data);
 
           await closeModal();
