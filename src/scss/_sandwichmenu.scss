@@ -30,12 +30,12 @@ svg:not(:root) {
 .js_menu {
 
     @media screen and (max-width: 767px) {
-        position: absolute;
+        position: fixed; // absolute
         left: -93.75vw;
         top: 0;
         //display: flex;
         width: 93.75vw;
-        height: 568px;
+        height: 100%; // 568px
         background-color: #031c33;
         transition: .5s;  
     }
