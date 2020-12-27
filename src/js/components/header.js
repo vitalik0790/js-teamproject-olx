@@ -1,25 +1,14 @@
-import header from '../../templetes/header/header.hbs';
-
-const fetchCategories = () => {
-  return fetch(
-    `https://callboard-backend.herokuapp.com/call/russian-categories`,
-  ).then(response => {
-    return response.json();
-  });
-};
+import { data } from '../data/data'; 
 
 export const renderHeader = () => {
-  fetchCategories().then(data => {
-    createMarkUp(data);
-  });
-};
-
-const createMarkUp = categories => {
-  const getUl = document.querySelector('.header-filter-list');
-  let categoriesWrapper = { categories: categories };
-  getUl.innerHTML += header(categoriesWrapper);
-
-  // console.log('getHeader == >>', getUl);
-  // console.log('categories == >>', categories);
-  // console.log('categoriesWrapper == >>', categoriesWrapper);
-};
+    data.categories.forEach(category => { 
+      const index = data.categories.indexOf(category)
+      document.getElementById('categoriesListMain').innerHTML += `
+      <li class="list header-filter-list__item" >
+        <button class="button header-filter-list__item-btn" id="${category}Main" data-filter="${data.originalCategories[index]}">
+          ${ data.russianCategories[index]}
+        </button>
+      </li>
+      `; 
+    });
+  };

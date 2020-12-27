@@ -54,7 +54,9 @@
     "handlebars": "^4.7.6",
     "ldbutton": "^1.0.2",
     "ldloader": "^1.2.0",
+    "inputmask": "^5.0.5",
     "modern-normalize": "^1.0.0",
+    "pnotify": "^5.2.0",
     "siema": "^1.5.1"
   }
 }

@@ -3,37 +3,40 @@
     <div class="form-fields">
         <div class="flex-input-form">
             <label class="product-name">Название товара</label>
-            <input type="text" class="form-input name-product-form" name="title" />
+            <input required type="text" class="form-input name-product-form" name="title" placeholder=" " minlength="5"
+                title="The value is too short, it must be at least 5 symbols" />
         </div>
         <div class="flex-input-form flex-input-form-center">
             <label class="product-name">Фото</label>
-            <div class="input-wrapper">
+            <div class="gallery-box">
+                <ul class="input-wrapper">
+                </ul>
             </div>
         </div>
         <div class="flex-input-form flex-input-form-center">
             <label class="product-name">Описание товара</label>
-            <textarea class="form-input" name="description"></textarea>
+            <textarea required class="form-input textarea" name="description" placeholder=" " minlength="5"></textarea>
         </div>
         <div class="flex-input-form">
             <label class="product-name">Категория товара</label>
 
-            <select class="form-input" name="category">
-                {{#each categories}}
-                {{!-- <option value="null" hidden class="category visually-hidden" selected disabled>Категория</option> --}}
-                <option value={{this}} class="select-option">{{this}}</option>
-                {{/each}}
+            <select class="form-input select-input" name="category">
+
+
+
             </select>
         </div>
         <div class="flex-input-form">
             <label class="product-name price-label">Цена</label>
-            <input type="number" class="form-input" placeholder="0.00 &euro;" name="price" />
+            <input required type="number" class="form-input" placeholder="0.00 &euro;" name="price" />
         </div>
         <div class="flex-input-form">
             <label class="product-name tel-label">Телефон</label>
-            <input type="tel" class="form-input tel-input-form" name="phone""
-            {{!-- pattern=" [\+]\d{3}\s[\(]\d{2}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"  --}}
-            placeholder=" +38(0--) --- -- --" />
+            <input required type="tel" class="form-input tel-input-form" name="phone" minlength='13' maxlength='13'
+                placeholder=" +380-- --- -- --" title="The value is too short, it must be at least 13 symbols" />
         </div>
+    </div>
+    <div class="button-box">
     </div>
     <button type="submit" class="push-button">
         <span class="button-text">Добавить</span>

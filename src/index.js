@@ -8,16 +8,27 @@ import { createMain } from './js/components/createMain';
 // addButton.addEventListener('click', addImage)
 import { data } from './js/data/data';
 import { sliderGallery } from './js/components/sliderGallery';
-import { checkAuth } from './js/components/authentication'
+import { checkAuth } from './js/components/authentication';
 import { createHero } from './hero_template';
 import { isLogin } from './js/components/navigation-estimates';
 import { fetchFavourites } from './js/components/productInfo/productInfo';
-import { preloader } from './js/components/loader/preloader';
-import { loading } from './js/components/loader/loader';
-//renderHeader();
+import { filterListener } from './js/api/filterSearch';
+import { clearFilterListener } from './js/components/clearBtn';
 
-import './js/components/footer/footer'
-import './js/components/students-modal/students-modal'
+
+import { newAdvMobileListener } from './js/components/newAdvButton';
+import { filterMainListener } from "./js/components/filter-tablet";
+import { createCategoryMarkup } from "./js/components/filter-tablet";
+import { setFiltersListeners } from './js/components/setFiltersListeners';
+import { renderJsMenu } from './js/components/sandwichmenu'
+import { renderHeader } from "./js/components/header";
+import { loading } from './js/components/loader/loader';
+import { preloader } from './js/components/loader/preloader';
+
+
+
+import './js/components/footer/footer';
+import './js/components/students-modal/students-modal';
 
 import { init } from './js/api/galleryApi';
 
@@ -27,24 +38,36 @@ const initialisation = async () => {
     await createHero();
     await init();
     await isLogin();
-    await checkAuth()
+    await checkAuth();
+    await createCategoryMarkup();
+    await renderHeader();
     if (data.auth.isAuth === true) {
         await fetchFavourites();
     }
+    await renderJsMenu();
+    filterListener();
+    clearFilterListener();
+    newAdvMobileListener();
+    filterMainListener();
+
+    setFiltersListeners();
+    loading()
 };
 
 preloader()
 initialisation();
-loading()
 
 import { sandwichmenu } from './js/components/sandwichmenu';
 import { newAdv } from './js/components/newAdvButton';
 // import hero_template from './hero_template';
-import './js/components/productInfo/openProductInfo';
+
+//import './js/components/productInfo/openProductInfo';
 
 
 import './js/components/search'
 import mobileSearh from './js/components/header-mob-search'
+import './js/components/clearBtn';
+
 
 
 

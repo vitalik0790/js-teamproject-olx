@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { data } from '../data/data';
-import { camelCase } from 'lodash'
+import { camelCase } from 'lodash';
+import { openProductInfo } from '../components/productInfo/productInfo';
+import { searchInCategory } from './searchInCategory';
+import { updateMarkup } from '../components/search';
 // const properties = {
 //     width: 0,
 //     height: 0,
@@ -41,9 +44,11 @@ const createMarkup = async (array, num) => {
   let acc = '';
   for (let i = 0; i < (array.length < num ? array.length : num); i += 1) {
     acc += `
-      <li class="products__item" data-id="${array[i]._id}" data-category="${camelCase(array[i].category)}">
+      <li class="products__item" data-id="${array[i]._id
+      }" data-category="${camelCase(array[i].category)}">
               <div class="products__img-wrap">
-                <img class="products__img" src="${array[i].imageUrls[0]}" alt="${array[i].description}">
+                <img class="products__img" src="${array[i].imageUrls[0]
+      }" alt="${array[i].description}">
               </div>
               <div class="products__info">
                 <h3 class="products__info-name">${array[i].title}</h3>
@@ -54,10 +59,13 @@ const createMarkup = async (array, num) => {
   }
   const indexOfCategory = data.categories.indexOf(camelCase(array[0].category));
   const list = `
-      <li class="gallery__list">
+  <li class="gallery__list" data-category-name="${camelCase(
+    array[0].category,
+  )}">
           <div class="gallery__info">
-            <h2 class="gallery__info-name">${data.russianCategories[indexOfCategory]}</h2>
-            <a class="gallery__link_view-all" href="#">Смотреть все</a>
+            <h2 class="gallery__info-name">${data.russianCategories[indexOfCategory]
+    }</h2>
+            <a class="gallery__link_view-all" href="#" data-link="${camelCase(array[0].category)}">Смотреть все</a>
           </div>          
           <ul class="products js-slider">               
           ${acc}          
@@ -71,10 +79,16 @@ const createMarkup = async (array, num) => {
 
 const getCategories = async () => {
   const result = await axios.get(`${baseURL}/call/categories`);
-  result.data.forEach(element => data.categories.push(camelCase(element)));
-  result.data.forEach(
-    element => (data.categoriesList[camelCase(element)] = []),
-  );
+
+  result.data.forEach(element => {
+    data.categories.push(camelCase(element));
+    data.originalCategories.push(element);
+  });
+  result.data.forEach(element => {
+    data.categoriesList[camelCase(element)] = [];
+    getCategory(camelCase(element));
+  });
+
   // data.categories = [...camelCase(result.data)];
   //  console.log( data.categories);
   //  console.log(data.categoriesList);
@@ -99,30 +113,30 @@ const getRussianCategories = async () => {
   });
 };
 
-const fetcherWithCounter = async (categoriesNum, cardsNum) => {
-  if (!data.categories.length) {
-    // console.log(data.categories);
-    await getCategories();
-    // console.log(data.categories);
-  }
-  for (let i = 0; i < categoriesNum; i += 1) {
-    await axios
-      .get(`${baseURL}/call/specific/${data.categories[categoriesShown]}`)
-      .then(async response => await createMarkup(response.data, cardsNum));
-    categoriesShown += 1;
-    // console.log(categoriesShown);
-    // console.log(categories.length);
-    //   if (categoriesShown === data.categories.length){
-    //     loadMoreBtn.disabled = true;
-    // }
-  }
-  $(document).ready(function () {
-    $('.js-slider').slick({
-      dots: true,
-      variableWidth: true,
-    });
-  });
-};
+// const fetcherWithCounter = async (categoriesNum, cardsNum) => {
+//   if (!data.categories.length) {
+//     // console.log(data.categories);
+//     await getCategories();
+//     // console.log(data.categories);
+//   }
+//   for (let i = 0; i < categoriesNum; i += 1) {
+//     await axios
+//       .get(`${baseURL}/call/specific/${data.categories[categoriesShown]}`)
+//       .then(async response => await createMarkup(response.data, cardsNum));
+//     categoriesShown += 1;
+//     // console.log(categoriesShown);
+//     // console.log(categories.length);
+//     //   if (categoriesShown === data.categories.length){
+//     //     loadMoreBtn.disabled = true;
+//     // }
+//   }
+//   $(document).ready(function () {
+//     $('.js-slider').slick({
+//       dots: true,
+//       variableWidth: true,
+//     });
+//   });
+// };
 // const loadMoreBtn = document.querySelector('.load-more')
 
 export const init = async () => {
@@ -135,19 +149,58 @@ export const init = async () => {
     }
     for (let i = 0; i < categoriesNum; i += 1) {
       await axios
-        .get(`${baseURL}/call/specific/${data.categories[categoriesShown]}`)
+        .get(`${baseURL}/call/specific/${data.categories[data.renderedCategories.length]}`)
         .then(async response => {
           await createMarkup(response.data, cardsNum);
-          getCategory(data.categories[categoriesShown])
-          data.renderedCategories.push(data.categories[categoriesShown])
+          if (data.renderedCategories.includes(data.categories[data.renderedCategories.length])) {
+            return
+          } else {
+            data.renderedCategories.push(data.categories[data.renderedCategories.length]);
+          }
+
+          // getCategory(data.categories[categoriesShown])
+          // data.renderedCategories.push(data.categories[categoriesShown]);
+
           // console.log(data.renderedCategories);
+          //console.log(data);
           console.log(data);
+          console.log(data.renderedCategories.length);
+
+          // ================= открытие ProductInfo по клику на карточку ======
+          const galleryLisRef = document.querySelector(
+            `[data-category-name="${data.categories[data.renderedCategories.length - 1]}"]`,
+          );
+          galleryLisRef.addEventListener('click', onCardClickInGallery);
+
+          function onCardClickInGallery(event) {
+            if (!event.target.closest('li[data-id]')) return;
+            const currentCategory = event.target.closest('li').dataset.category;
+            const targetCard = data.categoriesList[currentCategory].find(
+              card => card._id === event.target.closest('li').dataset.id,
+            );
+            // console.log(targetCard);
+            openProductInfo(targetCard);
+          }
+
+
+          const linkShowAllCategory = async e => {
+            e.preventDefault()
+            if (e.target.nodeName === "A") {
+              await searchInCategory(e.target.dataset.link);
+              updateMarkup(data.inCategories);
+            }
+          };
+          // const index = data.renderedCategories.length -1 ;
+          // console.log(index);
+          const galleryLinkRef = document.querySelector(`[data-link="${camelCase(data.categories[data.renderedCategories.length - 1])}"]`)
+          galleryLinkRef.addEventListener('click', linkShowAllCategory);
+
         })
         .catch(error => console.log(error));
-      categoriesShown += 1;
+      // categoriesShown += 1;
       // console.log(categoriesShown);
       // console.log(data.categories.length);
-      if (categoriesShown === data.categories.length) {
+      if (data.renderedCategories.length === data.categories.length) {
         loadMoreBtn.disabled = true;
         loadMoreBtn.classList.add('is-disabled');
       }
@@ -168,7 +221,7 @@ export const init = async () => {
     //     dots: true,
     //     variableWidth: true,
     //   });
-    // });    
+    // });
   };
 
   loadMoreBtn.addEventListener('click', loadMore);

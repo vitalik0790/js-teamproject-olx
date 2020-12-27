@@ -1,0 +1,45 @@
+.confirm-modal {
+  background-color: #fff;
+  width: 290px;
+  height: 205px;
+  text-align: center;
+  font-weight: 700;
+  padding-top: 47px;
+  z-index: 99;
+  margin: -54px -20px -48px;
+  @media screen and (min-width: 768px) {
+    margin: -60px -90px -70px;
+    width: 650px;
+    height: 230px;
+    padding: 62px;
+  }
+  &__question {
+    margin-bottom: 30px;
+  }
+  &__btn_go {
+    width: 118px;
+    height: 50px;
+    background-color: $accent-color;
+    border: 1px solid $accent-color;
+    color: #fff;
+    outline: none;
+    font-weight: 700;
+    cursor: pointer;
+    @media screen and (min-width: 768px) {
+      width: 210px;
+      height: 60px;
+    }
+  }
+  &__btn_cancl {
+    width: 118px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #bbbbbb;
+    font-weight: 700;
+    cursor: pointer;
+    @media screen and (min-width: 768px) {
+      width: 210px;
+      height: 60px;
+    }
+  }
+}

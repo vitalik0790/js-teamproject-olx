@@ -1,11 +1,11 @@
 {{#each this}}
-<li class="search__goods">
-    <img class="search___img" src="{{imageUrls}}" alt="{{description}}" width="240" height="240" />
+<li class="search__goods" data-category="{{category}}" data-id="{{_id}}">
+  <img class="search___img" src="{{#with this.imageUrls}} {{this.[0]}} {{/with}}" alt="{{description}}" width="240" height="240" />
 
-    <div class="search__info">
-        <p class="search__title">{{title}}</p>
-        <p class="search__price">{{price}} €</p>
+  <div class="search__info">
+    <p class="search__title">{{title}}</p>
+    <p class="search__price">{{price}} €</p>
 
-    </div>
+  </div>
 </li>
 {{/each}}
