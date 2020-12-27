@@ -6,7 +6,6 @@ import newAdvForm from '../../templates/newAdvForm.hbs';
 import { data } from '../data/data';
 
 const newAdvbutton = document.getElementById('header-btn-adv');
-console.log(newAdvForm());
 export const newAdv = () => {
     if (!getToken()) {
         signUpHandler();
