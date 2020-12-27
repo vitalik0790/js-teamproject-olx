@@ -11,22 +11,17 @@ const refs = {
 };
 
 export const profileMenuMobile = () => {
-  console.log(data);
   refs.menuMobil = document.querySelector('.profile-menuMobil');
   refs.menuFavorites = document.getElementById('profile-menuMobil-favorite');
-  refs.menuMyAdv = document.getElementById('profile-menuMobil-MyAdv')
+  refs.menuMyAdv = document.getElementById('profile-menuMobil-MyAdv');
   refs.menuFavorites.addEventListener('click',buttonClick);
   refs.menuMyAdv.addEventListener('click',buttonClick);
-  // console.log(refs.menuMobil);
-  // console.log( refs.menuFavorites);
-  // console.log(refs.menuMyAdv);
-
+  
   refs.menuMobil.classList.toggle('mobil-hidden');
 };
 
 const buttonClick =(e) => {
   if (e.target === refs.menuFavorites) {
-    console.log("case1");
     createMarkupFavoritesGoodsList('Избранное', data.user.favorites);
     refs.menuFavorites.removeEventListener('click',buttonClick);
     refs.getJsMenu.classList.toggle("activ");
@@ -35,7 +30,6 @@ const buttonClick =(e) => {
     
     console.log('Избранное в data:', data.user.favorites);
   } if (e.target === refs.menuMyAdv) {
-    console.log("case2");
     createMarkupFavoritesGoodsList('Мои объявления', data.user.ownCalls);
     refs.menuMyAdv.removeEventListener('click',buttonClick);
     refs.getJsMenu.classList.toggle("activ");
