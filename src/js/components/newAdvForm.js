@@ -61,15 +61,14 @@ export const newAdvFormComponent = advData => {
     for (let i = newAdv.file.length; i < 4; i += 1) {
       greyWrapp += `<li data-id="${i + 1}" class="file-loader grey"> 
             <label for="file_loader${
-        newAdv.file.length
-        }"   class="file-loader-label"></label>
+              newAdv.file.length
+            }"   class="file-loader-label"></label>
             </li>`;
     }
     return greyWrapp;
   };
   const createMarkupCategories = () => {
-    let categoriesMarkup =
-      "<option value='' class='select-option'></option >";
+    let categoriesMarkup = "<option value='' class='select-option'></option >";
     for (let i = 0; i < data.categories.length; i += 1) {
       categoriesMarkup += `
         <option required value='${data.originalCategories[i]}' class="select-option">${data.russianCategories[i]}
@@ -169,14 +168,12 @@ export const newAdvFormComponent = advData => {
         try {
           const result = await axios.post(baseURL, formData, options);
 
-          const object = { ...result.data, _id: result.data.id }
+          const object = { ...result.data, _id: result.data.id };
 
           data.user.ownCalls = [...data.user.ownCalls, object];
 
           // ==================Руслана добавила вот эту  строку==================================
           data.categoriesList[result.data.category].push(object);
-
-
 
           closeModal();
           successAlert('Объявление успешно записано!').open();
@@ -191,11 +188,14 @@ export const newAdvFormComponent = advData => {
           formData,
           options,
         );
+
+        const object = { ...result.data, _id: result.data.id };
         data.user.ownCalls = [
           ...data.user.ownCalls.map(item =>
-            item._id === newAdv._id ? { ...result.data } : item,
+            item._id === newAdv._id ? object : item,
           ),
         ];
+
         await closeModal();
         successAlert('Объявление успешно записано!').open();
       } catch (error) {
@@ -257,8 +257,8 @@ export const newAdvFormComponent = advData => {
     for (let i = newAdv.file.length; i < 4; i += 1) {
       greyWrapp += `<li data-id="${i + 1}" class="file-loader grey"> 
             <label for="file_loader${
-        newAdv.file.length
-        }"   class="file-loader-label"></label>
+              newAdv.file.length
+            }"   class="file-loader-label"></label>
             </li>`;
     }
     inputWrapper.insertAdjacentHTML('beforeend', greyWrapp);
