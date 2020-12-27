@@ -1,18 +1,18 @@
 import sandwichmenu from '../../templates/sandwichMenu.hbs';
-import { clearFilter } from '../api/searchInCategory';
 import signInMenuPane from '../../templates/navigationSignInMenuPane.hbs';
 import { signUpHandler, signInHandler, logOut } from './authentication';
-import { renderFilterMobile } from './filter-mobile';
+import { renderCategories, showCategoriesMobile } from './filter-mobile';
 import { getToken } from '../utils/getToken';
 import { confirmModal } from './confirmModal';
+import { data } from '../data/data';
 import { profileMenuMobile } from './profileMenuMobile';
 
 //********************* 
 //Открывает панель категорий
 const func = (e) => {
   e.preventDefault();
-  refs.getJsMenu.classList.toggle("activ");
-  setAuthMenuListeners("menuPane");
+  document.querySelector('.js_menu').classList.toggle("activ");
+  //setAuthMenuListeners("menuPane");
 }
 
 //переключает вид меню авторизации логин/сайнап
@@ -22,20 +22,18 @@ export const toggleMenuAuth = (panelId) => {
 } 
 
 //отрисовывает панель категорий внутри элемента с классом .js_menu
-export const createMarkUp = () => {
-  refs.getJsMenu.insertAdjacentHTML('beforeend', `${sandwichmenu()}`);
-  //const categorisFilterTabl = document.getElementById('header-filter-tablet');
-  const categorisFilter = document.getElementById('categorisFilter');
-  const clearFilterBtn = document.getElementById('clearFilter');
-  //categorisFilterTabl.addEventListener('click', renderFilter);
-  categorisFilter.addEventListener('click', function(){renderFilterMobile(refs)});
-  clearFilterBtn.addEventListener('click', clearFilter);
-};
+// export const createMarkUp = () => {
+//   refs.getJsMenu.insertAdjacentHTML('beforeend', `${sandwichmenu()}`);
+//   const categorisFilter = document.getElementById('categorisFilter');
+//   const clearFilterBtn = document.getElementById('clearFilter');
+//   categorisFilter.addEventListener('click', function(){renderFilterMobile(refs)});
+//   clearFilterBtn.addEventListener('click', clearFilter);
+// };
 
 //отрисовывает меню авторизации внутри div mobile-auth
 export const renderAuthMenu = (paneName) => {
   const context = { menuAuth: paneName };
-  signInDivMenuPane.innerHTML = signInMenuPane(context);
+  document.getElementById('mobile-auth').innerHTML = signInMenuPane(context);
   const signUpWrappemenu = document.getElementById(paneName + 'SignUpWrapperId');
     const signInWrappemenu = document.getElementById(paneName + 'SignInWrapperId');
   if (getToken()) {
@@ -47,7 +45,7 @@ export const renderAuthMenu = (paneName) => {
   }
 }
 
-//развешивает листенеров по элементам на панели
+//развешивает листенеров по элементам на панели аутентикации
 const setAuthMenuListeners = (paneName) => {
   const signInBtnmenu = document.getElementById(paneName + 'SignInBtnId')
   const signUpBtnmenu = document.getElementById(paneName + 'SignUpBtnId')
@@ -59,27 +57,26 @@ const setAuthMenuListeners = (paneName) => {
   userBtnmenu.addEventListener('click', profileMenuMobile);
 }
 
-//код исполняющийся при загрузке страницы
+const setJsPaneListeners = () => {
+  const sandwichMenu = document.getElementById('sandwichmenu');
+  const getSvgMenu = document.getElementById('svgMenu');  
+  const categorisFilter = document.getElementById('categorisFilter');
+  const clearFilterBtn = document.getElementById('clearFilter');
 
-//const getUl = document.getElementById('categoriesList');
-let refs = {
-  isCategoriesShown : false,
-  getUl : '',
-  getJsMenu : document.querySelector('.js_menu'),
+  categorisFilter.addEventListener('click', showCategoriesMobile);
+  sandwichMenu.addEventListener('click', func); 
+  getSvgMenu.addEventListener('click', func);
 }
 
-const sandwichMenu = document.getElementById('sandwichmenu');
-//const getJsMenu = document.querySelector('.js_menu');
-const getSvgMenu = document.getElementById('svgMenu');
+export const renderJsMenu = async () => {
+  // let refs = {
+  //   getUl : '',
+  //   getJsMenu : document.querySelector('.js_menu'),
+  // }
+  await document.querySelector('.js_menu').insertAdjacentHTML('beforeend', `${sandwichmenu()}`);
+  await renderAuthMenu("menuPane");
+  await renderCategories();
+  setJsPaneListeners();
+  setAuthMenuListeners("menuPane");
 
-createMarkUp();
-refs.getUl = document.getElementById('categoriesList');
-//console.log("markup created");
-
-const signInDivMenuPane = document.getElementById('mobile-auth');
-
-sandwichMenu.addEventListener('click', func); 
-getSvgMenu.addEventListener('click', func);
-
-renderAuthMenu("menuPane");
-
+}

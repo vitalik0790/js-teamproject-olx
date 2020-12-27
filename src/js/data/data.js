@@ -11,6 +11,7 @@ export const data = {
   renderedCategories: [],
   categoriesList: {},
   inCategories: [],
+  isCategoriesShown: false,
   inAll: [],
   auth: {
     isAuth: false,
