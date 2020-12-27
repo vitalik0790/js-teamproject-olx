@@ -242,6 +242,10 @@
     margin-right: 10px;
   }
 }
+.header-filter-tablet:hover,
+.header-filter-tablet:focus{
+color: $accent-color
+}
 
 .header-filter-list__item-btn:hover,
 .header-filter-list__item-btn:focus {
@@ -264,12 +268,12 @@
   display: none;
   @media screen and (min-width: 768px) {
     display: flex;
-    fill: $header-primary-text-color;
+    fill: currentColor;
     margin-right: 12px;
   }
 }
-.clear-filter-svg:hover {
-  fill: $accent-color;
+.clear-filter-svg {
+  fill: currentColor;
 }
 
 .clear-filter-tablet-svg {
@@ -279,8 +283,8 @@
     margin-right: 13px;
   }
 }
-.clear-filter-tablet-svg:hover {
-  fill: $accent-color;
+.clear-filter-tablet-svg {
+  fill: currentColor;
 }
 
 // .navigation__button {

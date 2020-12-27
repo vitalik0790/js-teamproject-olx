@@ -97,8 +97,6 @@
     color: $primary-bg-color;
   }
 }
-
-// photo
 .gallery-box {
   display: flex;
   flex-wrap: wrap;
@@ -107,10 +105,8 @@
 .grey-wrapper {
   display: flex;
   flex-wrap: wrap;
-  // flex-direction: row;
-  // width: 100%;
 }
-// ====================
+
 .input-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -136,7 +132,6 @@
 }
 .file-loader-input {
   display: none;
-  // visibility: hidden;
 }
 .file-loader-label {
   display: block;
@@ -145,22 +140,18 @@
   margin-right: 10px;
   margin-bottom: 10px;
   background-color: #f5f6fb;
-  border: 1px solid orange;
 }
 
 .file-loader-show-availabel {
   position: absolute;
   width: 100%;
   height: 45.94px;
-  // left: 30px;
 
   font-family: Montserrat;
 
   font-weight: 500;
   font-size: 22px;
   line-height: 46px;
-  // display: flex;
-  // align-items: center;
   text-align: center;
   letter-spacing: 0.02em;
 
@@ -264,12 +255,14 @@
       margin-right: 0px;
     }
   }
-  // ====================
   .input-wrapper {
     flex-wrap: nowrap;
   }
   .grey-wrapper {
     flex-wrap: nowrap;
+  }
+  .gallery-box {
+    margin-right: 40px;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -292,8 +285,7 @@
   .clean-button {
     margin-left: 333px;
   }
-  // ====================
-  .input-wrapper {
-    margin-left: 303px;
+  .gallery-box {
+    margin-right: 190px;
   }
 }

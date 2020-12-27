@@ -1,6 +1,7 @@
 import confirmModalTemplate from '../../templates/confirmModal.hbs';
 import { openInModal, closeModal } from './modal';
 import { logOut } from './authentication';
+import { clearMain } from './clearBtn'
 
 export const confirmModal = () => {
   openInModal(confirmModalTemplate(), removeListeners);
@@ -9,6 +10,7 @@ export const confirmModal = () => {
   const logOutHandler = () => {
     logOut();
     closeModal();
+    clearMain();
     removeListeners();
   };
   const cancelHandler = () => {

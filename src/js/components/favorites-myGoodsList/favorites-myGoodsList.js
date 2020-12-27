@@ -1,19 +1,24 @@
 import { data } from '../../data/data';
 import listTemplate from '../../../templates/favorites-myGoodsList.hbs';
 import { openProductInfo } from '../productInfo/productInfo';
+import { newAdvFormComponent } from '../newAdvForm';
+import { openInModal } from '../modal';
+import newAdvForm from '../../../templates/newAdvForm.hbs';
 
 const refs = {
   main: document.querySelector('.main'),
   list: '',
 };
 
-function createMarkupFavoritesGoodsList(title, arr) {
-  // if (!arr.length) {
-  //   refs.main.innerHTML = `<section class="favorites-myGoods container">
-  // <h1 class="favorites-myGoods__title">${title}</h1>
-  // </section>`;
-  //   return;
-  // }
+function createMarkupFavoritesGoodsList(title, arr, message) {
+  if (!arr.length) {
+    refs.main.innerHTML = `<section class="favorites-myGoods-massage container">
+  <h1 class="favorites-myGoods__title">${title}</h1>
+
+  <p class="favorites-myGoods__message-text">${message}</p>
+  </section>`;
+    return;
+  }
 
   const markup = listTemplate({ arr, title });
   refs.main.innerHTML = markup;
@@ -24,11 +29,23 @@ function createMarkupFavoritesGoodsList(title, arr) {
   function onCardClick(event) {
     if (event.target === event.currentTarget) return;
 
-    const targetCard = arr.find(
-      card => card._id === event.target.closest(`li[data-card]`).dataset.card,
-    );
+    if (event.target.nodeName === 'BUTTON') {
+      const card = findTargetCard();
+      openInModal(newAdvForm());
+      newAdvFormComponent(card);
+
+      return;
+    }
+
     // console.log(targetCard);
-    openProductInfo(targetCard);
+    openProductInfo(findTargetCard());
+
+    function findTargetCard() {
+      const targetCard = arr.find(
+        card => card._id === event.target.closest(`li[data-card]`).dataset.card,
+      );
+      return targetCard;
+    }
   }
 }
 
