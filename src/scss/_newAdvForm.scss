@@ -200,6 +200,11 @@
 
   color: $primary-text-color;
 }
+@media screen and (min-width: 320px) {
+  .form {
+    min-width: 250px;
+  }
+}
 
 @media screen and (min-width: 480px) {
   .form {
@@ -209,7 +214,7 @@
 
 @media screen and (min-width: 768px) {
   .form {
-    width: 724px;
+    width: 624px;
   }
   .form-text {
     margin-bottom: 30px;
