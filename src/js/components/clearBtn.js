@@ -6,7 +6,7 @@ import { data } from '../data/data';
 
 
 
-const clearMain = () => {
+export const clearMain = () => {
     data.categories = [];
     data.russianCategories = [];
     data.originalCategories = [];
