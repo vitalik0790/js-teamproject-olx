@@ -75,218 +75,158 @@
             <svg width="24" height="24" aria-label="Мобильное меню" class="header-logo__input-svg">
               <use class="" href="./images/svg/icons/sprite.svg#search"></use>
             </svg>
-          </div>
-          <div class="js_menu">
-            <svg width="20" height="20" id="svgMenu" class="js_menu-svg">
-              <use href="./images/svg/icons/sprite.svg#close"></use>
-            </svg>
-          </div>
-          <div class="header-logo">
-            <a href="#" class="link">
-              <div class="header-logo__ellipse">
-                <span class="header-logo__name">LOGO</span>
-              </div>
-            </a>
-          </div>
-          <div class="header-search">
-            <input
-              class="header-logo__input"
-              type="text"
-              name="inputSearch"
-              id="inputSearch"
-              placeholder="Поиск товаров..."
-            />
-            <button class="header-search__btn" type="button">
-              <svg
-                width="24"
-                height="24"
-                aria-label="Мобильное меню"
-                class="header-logo__input-svg"
-              >
-                <use class="" href="./images/svg/icons/sprite.svg#search"></use>
-              </svg>
-            </button>
-            <!-- <button class="header__input-btn"></button> -->
-          </div>
-
-          <!-- моя кнопка тел -->
-          <div class="relative">
-            <button
-              type="button"
-              class="search__button is-open"
-              aria-expanded="false"
-              aria-controls="menu-container"
-              data-menu-button
-            >
-              <svg
-                width="24"
-                height="24"
-                aria-label="Мобильное меню"
-                class="search__button-svg"
-              >
-                <use
-                  class="input-open"
-                  href="./images/svg/icons/sprite.svg#close"
-                ></use>
-                <use
-                  class="input-close"
-                  href="./images/svg/icons/sprite.svg#search"
-                ></use>
-                '
-              </svg>
-            </button>
-            <input
-              class="mobile-search-input"
-              type="text"
-              placeholder="Поиск товаров..."
-              data-menu
-            />
-          </div>
-
-          <div class="header-auth"></div>
-          <button
-            type="button"
-            class="button header-btn-adv"
-            id="header-btn-adv"
-          >
-            Создать объявление
           </button>
+          <!-- <button class="header__input-btn"></button> -->
         </div>
-        <div class="header-filter">
-          <div class="header-search-tablet">
-            <input
-              class="header-logo__input-tablet"
-              type="text"
-              name="inputSearchTabl"
-              id="inputSearchTabl"
-              placeholder="Поиск товаров..."
-            />
-            <!-- <svg width="24" height="24" aria-label="Мобильное меню" class="header-logo__input-svg">
-            <use class="" href="./images/svg/icons/sprite.svg#search"></use>
-          </svg> -->
-            <button class="header__input-btn"></button>
-          </div>
-
-          <button class="button header-filter-tablet" id="mainFilterSelector">
-            <svg width="24" height="24" class="clear-filter-tablet-svg">
-              <use href="./images/svg/icons/sprite.svg#tune"></use>
+  
+        <!-- моя кнопка тел -->
+        <div class="relative">
+          <button type="button" class="search__button is-open" aria-expanded="false" aria-controls="menu-container"
+            data-menu-button>
+            <svg width="24" height="24" aria-label="Мобильное меню" class="search__button-svg">
+              <use class="input-open" href="./images/svg/icons/sprite.svg#close"></use>
+              <use class="input-close" href="./images/svg/icons/sprite.svg#search"></use>
+              '
             </svg>
-            Фильтры
           </button>
-
-          <ul class="header-filter-list" id="categoriesListMain">
-            <!-- <li class="list header-filter-list__item">
-              <button
-                class="button header-filter-list__item-btn"
-                data-filter="property"
-                id="propertyMain"
-              >
-                Недвижимость
-              </button>
-            </li>
-            <li class="list header-filter-list__item">
-              <button
-                class="button header-filter-list__item-btn"
-                data-filter="transport"
-                id="transportMain"
-              >
-                Транспорт
-              </button>
-            </li>
-            <li class="list header-filter-list__item">
-              <button
-                class="button header-filter-list__item-btn"
-                data-filter="work"
-                id="workMain"
-              >
-                Работа
-              </button>
-            </li>
-            <li class="list header-filter-list__item">
-              <button
-                class="button header-filter-list__item-btn"
-                data-filter="electronics"
-                id="electronicsMain"
-              >
-                Электроника
-              </button>
-            </li>
-            <li class="list header-filter-list__item">
-              <button
-                class="button header-filter-list__item-btn"
-                data-filter="business and services"
-                id="businessAndServicesMain"
-              >
-                Бизнес и услуги
-              </button>
-            </li>
-            <li class="list header-filter-list__item">
-              <button
-                class="button header-filter-list__item-btn"
-                data-filter="recreation and sport"
-                id="recreationAndSportMain"
-              >
-                Отдых и спорт
-              </button>
-            </li>
-            <li class="list header-filter-list__item">
-              <button
-                class="button header-filter-list__item-btn"
-                data-filter="free"
-                id="freeMain"
-              >
-                Отдам бесплатно
-              </button>
-            </li>
-            <li class="list header-filter-list__item">
-              <button
-                class="button header-filter-list__item-btn"
-                data-filter="trade"
-                id="tradeMain"
-              >
-                Обмен
-              </button>
-            </li> -->
-          </ul>
-
-          <button class="button header-clear-filter-btn" id="clear-filter-btn">
-            <svg width="24" height="24" class="clear-filter-svg">
-              <use href="./images/svg/icons/sprite.svg#replay"></use>
-            </svg>
-            Очистить
-          </button>
-          
+          <input class="mobile-search-input" type="text" placeholder="Поиск товаров..." data-menu />
         </div>
-        <div class="header-category-tablet" >
-          <ul class="list header-category-tablet-list" id="categoryTablet"></ul>
-        </div>
+  
+        <div class="header-auth"></div>
+        <button type="button" class="button header-btn-adv" id="header-btn-adv">
+          Создать объявление
+        </button>
       </div>
-    </header>
-    <main class="main"></main>
-    <footer class="footer">
-      <div class="modalContainer"></div>
-      <div class="container">
-        <p class="text-1">
-          &copy; 2020 &nbsp;&nbsp;<span class="line-1"></span>&nbsp;&nbsp; All
-          Rights Reserved &nbsp;&nbsp; <span class="line-2"></span>&nbsp;&nbsp;
-        </p>
-        <p class="text-2">
-          Developed with <span class="footer__heart">&#10084;</span> by
-          <button type="button" class="button-students footer__our-students">
-            GoIT Students
-          </button>
-        </p>
+      <div class="header-filter">
+        <div class="header-search-tablet">
+          <input class="header-logo__input-tablet" type="text" name="inputSearchTabl" id="inputSearchTabl"
+            placeholder="Поиск товаров..." />
+          <!-- <svg width="24" height="24" aria-label="Мобильное меню" class="header-logo__input-svg">
+              <use class="" href="./images/svg/icons/sprite.svg#search"></use>
+            </svg> -->
+          <button class="header__input-btn"></button>
+        </div>
+  
+        <button class="button header-filter-tablet" id="mainFilterSelector">
+          <svg width="24" height="24" class="clear-filter-tablet-svg">
+            <use href="./images/svg/icons/sprite.svg#tune"></use>
+          </svg>
+          Фильтры
+        </button>
+  
+        <ul class="header-filter-list" id="categoriesListMain">
+          <!-- <li class="list header-filter-list__item">
+                <button
+                  class="button header-filter-list__item-btn"
+                  data-filter="property"
+                  id="propertyMain"
+                >
+                  Недвижимость
+                </button>
+              </li>
+              <li class="list header-filter-list__item">
+                <button
+                  class="button header-filter-list__item-btn"
+                  data-filter="transport"
+                  id="transportMain"
+                >
+                  Транспорт
+                </button>
+              </li>
+              <li class="list header-filter-list__item">
+                <button
+                  class="button header-filter-list__item-btn"
+                  data-filter="work"
+                  id="workMain"
+                >
+                  Работа
+                </button>
+              </li>
+              <li class="list header-filter-list__item">
+                <button
+                  class="button header-filter-list__item-btn"
+                  data-filter="electronics"
+                  id="electronicsMain"
+                >
+                  Электроника
+                </button>
+              </li>
+              <li class="list header-filter-list__item">
+                <button
+                  class="button header-filter-list__item-btn"
+                  data-filter="business and services"
+                  id="businessAndServicesMain"
+                >
+                  Бизнес и услуги
+                </button>
+              </li>
+              <li class="list header-filter-list__item">
+                <button
+                  class="button header-filter-list__item-btn"
+                  data-filter="recreation and sport"
+                  id="recreationAndSportMain"
+                >
+                  Отдых и спорт
+                </button>
+              </li>
+              <li class="list header-filter-list__item">
+                <button
+                  class="button header-filter-list__item-btn"
+                  data-filter="free"
+                  id="freeMain"
+                >
+                  Отдам бесплатно
+                </button>
+              </li>
+              <li class="list header-filter-list__item">
+                <button
+                  class="button header-filter-list__item-btn"
+                  data-filter="trade"
+                  id="tradeMain"
+                >
+                  Обмен
+                </button>
+              </li> -->
+        </ul>
+  
+        <button class="button header-clear-filter-btn" id="clear-filter-btn">
+          <svg width="24" height="24" class="clear-filter-svg">
+            <use href="./images/svg/icons/sprite.svg#replay"></use>
+          </svg>
+          Очистить
+        </button>
+  
       </div>
-    </footer>
-    <div class="backdrop is-hidden">
-      <div class="modal">
-        <svg class="modal-close">
-          <use href="./images/svg/icons/close/close-24px.svg#close"></use>
-        </svg>
-        <div class="modal-content"></div>
+      <div class="header-category-tablet">
+        <ul class="list header-category-tablet-list" id="categoryTablet"></ul>
       </div>
     </div>
-
-    <div class="contentAdvForm"></div>
+  </header>
+  <main class="main"></main>
+  <footer class="footer">
+    <div class="modalContainer"></div>
+    <div class="container">
+      <p class="text-1">
+        &copy; 2020 &nbsp;&nbsp;<span class="line-1"></span>&nbsp;&nbsp; All
+        Rights Reserved &nbsp;&nbsp; <span class="line-2"></span>&nbsp;&nbsp;
+      </p>
+      <p class="text-2">
+        Developed with <span class="footer__heart">&#10084;</span> by
+        <button type="button" class="button-students footer__our-students">
+          GoIT Students
+        </button>
+      </p>
+    </div>
+  </footer>
+  <div class="backdrop is-hidden">
+    <div class="modal">
+      <svg class="modal-close">
+        <use href="./images/svg/icons/close/close-24px.svg#close"></use>
+      </svg>
+      <div class="modal-content"></div>
+    </div>
+  </div>
+  
+  <div class="contentAdvForm"></div>
   </body>
 </html>
