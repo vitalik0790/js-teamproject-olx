@@ -4,6 +4,7 @@ import { mobSlider } from './productInfoSlider';
 import productInfoTemplate from '../../../templates/productInfoTemplate.hbs';
 import {
   fetchFavouritesAPI,
+  fetchOwnCallsAPI,
   addInFavoritesAPI,
   removeFromFavoritesAPI,
 } from './favoritesAPI';
@@ -25,7 +26,16 @@ const fetchFavourites = () => {
     .then(favorites => {
       data.user.favorites = favorites;
 
-      // console.log('data после перезагрузки:', data.user.favorites);
+      // console.log('data.favorites после перезагрузки:', data.user.favorites);
+    })
+    .catch(error => console.log(error));
+};
+
+const fetchOwnCalls = () => {
+  fetchOwnCallsAPI()
+    .then(ownCalls => {
+      data.user.ownCalls = ownCalls;
+      // console.log('data.ownCalls после перезагрузки:', data.user.ownCalls);
     })
     .catch(error => console.log(error));
 };
@@ -33,6 +43,7 @@ const fetchFavourites = () => {
 //=============== открытие информации о товаре =================
 function openProductInfo(card) {
   const price = card.price.toLocaleString();
+  // console.log(price);
   openInModal(productInfoTemplate({ ...card, price }), removeEventListeners);
 
   refs.dotsRef = document.querySelector('.dots');
@@ -138,4 +149,4 @@ function removeEventListeners() {
   refs.favoritesRef.removeEventListener('click', onFavoritesClick);
 }
 
-export { openProductInfo, fetchFavourites };
+export { openProductInfo, fetchFavourites, fetchOwnCalls };
