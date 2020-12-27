@@ -18,20 +18,22 @@ export const isLogin = () => {
     const signUpBtn = document.querySelector('.signUpBtn');
     if (signUpBtn.addEventListener('click', signUpHandler)) {
       signUpBtn.removeEventListener('click', signUpHandler);
+      loading()
     }
     if (signInBtn.addEventListener('click', signInHandler)) {
       signInBtn.removeEventListener('click', signInHandler);
+      loading()
     }
   } else {
     refs.signInDiv.innerHTML = `${navSignUp()}${profileMenuTemplate()}`;
     const logOutBtn = document.querySelector('.logOutBtn');
     const userBtn = document.querySelector('.user_btn');
     if (logOutBtn.addEventListener('click', confirmModal)) {
-      logOutBtn.removeEventListener('click', confirmModal);
+      logOutBtn.removeEventListener('click', confirmModal)
+      loading();
     }
     if (userBtn.addEventListener('click', profileMenu)) {
       userBtn.removeEventListener('click', profileMenu);
     }
   }
-  loading()
 };
