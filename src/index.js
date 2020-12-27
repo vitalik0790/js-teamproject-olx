@@ -22,13 +22,19 @@ import { newAdvMobileListener } from './js/components/newAdvButton';
 import { filterMainListener } from './js/components/filter-tablet';
 import { createCategoryMarkup } from './js/components/filter-tablet';
 import { setFiltersListeners } from './js/components/setFiltersListeners';
-import { renderJsMenu } from './js/components/sandwichmenu';
-import { renderHeader } from './js/components/header';
+import { renderJsMenu } from './js/components/sandwichmenu'
+import { renderHeader } from "./js/components/header";
+import { loading } from './js/components/loader/loader';
+import { preloader } from './js/components/loader/preloader';
+
+
 
 import './js/components/footer/footer';
 import './js/components/students-modal/students-modal';
 
 import { init } from './js/api/galleryApi';
+
+
 const initialisation = async () => {
   await createMain();
   await createHero();
@@ -48,9 +54,13 @@ const initialisation = async () => {
   filterMainListener();
 
   setFiltersListeners();
+  loading()
 };
+
+preloader()
 initialisation();
 
+import { sandwichmenu } from './js/components/sandwichmenu';
 import { newAdv } from './js/components/newAdvButton';
 // import hero_template from './hero_template';
 

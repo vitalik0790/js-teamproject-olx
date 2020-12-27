@@ -44,13 +44,11 @@ const createMarkup = async (array, num) => {
   let acc = '';
   for (let i = 0; i < (array.length < num ? array.length : num); i += 1) {
     acc += `
-      <li class="products__item" data-id="${
-        array[i]._id
+      <li class="products__item" data-id="${array[i]._id
       }" data-category="${camelCase(array[i].category)}">
               <div class="products__img-wrap">
-                <img class="products__img" src="${
-                  array[i].imageUrls[0]
-                }" alt="${array[i].description}">
+                <img class="products__img" src="${array[i].imageUrls[0]
+      }" alt="${array[i].description}">
               </div>
               <div class="products__info">
                 <h3 class="products__info-name">${array[i].title}</h3>
@@ -65,9 +63,8 @@ const createMarkup = async (array, num) => {
     array[0].category,
   )}">
           <div class="gallery__info">
-            <h2 class="gallery__info-name">${
-              data.russianCategories[indexOfCategory]
-            }</h2>
+            <h2 class="gallery__info-name">${data.russianCategories[indexOfCategory]
+    }</h2>
             <a class="gallery__link_view-all" href="#" data-link="${camelCase(array[0].category)}">Смотреть все</a>
           </div>          
           <ul class="products js-slider">               
@@ -155,7 +152,7 @@ export const init = async () => {
         .get(`${baseURL}/call/specific/${data.categories[data.renderedCategories.length]}`)
         .then(async response => {
           await createMarkup(response.data, cardsNum);
-          if (data.renderedCategories.includes(data.categories[data.renderedCategories.length])){
+          if (data.renderedCategories.includes(data.categories[data.renderedCategories.length])) {
             return
           } else {
             data.renderedCategories.push(data.categories[data.renderedCategories.length]);
@@ -171,7 +168,7 @@ export const init = async () => {
 
           // ================= открытие ProductInfo по клику на карточку ======
           const galleryLisRef = document.querySelector(
-            `[data-category-name="${data.categories[data.renderedCategories.length-1]}"]`,
+            `[data-category-name="${data.categories[data.renderedCategories.length - 1]}"]`,
           );
           galleryLisRef.addEventListener('click', onCardClickInGallery);
 
@@ -187,7 +184,7 @@ export const init = async () => {
 
 
           const linkShowAllCategory = async e => {
-            e.preventDefault()            
+            e.preventDefault()
             if (e.target.nodeName === "A") {
               await searchInCategory(e.target.dataset.link);
               updateMarkup(data.inCategories);
@@ -195,9 +192,9 @@ export const init = async () => {
           };
           // const index = data.renderedCategories.length -1 ;
           // console.log(index);
-          const galleryLinkRef = document.querySelector( `[data-link="${camelCase(data.categories[data.renderedCategories.length-1])}"]`)
+          const galleryLinkRef = document.querySelector(`[data-link="${camelCase(data.categories[data.renderedCategories.length - 1])}"]`)
           galleryLinkRef.addEventListener('click', linkShowAllCategory);
-          
+
         })
         .catch(error => console.log(error));
       // categoriesShown += 1;
@@ -217,6 +214,10 @@ export const init = async () => {
   };
   const loadMore = async () => {
     await fetcherWithCounter(1, 8);
+    window.scrollBy({
+      top: document.documentElement.clientHeight,
+      behavior: 'smooth',
+    });
     // await $('.js-slider').slick('unslick');
     // $('.js-slider').not('.slick-initialized').slick()
     // await $(document).ready(function () {
