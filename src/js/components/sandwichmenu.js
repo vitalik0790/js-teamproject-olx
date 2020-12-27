@@ -1,7 +1,7 @@
 import sandwichmenu from '../../templates/sandwichMenu.hbs';
 import signInMenuPane from '../../templates/navigationSignInMenuPane.hbs';
 import { signUpHandler, signInHandler, logOut } from './authentication';
-import { clearCategories, renderCategories, showCategoriesMobile } from './filter-mobile';
+import { renderCategories, showCategoriesMobile } from './filter-mobile';
 import { getToken } from '../utils/getToken';
 import { confirmModal } from './confirmModal';
 import { data } from '../data/data';
@@ -64,7 +64,6 @@ const setJsPaneListeners = () => {
   const clearFilterBtn = document.getElementById('clearFilter');
 
   categorisFilter.addEventListener('click', showCategoriesMobile);
-  clearFilterBtn.addEventListener('click', clearCategories);
   sandwichMenu.addEventListener('click', func); 
   getSvgMenu.addEventListener('click', func);
 }

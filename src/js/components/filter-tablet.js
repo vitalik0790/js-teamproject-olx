@@ -1,30 +1,31 @@
 import { data } from '../data/data';
-import filterMenu from '../../templates/filterMenu.hbs'
+
 console.log(data);
 export const filterMainListener = () => {
     const getFilter = document.getElementById('mainFilterSelector');
-    const getDivWithUl = document.querySelector('.header-category-tablet');
+    //const getDivWithUl = document.querySelector('.header-category-tablet');
     
     getFilter.addEventListener('click', openDiv);
-    // console.log(getFilter);
-    // console.log(getDivWithUl);
-    // console.log(getFilterTablet);
+    
 };
 
 
 const openDiv = () => {
     const getDivWithUl = document.querySelector('.header-category-tablet');
     getDivWithUl.classList.toggle('openCategory');
-    
-    // console.log("object");
-    // console.log(getDivWithUl);
+  
 }
 
 export const createCategoryMarkup = () => {
-    const getFilterTablet = document.getElementById('categoryTablet');
-    // console.log(getFilterTablet);
-    
-    let tabletCtegories = {categories: data.categories};
-    getFilterTablet.innerHTML = filterMenu(tabletCtegories);
+    data.categories.forEach(category => { 
+        const index = data.categories.indexOf(category)
+        document.getElementById('categoryTablet').innerHTML += `
+        <li class="filter__list-item" >
+          <button class="filter__list-item_btn" id="${category}Tablet" data-filter="${data.originalCategories[index]}">
+            ${ data.russianCategories[index]}
+          </button>
+        </li>
+        `; 
+      });
 };
 

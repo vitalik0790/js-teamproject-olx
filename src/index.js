@@ -14,15 +14,16 @@ import { isLogin } from './js/components/navigation-estimates';
 import { fetchFavourites } from './js/components/productInfo/productInfo';
 import { filterListener} from './js/api/filterSearch';
 import { clearFilterListener } from './js/components/clearBtn';
-//renderHeader();
+
 
 import { newAdvMobileListener } from './js/components/newAdvButton';
 import { filterMainListener } from "./js/components/filter-tablet";
 import { createCategoryMarkup } from "./js/components/filter-tablet";
-import { serFiltersListeners } from './js/components/setFiltersListeners';
+import { setFiltersListeners } from './js/components/setFiltersListeners';
 import {renderJsMenu} from './js/components/sandwichmenu'
+import { renderHeader } from "./js/components/header";
 
-//renderHeader();
+
 
 import './js/components/footer/footer';
 import './js/components/students-modal/students-modal';
@@ -34,7 +35,8 @@ const initialisation = async () => {
   await init();
   await isLogin();
   await checkAuth();
-  await createCategoryMarkup();
+  await createCategoryMarkup();  
+  await renderHeader();
   if (data.auth.isAuth === true) {
     await fetchFavourites();
   }
@@ -44,7 +46,7 @@ const initialisation = async () => {
   newAdvMobileListener();
   filterMainListener();
 
-  //serFiltersListeners();
+  setFiltersListeners();
 };
 initialisation();
 

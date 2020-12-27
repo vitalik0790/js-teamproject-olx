@@ -4,6 +4,8 @@ import { createHero } from '../../hero_template';
 import { init } from '../api/galleryApi';
 import { data } from '../data/data';
 
+
+
 const clearMain = () => {
     data.categories = [];
     data.russianCategories = [];
@@ -16,18 +18,25 @@ const clearMain = () => {
     clearSelectedFilter();
 };
 
-const clearSelectedFilter = () => {
-    const getJsMenu = document.querySelector('.js_menu');
-    getJsMenu.classList.toggle("activ");
-    data.russianCategories.forEach(category => {
-        document.getElementById(category).classList.remove('selected');
-    });
-    
-}
+const clearSelectedFilter = () =>{
+    let category = data.selectedCategory;
+    if (data.selectedCategory && data.selectedCategory.trim().length != 0){
+      document.getElementById(category).classList.remove("selected");
+      document.getElementById(category + 'Main').classList.remove("selected");
+      document.getElementById(category + 'Tablet').classList.remove("selected");
+      data.selectedCategory = '';
+    }
+    if (!document.getElementById('categoriesList').classList.contains("element_hidden")) {
+      document.getElementById('categoriesList').classList.add("element_hidden");
+    }  
+        
+    document.querySelector('.header-category-tablet').classList.remove("openCategory");
+    document.querySelector('.js_menu').classList.remove("activ");
+  }
 
 export const clearFilterListener= () => {
-    const clearBtnMobile = document.getElementById('clearFilter');
-    const clearBtn = document.getElementById('clear-filter-btn');
+    const clearBtnMobile = document.getElementById("clearFilter");
+    const clearBtn = document.getElementById("clear-filter-btn");
     clearBtnMobile.addEventListener('click', clearMain);
     clearBtn.addEventListener('click', clearMain);
     
