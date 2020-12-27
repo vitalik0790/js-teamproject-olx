@@ -16,6 +16,7 @@ export const clearMain = () => {
     createHero();
     init();
     clearSelectedFilter();
+    newAdvMobileListener();
 };
 
 const clearSelectedFilter = () =>{
