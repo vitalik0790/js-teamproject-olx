@@ -3,6 +3,7 @@ import { createMain } from './createMain';
 import { createHero } from '../../hero_template';
 import { init } from '../api/galleryApi';
 import { data } from '../data/data';
+import { newAdvMobileListener } from "./newAdvButton";
 
 
 
