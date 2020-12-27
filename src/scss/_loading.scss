@@ -2280,3 +2280,8 @@
 .gallery__modal-btn{
   position: fixed;
 }
+
+.gallery__modal-btn:focus{
+  position: fixed;
+  outline: none;
+}

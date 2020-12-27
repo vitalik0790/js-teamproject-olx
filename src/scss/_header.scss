@@ -183,6 +183,7 @@
   &-btn-adv:focus {
     background: $primary-bg-color;
     color: $accent-color;
+    outline: none;
   }
 
   &-filter-list {
@@ -228,10 +229,11 @@
 
       margin-left: 20px;
       border: none;
+      outline: none;
       background-color: transparent;
     }
     @media screen and (min-width: 1280px) {
-      margin-left: 55px;
+      margin-left: auto;
     }
   }
   &-clear-filter-btn:hover,
@@ -243,8 +245,9 @@
   }
 }
 .header-filter-tablet:hover,
-.header-filter-tablet:focus{
-color: $accent-color
+.header-filter-tablet:focus {
+  color: $accent-color;
+  outline: none;
 }
 
 .header-filter-list__item-btn:hover,
