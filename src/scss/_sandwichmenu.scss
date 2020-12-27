@@ -146,12 +146,12 @@ svg:not(:root) {
 }
 
 .header-filter-tablet-svg {
-    fill: $header-primary-text-color;
+    fill: currentColor;
     margin-right: 13px;
 }
 
 .header-clear-filter-btn-svg {
-    fill: $header-primary-text-color;
+    fill: currentColor;
     margin-right: 15px;
 }
 
@@ -160,10 +160,11 @@ svg:not(:root) {
     flex-direction: row;
     margin-left: 14px;
 }
-.header-filter-tablet-svg:focus {
-    fill: $accent-color;
-}
-.header-filter-tablet.is-visible:focus {
+// .header-filter-tablet-svg:focus {
+//     fill: $accent-color;
+// }
+.header-filter-tablet.is-visible:focus,
+.header-clear-filter-btn.is-visible:focus {
 
 color: $accent-color;
 }
