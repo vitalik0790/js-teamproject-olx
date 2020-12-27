@@ -168,12 +168,17 @@ export const newAdvFormComponent = advData => {
       if (getAdvToken) {
         try {
           const result = await axios.post(baseURL, formData, options);
-          data.user.ownCalls = [...data.user.ownCalls, result.data];
-
+          
+          const object = {...result.data, _id: result.data.id}
+          
+          data.user.ownCalls = [...data.user.ownCalls, object];
+          
           // ==================Руслана добавила вот эту  строку==================================
-          data.categoriesList[result.data.category].push(result.data);
+          data.categoriesList[result.data.category].push(object);
+          
 
-          await closeModal();
+
+          closeModal();
           successAlert('Объявление успешно записано!').open();
         } catch (error) {
           errorAlert('Что-то пошло не так( Попробуйте еще раз').open();

@@ -214,6 +214,10 @@ export const init = async () => {
   };
   const loadMore = async () => {
     await fetcherWithCounter(1, 8);
+    window.scrollBy({
+      top: document.documentElement.clientHeight,
+      behavior: 'smooth',
+    });
     // await $('.js-slider').slick('unslick');
     // $('.js-slider').not('.slick-initialized').slick()
     // await $(document).ready(function () {
