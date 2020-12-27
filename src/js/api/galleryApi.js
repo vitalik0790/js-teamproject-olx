@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { data } from '../data/data';
-import {camelCase} from 'lodash'
+import { camelCase } from 'lodash'
 // const properties = {
 //     width: 0,
 //     height: 0,
@@ -76,9 +76,9 @@ const getCategories = async () => {
     element => (data.categoriesList[camelCase(element)] = []),
   );
   // data.categories = [...camelCase(result.data)];
-    //  console.log( data.categories);
-    //  console.log(data.categoriesList);
-    // console.log(data);
+  //  console.log( data.categories);
+  //  console.log(data.categoriesList);
+  // console.log(data);
 };
 
 const getCategory = async categoryName => {
@@ -157,7 +157,7 @@ export const init = async () => {
         dots: true,
         variableWidth: true,
       });
-    });   
+    });
   };
   const loadMore = async () => {
     await fetcherWithCounter(1, 8);
