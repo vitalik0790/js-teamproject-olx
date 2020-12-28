@@ -23,9 +23,9 @@ export const clearMain = () => {
 const clearSelectedFilter = () =>{
     let category = data.selectedCategory;
     if (data.selectedCategory && data.selectedCategory.trim().length != 0){
-      document.getElementById(category).classList.remove("selected");
-      document.getElementById(category + 'Main').classList.remove("selected");
-      document.getElementById(category + 'Tablet').classList.remove("selected");
+      document.getElementById(category) && document.getElementById(category).classList.remove("selected");
+      document.getElementById(category + 'Main') && document.getElementById(category + 'Main').classList.remove("selected");
+      document.getElementById(category + 'Tablet') && document.getElementById(category + 'Tablet').classList.remove("selected");
       data.selectedCategory = '';
     }
     if (!document.getElementById('categoriesList').classList.contains("element_hidden")) {

@@ -8,6 +8,7 @@ import {
   addInFavoritesAPI,
   removeFromFavoritesAPI,
 } from './favoritesAPI';
+import { createMarkupFavoritesGoodsList } from '../favorites-myGoodsList/favorites-myGoodsList';
 
 const refs = {
   dotsRef: '',
@@ -63,7 +64,7 @@ function openProductInfo(card) {
   }
 
   refs.maxImgRef.setAttribute('src', card.imageUrls[0]);
-  refs.minImgRef.classList.add('productInfo__item-imgMin--active');
+  refs.minImgRef && refs.minImgRef.classList.add('productInfo__item-imgMin--active');
 
   refs.minImgListRef.addEventListener('click', onMinImgClick);
   refs.favoritesRef.addEventListener('click', onFavoritesClick.bind(card));
@@ -113,6 +114,10 @@ function onFavoritesClick() {
       data.user.favorites.splice(idx, 1);
       changeFavoriteBtnOnInactive();
       console.log('data после удаления:', data.user.favorites);
+      console.log(document.querySelector('.favorites-myGoods'));
+      if (document.querySelector('.favorites-myGoods')){
+        createMarkupFavoritesGoodsList('Избранное', data.user.favorites);
+      }
     })
     .catch(error => console.log(error));
 }

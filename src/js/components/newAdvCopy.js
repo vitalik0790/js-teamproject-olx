@@ -105,7 +105,7 @@ export const newAdvFormComponent = advData => {
     console.log(id);
     const li = document.querySelector(`[data-id="${id}"]`);
       
-    e.target.files[0] && await toDataURL(e.target).then(img => {
+    if (e.target.files[0]) { await toDataURL(e.target).then(img => {
       const image = document.createElement('img');      
     const label = li.querySelector('label');      
     image.src = img;
@@ -125,7 +125,35 @@ export const newAdvFormComponent = advData => {
       span && span.classList.add('in-visible');
       newAdv.file.push(img);
       li.classList.remove('grey');
-    })
+    })} else {
+      // const nextLabel = document.querySelector('.file-loader-show-availabel').closest('label');
+      // nextLabel.innerHTML = '';
+      // const rewritableLi = nextLabel.closest('li');
+      // rewritableLi.classList.add('grey');
+      const li = e.target.closest('li');
+      li.innerHTML= `<label for="file_loader${li.dataset.id}"   class="file-loader-label">
+      <input type="file" id="file_loader${li.dataset.id}"    class="file-loader-input" name='file'>
+      <span class="file-loader-show-availabel">+</span>
+      </label>`
+      return
+    }
+  //   else {
+  //     // const nextPlus = document.querySelector('.file-loader-show-availabel');
+  //     // const nextPlusLabel = nextPlus.closest('li');
+  //     // const element = document.createElement('li');
+  //     // element.classList.add('file-loader','grey');
+  //     // element.dataset.id = `${e.target.dataset.id}`
+  //     // element.innerHTML = `<label for="file_loader${
+  //     //   newAdv.file.length
+  //     // }"   class="file-loader-label"></label>`
+  //     // nextPlusLabel.replaceWith(element);
+  //     li.innerHTML = `<label for="file_loader${li.dataset.id}"   class="file-loader-label">
+  //   <input type="file" id="file_loader${li.dataset.id}"    class="file-loader-input" name='file'>
+  //   <span class="file-loader-show-availabel">+</span>
+  //   </label>`;
+  
+  
+  // }
     if (newAdv.file.length < 5) {
       const greyBlock = document.querySelector('.grey');
       greyBlock.innerHTML = `

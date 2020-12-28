@@ -3,7 +3,7 @@ import Siema from 'siema';
 Siema.prototype.addPagination = function (itemRef) {
   for (let i = 0; i < this.innerElements.length; i++) {
     const btn = document.createElement('button');
-    btn.classList.add('dots__item');
+    btn && btn.classList.add('dots__item');
     btn.setAttribute('data-index', i);
     btn.addEventListener('click', () => this.goTo(i));
     itemRef.appendChild(btn);
@@ -16,7 +16,7 @@ export const mobSlider = function (dotsRef) {
   function onInit() {
     this.addPagination(dotsRef);
     const dotsItem = dotsRef.querySelector('.dots__item');
-    dotsItem.classList.add('dots__item--active');
+    dotsItem && dotsItem.classList.add('dots__item--active');
   }
 
   function onChange() {
