@@ -116,7 +116,7 @@ function onFavoritesClick() {
       // console.log('data после удаления:', data.user.favorites);
       // console.log(document.querySelector('.favorites-myGoods'));
       if (document.querySelector('.favorites-myGoods')){
-        createMarkupFavoritesGoodsList('Избранное', data.user.favorites);
+        createMarkupFavoritesGoodsList('Избранное', data.user.favorites, 'В избранном пока пусто');
       }
     })
     .catch(error => console.log(error));
