@@ -6,7 +6,7 @@ export const selectCategory = (e) => {
       document.getElementById(e.target.id).classList.add('selected');
       data.selectedCategory = e.target.id;
       
-      console.log(e.target.id);
+      // console.log(e.target.id);
       //console.log(data.selectedCategory);
     } else {
       document.getElementById(data.selectedCategory).classList.remove('selected');

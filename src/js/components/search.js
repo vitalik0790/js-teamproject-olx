@@ -11,7 +11,7 @@ const headerInputMob = document.querySelector('.mobile-search-input');
 const main = document.querySelector('.main');
 const searchDesIcon = document.querySelector('.header-search__btn');
 const searchTabIcon = document.querySelector('.header__input-btn');
-console.dir(searchDesIcon);
+// console.dir(searchDesIcon);
 
 export const getSearchQuery = async query => {
   if (data.categories.length) {

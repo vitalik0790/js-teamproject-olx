@@ -25,7 +25,7 @@ export const profileMenu = () => {
 
 function onProfileMenuClick(event) {
   if (event.target === refs.favoritesBtnInHeaderRef) {
-    console.log('Избранное в data:', data.user.favorites);
+    // console.log('Избранное в data:', data.user.favorites);
     createMarkupFavoritesGoodsList(
       'Избранное',
       data.user.favorites,
@@ -36,7 +36,7 @@ function onProfileMenuClick(event) {
     return;
   }
   if (event.target === refs.myGoodsBtnInHeaderRef) {
-    console.log('Мои объявления в data:', data.user.ownCalls);
+    // console.log('Мои объявления в data:', data.user.ownCalls);
 
     createMarkupFavoritesGoodsList(
       'Мои объявления',

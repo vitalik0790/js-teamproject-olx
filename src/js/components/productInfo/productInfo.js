@@ -101,7 +101,7 @@ function onFavoritesClick() {
         data.user.favorites = [...data.user.favorites, this];
         changeFavoriteBtnOnActive();
 
-        console.log('data после добавления:', data.user.favorites);
+        // console.log('data после добавления:', data.user.favorites);
       })
       .catch(error => console.log(error));
     return;
@@ -113,8 +113,8 @@ function onFavoritesClick() {
     .then(response => {
       data.user.favorites.splice(idx, 1);
       changeFavoriteBtnOnInactive();
-      console.log('data после удаления:', data.user.favorites);
-      console.log(document.querySelector('.favorites-myGoods'));
+      // console.log('data после удаления:', data.user.favorites);
+      // console.log(document.querySelector('.favorites-myGoods'));
       if (document.querySelector('.favorites-myGoods')){
         createMarkupFavoritesGoodsList('Избранное', data.user.favorites);
       }

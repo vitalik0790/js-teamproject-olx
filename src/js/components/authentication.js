@@ -30,7 +30,7 @@ const logOut = () => {
   data.user.ownCalls = [];
   isLogin();
   toggleMenuAuth('menuPane');
-  console.log('user logged out');
+  // console.log('user logged out');
 };
 
 const signUpHandler = () => {
@@ -54,9 +54,9 @@ const signUpHandler = () => {
   const signUp = async user => {
     try {
       const response = await axios.post(signUpURL, user);
-      console.log(response);
-      const data = { email: response.data.email };
-      console.log('data', data);
+      // console.log(response);
+      // const data = { email: response.data.email };
+      // console.log('data', data);
       const responseIn = await axios.post(signInURL, user);
       localStorage.setItem(
         'accessToken',
@@ -71,6 +71,7 @@ const signUpHandler = () => {
       toggleMenuAuth('menuPane');
       fetchFavourites();
     } catch (error) {
+      console.log(error);
       console.log(error.response.data.message);
       errorUp.textContent = error.response.data.message;
     }
@@ -81,7 +82,7 @@ const signUpHandler = () => {
   };
   const signUpData = e => {
     e.preventDefault();
-    signUp(user).then(resetUser).then(console.log('user signed in'));
+    signUp(user).then(resetUser)//.then(console.log('user signed in'));
   };
   signUpForm.addEventListener('input', getUserData);
   signUpForm.addEventListener('submit', signUpData);
@@ -129,7 +130,7 @@ const signInHandler = () => {
   };
   const signInData = async e => {
     e.preventDefault();
-    signIn(user).then(resetUser).then(console.log('user signed in'));
+    signIn(user).then(resetUser)//.then(console.log('user signed in'));
   };
   const removeSignInListeners = () => {
     signInForm.removeEventListener('input', getUserData);

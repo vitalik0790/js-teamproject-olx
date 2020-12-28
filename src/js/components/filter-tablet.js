@@ -1,6 +1,6 @@
 import { data } from '../data/data';
 
-console.log(data);
+// console.log(data);
 export const filterMainListener = () => {
     const getFilter = document.getElementById('mainFilterSelector');
     //const getDivWithUl = document.querySelector('.header-category-tablet');
