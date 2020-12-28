@@ -7,14 +7,18 @@ const refs = {
 
 const listeners = {
   remove: null,
-}
+};
 
-const closeModal = () => {
-  refs.backdrop.classList.add('is-hidden');
+const listenersRemove = () => {
   if (listeners.remove !== null) {
     listeners.remove();
     listeners.remove = null;
   }
+};
+
+const closeModal = () => {
+  refs.backdrop.classList.add('is-hidden');
+  listenersRemove();
   refs.content.innerHTML = '';
   refs.close.removeEventListener('click', closeModal);
   refs.backdrop.removeEventListener('click', closeModal);
@@ -38,7 +42,9 @@ const openInModal = (content, removeCallback = null) => {
   addEventListener('keydown', checkEscape);
 };
 
-const inCurrentModal = content => {
+const inCurrentModal = (content, removeCallback = null) => {
+  listenersRemove();
+  listeners.remove = removeCallback;
   if (!refs.backdrop.classList.contains('is-hidden')) refs.content.innerHTML = content;
 };
 
