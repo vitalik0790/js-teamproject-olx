@@ -25,8 +25,6 @@ const fetchFavourites = () => {
   fetchFavouritesAPI()
     .then(favorites => {
       data.user.favorites = favorites;
-
-      // console.log('data.favorites после перезагрузки:', data.user.favorites);
     })
     .catch(error => console.log(error));
 };
@@ -35,7 +33,6 @@ const fetchOwnCalls = () => {
   fetchOwnCallsAPI()
     .then(ownCalls => {
       data.user.ownCalls = ownCalls;
-      // console.log('data.ownCalls после перезагрузки:', data.user.ownCalls);
     })
     .catch(error => console.log(error));
 };
@@ -43,7 +40,7 @@ const fetchOwnCalls = () => {
 //=============== открытие информации о товаре =================
 function openProductInfo(card) {
   const price = card.price.toLocaleString();
-  // console.log(price);
+
   openInModal(productInfoTemplate({ ...card, price }), removeEventListeners);
 
   refs.dotsRef = document.querySelector('.dots');
@@ -100,7 +97,7 @@ function onFavoritesClick() {
         data.user.favorites = [...data.user.favorites, this];
         changeFavoriteBtnOnActive();
 
-        console.log('data после добавления:', data.user.favorites);
+        // console.log('data после добавления:', data.user.favorites);
       })
       .catch(error => console.log(error));
     return;
@@ -112,7 +109,7 @@ function onFavoritesClick() {
     .then(response => {
       data.user.favorites.splice(idx, 1);
       changeFavoriteBtnOnInactive();
-      console.log('data после удаления:', data.user.favorites);
+      // console.log('data после удаления:', data.user.favorites);
     })
     .catch(error => console.log(error));
 }
