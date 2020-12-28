@@ -1,7 +1,11 @@
+.in-visible {
+  visibility: hidden;
+}
+
 .form-text {
   display: block;
   font-family: Montserrat;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
@@ -38,9 +42,15 @@
   height: 50px;
   margin-bottom: 20px;
   padding-left: 23px;
-  border: 1px solid #bbbbbb;
+  border: 1px solid $categories-list-old-price-text-color;
   background-color: $primary-bg-color;
   resize: none;
+  &:invalid:not(:placeholder-shown) {
+    border-color: red;
+  }
+  &:valid:not(:placeholder-shown) {
+    border-color: green;
+  }
 }
 
 .name-product-form {
@@ -48,12 +58,16 @@
 }
 
 .tel-input-form {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .form-fields {
   display: flex;
   flex-direction: column;
+}
+
+.textarea {
+  padding-top: 15px;
 }
 
 .push-button {
@@ -70,7 +84,7 @@
 
 .button-text {
   font-family: Montserrat;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 12px;
   line-height: 1.166;
   text-align: center;
@@ -83,13 +97,19 @@
     color: $primary-bg-color;
   }
 }
+.gallery-box {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-// photo
+.grey-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .input-wrapper {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
 }
 
 .input-file-list {
@@ -115,28 +135,27 @@
 }
 .file-loader-label {
   display: block;
-  width: 76px;
-  height: 46px;
+  width: 100%;
+  height: 100%;
+  margin-right: 10px;
+  margin-bottom: 10px;
   background-color: #f5f6fb;
 }
 
 .file-loader-show-availabel {
   position: absolute;
-  width: 77.19px;
+  width: 100%;
   height: 45.94px;
-  left: 30px;
 
   font-family: Montserrat;
 
   font-weight: 500;
   font-size: 22px;
-  line-height: 27px;
-  display: flex;
-  align-items: center;
+  line-height: 46px;
   text-align: center;
   letter-spacing: 0.02em;
 
-  color: #bbbbbb;
+  color: $categories-list-old-price-text-color;
 }
 
 .img-adv-box {
@@ -149,17 +168,53 @@
     margin-right: 0;
   }
 }
+.button-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.clean-button {
+  margin-bottom: 30px;
+  padding: 5px;
+  width: 185px;
+  border-color: transparent;
+  background-color: $primary-bg-color;
+
+  &:hover,
+  &:focus {
+    border-color: $accent-color;
+    border-radius: 5px;
+  }
+}
+
+.delete-adv-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.delete-button-text {
+  font-family: Montserrat;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.07em;
+
+  color: $primary-text-color;
+}
+@media screen and (min-width: 320px) {
+  .form {
+    min-width: 250px;
+  }
+}
 
 @media screen and (min-width: 480px) {
   .form {
     width: 290px;
-    height: 845px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .form {
-    width: 724px;
+    width: 624px;
   }
   .form-text {
     margin-bottom: 30px;
@@ -174,7 +229,7 @@
   }
   .file-loader-show-availabel {
     height: 47px;
-    left: 35px;
+    // left: 35px;
   }
 
   .img-adv-box:nth-child(3n + 3) {
@@ -185,13 +240,13 @@
     height: 60px;
     margin-left: 265px;
   }
+  .clean-button {
+    margin-left: 255px;
+  }
   .flex-input-form {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-  }
-  .flex-input-form-center {
-    align-items: center;
   }
   .form-input {
     width: 458px;
@@ -205,12 +260,16 @@
       margin-right: 0px;
     }
   }
-
   .input-wrapper {
-    margin-left: 228px;
+    flex-wrap: nowrap;
+  }
+  .grey-wrapper {
+    flex-wrap: nowrap;
+  }
+  .gallery-box {
+    margin-right: 40px;
   }
 }
-
 @media screen and (min-width: 1200px) {
   .form {
     width: 950px;
@@ -228,7 +287,10 @@
     height: 60px;
     margin-left: 338px;
   }
-  .input-wrapper {
-    margin-left: 303px;
+  .clean-button {
+    margin-left: 333px;
+  }
+  .gallery-box {
+    margin-right: 190px;
   }
 }

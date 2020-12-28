@@ -3,12 +3,15 @@ import navSignUp from '../../templates/navigationSignUp.hbs';
 import { signUpHandler, signInHandler, logOut } from './authentication';
 import profileMenuTemplate from '../../templates/profileMenu.hbs';
 import { profileMenu } from './profileMenu';
+import { loading } from './loader/loader';
+import { confirmModal } from './confirmModal';
 
 const refs = {
   signInDiv: document.querySelector('.header-auth'),
 };
 
 export const isLogin = () => {
+
   if (!localStorage.getItem('accessToken')) {
     refs.signInDiv.innerHTML = `${navigationEstimate()}`;
     const signInBtn = document.querySelector('.signInBtn');
@@ -23,11 +26,12 @@ export const isLogin = () => {
     refs.signInDiv.innerHTML = `${navSignUp()}${profileMenuTemplate()}`;
     const logOutBtn = document.querySelector('.logOutBtn');
     const userBtn = document.querySelector('.user_btn');
-    if (logOutBtn.addEventListener('click', logOut)) {
-      logOutBtn.removeEventListener('click', logOut);
+    if (logOutBtn.addEventListener('click', confirmModal)) {
+      logOutBtn.removeEventListener('click', confirmModal);
     }
     if (userBtn.addEventListener('click', profileMenu)) {
       userBtn.removeEventListener('click', profileMenu);
     }
   }
+  loading()
 };

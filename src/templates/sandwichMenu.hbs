@@ -1,21 +1,29 @@
 <div class="mobil-menu">
-  <div class="modal-auth">Registr header-auth</div>
-  <div class="">
+  <div class="modal-auth is-visible" id="mobile-auth">Registr header-auth</div>
+  <div class="mobil-filter-clear">
+    <div class="mobil-filter">
       <button class="button header-filter-tablet is-visible" id="categorisFilter">
-          {{!-- <svg width="24" height="24" class="clear-filter-tablet-svg">
-            <use href="./images/svg/icons/sprite.svg#tune"></use>
-          </svg> --}}
+        <svg class="header-filter-tablet-svg" width="24" height="24" viewBox="0 0 24 24" 
+          fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path 
+              d="M3 17V19H9V17H3ZM3 5V7H13V5H3ZM13 21V19H21V17H13V15H11V21H13ZM7 9V11H3V13H7V15H9V9H7ZM21 13V11H11V13H21ZM15 9H17V7H21V5H17V3H15V9Z"/>
+        </svg>
           Фильтры
         </button>
-      <button class="button header-clear-filter-btn is-visible" id = 'clearFilter'>
-          {{!-- <svg width="24" height="24" class="clear-filter-svg">
-            <use href="./images/svg/icons/sprite.svg#replay"></use>
-          </svg> --}}
+    </div>
+      <div class="mobil-clear">
+        <button class="button header-clear-filter-btn is-visible" id = 'clearFilter'>
+        <svg class="header-clear-filter-btn-svg" width="24" height="24" viewBox="0 0 24 24" 
+          fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12L1 12L6 17L11 12L7 12C7 8.69 9.69 6 13 6C16.31 6 19 8.69 19 12C19 15.31 16.31 18 13 18L13 20C17.42 20 21 16.42 21 12C21 7.58 17.42 4 13 4C8.58 4 5 7.58 5 12Z"/>
+        </svg>
           Очистить
         </button>
+      </div>
+      
   </div>
-  <div>
-    <ul id="categoriesList">
+  <div class="mobil-filter-list">
+    <ul class="list filter__list element_hidden" id="categoriesList">
     </ul>
   </div>
 </div>

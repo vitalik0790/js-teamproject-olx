@@ -28,7 +28,7 @@
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^4.3.0",
-    "file-loader": "^6.1.0",
+    "file-loader": "^6.2.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "gh-pages": "^3.1.0",
     "handlebars-loader": "^1.7.1",
@@ -52,7 +52,11 @@
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "handlebars": "^4.7.6",
+    "ldbutton": "^1.0.2",
+    "ldloader": "^1.2.0",
+    "inputmask": "^5.0.5",
     "modern-normalize": "^1.0.0",
+    "pnotify": "^5.2.0",
     "siema": "^1.5.1"
   }
 }

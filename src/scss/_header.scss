@@ -118,11 +118,6 @@
     @media screen and (min-width: 1280px) {
       margin-left: 280px;
     }
-
-    // &__modal {
-    //   display: flex;
-    //   color: red;
-    // }
   }
 
   &-filter {
@@ -134,7 +129,7 @@
       margin-bottom: 35px;
     }
     &-tablet {
-      display: none;
+      //display: hidden;
       @media screen and (min-width: 768px) {
         display: flex;
         justify-content: center;
@@ -188,6 +183,7 @@
   &-btn-adv:focus {
     background: $primary-bg-color;
     color: $accent-color;
+    outline: none;
   }
 
   &-filter-list {
@@ -213,6 +209,7 @@
       text-align: center;
 
       color: $header-primary-text-color;
+      transition: 0.5s;
     }
   }
 
@@ -232,10 +229,11 @@
 
       margin-left: 20px;
       border: none;
+      outline: none;
       background-color: transparent;
     }
     @media screen and (min-width: 1280px) {
-      margin-left: 55px;
+      margin-left: auto;
     }
   }
   &-clear-filter-btn:hover,
@@ -246,11 +244,18 @@
     margin-right: 10px;
   }
 }
+.header-filter-tablet:hover,
+.header-filter-tablet:focus {
+  color: $accent-color;
+  outline: none;
+}
 
-.filter-list__item__btn:hover,
-.filter-list__item__btn:focus {
+.header-filter-list__item-btn:hover,
+.header-filter-list__item-btn:focus {
   color: $accent-color;
   border: 1px solid $accent-color;
+  transition: 0.5s;
+  outline: none;
 }
 
 .filter-search-menu {
@@ -266,12 +271,12 @@
   display: none;
   @media screen and (min-width: 768px) {
     display: flex;
-    fill: $header-primary-text-color;
+    fill: currentColor;
     margin-right: 12px;
   }
 }
-.clear-filter-svg:hover {
-  fill: $accent-color;
+.clear-filter-svg {
+  fill: currentColor;
 }
 
 .clear-filter-tablet-svg {
@@ -281,8 +286,8 @@
     margin-right: 13px;
   }
 }
-.clear-filter-tablet-svg:hover {
-  fill: $accent-color;
+.clear-filter-tablet-svg {
+  fill: currentColor;
 }
 
 // .navigation__button {
@@ -323,6 +328,9 @@
   width: 44px;
   height: 44px;
   position: relative;
+  @media screen and (min-width: 768px) {
+    width: 0px;
+  }
 }
 
 .search__button {
@@ -434,8 +442,8 @@
   }
 }
 
-.header-logo__input-svg {
-}
+// .header-logo__input-svg {
+// }
 
 .is-visible {
   @media screen and (max-width: 767px) {

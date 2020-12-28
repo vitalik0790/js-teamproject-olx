@@ -4,9 +4,11 @@ import { mobSlider } from './productInfoSlider';
 import productInfoTemplate from '../../../templates/productInfoTemplate.hbs';
 import {
   fetchFavouritesAPI,
+  fetchOwnCallsAPI,
   addInFavoritesAPI,
   removeFromFavoritesAPI,
 } from './favoritesAPI';
+import { createMarkupFavoritesGoodsList } from '../favorites-myGoodsList/favorites-myGoodsList';
 
 const refs = {
   dotsRef: '',
@@ -20,20 +22,29 @@ const refs = {
   favoritesTextRef: '',
 };
 
-// Выполняет запрос в базу данных
+const fetchFavourites = () => {
+  fetchFavouritesAPI()
+    .then(favorites => {
+      data.user.favorites = favorites;
 
-// async function fetchCards() {
-//   const response = await axios.get(`${data.baseURL}/call/specific/electronics`);
-//   const cards = response.data;
-//   console.log(cards);
+      // console.log('data.favorites после перезагрузки:', data.user.favorites);
+    })
+    .catch(error => console.log(error));
+};
 
-//   return cards;
-// }
-// fetchCards().then(cards => openProductInfo(cards[11]));
+const fetchOwnCalls = () => {
+  fetchOwnCallsAPI()
+    .then(ownCalls => {
+      data.user.ownCalls = ownCalls;
+      // console.log('data.ownCalls после перезагрузки:', data.user.ownCalls);
+    })
+    .catch(error => console.log(error));
+};
 
 //=============== открытие информации о товаре =================
 function openProductInfo(card) {
   const price = card.price.toLocaleString();
+  // console.log(price);
   openInModal(productInfoTemplate({ ...card, price }), removeEventListeners);
 
   refs.dotsRef = document.querySelector('.dots');
@@ -48,19 +59,12 @@ function openProductInfo(card) {
   mobSlider(refs.dotsRef);
   isAuth(refs.activeListRef);
 
-  fetchFavouritesAPI()
-    .then(favorites => {
-      data.user.favorites = favorites;
-      console.log('data после перезагрузки:', data.user.favorites);
-
-      if (findCardInFavoritesById(card)) {
-        changeFavoriteBtnOnActive();
-      }
-    })
-    .catch(error => console.log(error));
+  if (findCardInFavoritesById(card)) {
+    changeFavoriteBtnOnActive();
+  }
 
   refs.maxImgRef.setAttribute('src', card.imageUrls[0]);
-  refs.minImgRef.classList.add('productInfo__item-imgMin--active');
+  refs.minImgRef && refs.minImgRef.classList.add('productInfo__item-imgMin--active');
 
   refs.minImgListRef.addEventListener('click', onMinImgClick);
   refs.favoritesRef.addEventListener('click', onFavoritesClick.bind(card));
@@ -110,6 +114,10 @@ function onFavoritesClick() {
       data.user.favorites.splice(idx, 1);
       changeFavoriteBtnOnInactive();
       console.log('data после удаления:', data.user.favorites);
+      console.log(document.querySelector('.favorites-myGoods'));
+      if (document.querySelector('.favorites-myGoods')){
+        createMarkupFavoritesGoodsList('Избранное', data.user.favorites);
+      }
     })
     .catch(error => console.log(error));
 }
@@ -146,4 +154,4 @@ function removeEventListeners() {
   refs.favoritesRef.removeEventListener('click', onFavoritesClick);
 }
 
-export { openProductInfo };
+export { openProductInfo, fetchFavourites, fetchOwnCalls };
