@@ -39,7 +39,8 @@ const clearSelectedFilter = () =>{
 export const clearFilterListener= () => {
     const clearBtnMobile = document.getElementById("clearFilter");
     const clearBtn = document.getElementById("clear-filter-btn");
+    const logo = document.querySelector('.logo-link')
     clearBtnMobile.addEventListener('click', clearMain);
     clearBtn.addEventListener('click', clearMain);
-    
+    logo.addEventListener('click', clearMain)
 };

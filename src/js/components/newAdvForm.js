@@ -102,7 +102,7 @@ export const newAdvFormComponent = advData => {
     const { type } = e.target;
     if (type !== 'file') return;
     const id = e.target.closest(`[data-id]`).dataset.id;
-    console.log(id);
+    // console.log(id);
     const li = document.querySelector(`[data-id="${id}"]`);
       
     e.target.files[0] && await toDataURL(e.target).then(img => {
@@ -258,7 +258,7 @@ export const newAdvFormComponent = advData => {
     formAdv.category.value = newAdv.category;
     formAdv.price.value = newAdv.price;
     formAdv.phone.value = newAdv.phone;
-    console.log(newAdv);
+    // console.log(newAdv);
 
     const createPhotoMarkup = () => {
       return newAdv.imageUrls.reduce((acc, item) => {
@@ -295,7 +295,7 @@ export const newAdvFormComponent = advData => {
       if (e.target.closest('[data-button="delete-button"]')) {
         try {
           const result = await axios.delete(`${baseURL}/${newAdv._id}`);
-          console.log(result);
+          // console.log(result);
           data.user.ownCalls = [
             ...data.user.ownCalls.filter(item => item._id !== newAdv._id),
           ];
@@ -311,7 +311,7 @@ export const newAdvFormComponent = advData => {
   };
 
   advData ? editAdvForm() : createMainMarkup();
-  console.log(data);
+  // console.log(data);
   formAdv.addEventListener('input', getDataForm);
   formAdv.addEventListener('change', onHandleChange);
   formAdv.addEventListener('submit', postNewAdv);

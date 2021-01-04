@@ -27,7 +27,7 @@ const buttonClick = e => {
     refs.menuFavorites.classList.toggle('is-mobil-hidden');
     refs.menuMobil.classList.toggle('mobil-hidden');
 
-    console.log('Избранное в data:', data.user.favorites);
+    // console.log('Избранное в data:', data.user.favorites);
   }
   if (e.target === refs.menuMyAdv) {
     createMarkupFavoritesGoodsList('Мои объявления', data.user.ownCalls);
@@ -38,7 +38,7 @@ const buttonClick = e => {
     refs.menuMyAdv.classList.toggle('is-mobil-hidden');
     refs.menuMobil.classList.toggle('mobil-hidden');
 
-    console.log('Мои объявления в data:', data.user.ownCalls);
+    // console.log('Мои объявления в data:', data.user.ownCalls);
   }
   return;
 };

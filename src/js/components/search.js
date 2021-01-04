@@ -11,7 +11,7 @@ const headerInputMob = document.querySelector('.mobile-search-input');
 const main = document.querySelector('.main');
 const searchDesIcon = document.querySelector('.header-search__btn');
 const searchTabIcon = document.querySelector('.header__input-btn');
-console.dir(searchDesIcon);
+// console.dir(searchDesIcon);
 
 
 export const getSearchQuery = async query => {
@@ -52,17 +52,17 @@ export const updateMarkup = goods => {
 export const onPressEnterSearch = async event => {
   if (event.code === 'Enter') {
     if (headerInput.value.length >= 1) {
-      updateMarkup(await getSearchQuery(headerInput.value));
+      updateMarkup(await getSearchQuery(headerInput.value.toLowerCase()));
       headerInput.value = '';
     }
 
     if (headerInputTablet.value.length >= 1) {
-      updateMarkup(await getSearchQuery(headerInputTablet.value));
+      updateMarkup(await getSearchQuery(headerInputTablet.value.toLowerCase()));
       headerInputTablet.value = '';
     }
 
     if (headerInputMob.value.length >= 1) {
-      updateMarkup(await getSearchQuery(headerInputMob.value));
+      updateMarkup(await getSearchQuery(headerInputMob.value.toLowerCase()));
       headerInputMob.value = '';
     }
   }
@@ -70,17 +70,17 @@ export const onPressEnterSearch = async event => {
 
 export const onPressSearchIcon = async event => {
   if (headerInput.value.length >= 1) {
-    updateMarkup(await getSearchQuery(headerInput.value));
+    updateMarkup(await getSearchQuery(headerInput.value.toLowerCase()));
     headerInput.value = '';
   }
 
   if (headerInputTablet.value.length >= 1) {
-    updateMarkup(await getSearchQuery(headerInputTablet.value));
+    updateMarkup(await getSearchQuery(headerInputTablet.value.toLowerCase()));
     headerInputTablet.value = '';
   }
 
   if (headerInputMob.value.length >= 1) {
-    updateMarkup(await getSearchQuery(headerInputMob.value));
+    updateMarkup(await getSearchQuery(headerInputMob.value.toLowerCase()));
     headerInputMob.value = '';
   }
 };

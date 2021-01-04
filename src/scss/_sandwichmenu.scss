@@ -98,7 +98,8 @@ svg:not(:root) {
       outline: none;
 }
 
-.filter__list-item_btn.selected {
+.filter__list-item_btn.selected,
+.header-filter-list__item-btn.selected {
     color: $accent-color;
     border-color: $accent-color;
     outline: none;

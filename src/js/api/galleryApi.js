@@ -113,7 +113,7 @@ export const init = async () => {
           }
 
           
-          console.log(data);  
+          // console.log(data);  
 
           // ================= открытие ProductInfo по клику на карточку ======
           const galleryLisRef = document.querySelector(
