@@ -17,8 +17,8 @@ const func = (e) => {
 
 //переключает вид меню авторизации логин/сайнап
 export const toggleMenuAuth = (panelId) => {
-  document.getElementById(panelId + 'SignUpWrapperId').classList.toggle("element_hidden");
-  document.getElementById(panelId + 'SignInWrapperId').classList.toggle("element_hidden");
+  document.getElementById(panelId + 'SignUpWrapperId') && document.getElementById(panelId + 'SignUpWrapperId').classList.toggle("element_hidden");
+  document.getElementById(panelId + 'SignInWrapperId') && document.getElementById(panelId + 'SignInWrapperId').classList.toggle("element_hidden");
 } 
 
 //отрисовывает панель категорий внутри элемента с классом .js_menu

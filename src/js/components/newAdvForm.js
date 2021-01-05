@@ -43,7 +43,7 @@ export const newAdvFormComponent = advData => {
     price: 0,
     phone: '',
   };
-  const formData = new FormData();
+  
   const formAdv = document.forms.advForm;
   const inputWrapper = document.querySelector('.input-wrapper');
   const selectInput = document.querySelector('.select-input');
@@ -153,6 +153,7 @@ export const newAdvFormComponent = advData => {
   };
   const postNewAdv = async e => {
     e.preventDefault();
+    const formData = new FormData();
     const getAdvToken = getToken();
     if (newAdv.file.length === 0) {
       errorAlert('Необходимо загрузить минимум 1 фото!').open();
@@ -236,6 +237,8 @@ export const newAdvFormComponent = advData => {
   const editAdvForm = () => {
     newAdv = { ...newAdv, ...advData };
 
+    
+
     const formTitle = document.querySelector('.form-text');
     const deleteButton = document.querySelector('.button-box');
     formTitle.textContent = 'Редактировать объявление';
@@ -253,6 +256,7 @@ export const newAdvFormComponent = advData => {
                 <span class="delete-button-text">Удалить объявление</span>
             </button>`;
     selectInput.innerHTML = createMarkupCategories();
+    
     formAdv.title.value = newAdv.title;
     formAdv.description.value = newAdv.description;
     formAdv.category.value = newAdv.category;

@@ -26,7 +26,7 @@ import { renderJsMenu } from './js/components/sandwichmenu'
 import { renderHeader } from "./js/components/header";
 import { loading } from './js/components/loader/loader';
 import { preloader } from './js/components/loader/preloader';
-
+import { isActualToken } from './js/api/apiAuth';
 
 
 import './js/components/footer/footer';
@@ -34,19 +34,22 @@ import './js/components/students-modal/students-modal';
 
 import { init } from './js/api/galleryApi';
 
+import { sandwichmenu } from './js/components/sandwichmenu';
+import { newAdv } from './js/components/newAdvButton';
+// import hero_template from './hero_template';
+
+import './js/components/search';
+import mobileSearh from './js/components/header-mob-search';
+import './js/components/clearBtn';
 
 const initialisation = async () => {
   await createMain();
   await createHero();
   await init();
   await isLogin();
-  await checkAuth();
   await createCategoryMarkup();
   await renderHeader();
-  if (data.auth.isAuth === true) {
-    await fetchFavourites();
-    await fetchOwnCalls();
-  }
+  await isActualToken();  
   await renderJsMenu();
   filterListener();
   clearFilterListener();
@@ -60,10 +63,4 @@ const initialisation = async () => {
 preloader()
 initialisation();
 
-import { sandwichmenu } from './js/components/sandwichmenu';
-import { newAdv } from './js/components/newAdvButton';
-// import hero_template from './hero_template';
 
-import './js/components/search';
-import mobileSearh from './js/components/header-mob-search';
-import './js/components/clearBtn';

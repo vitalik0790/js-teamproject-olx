@@ -20,6 +20,8 @@ const refs = {
   favoritesRef: '',
   favoritesIconRef: '',
   favoritesTextRef: '',
+  productInfoButton: '',
+  dealerTel: '',
 };
 
 const fetchFavourites = () => {
@@ -55,6 +57,8 @@ function openProductInfo(card) {
   refs.favoritesRef = document.querySelector('.favorites-js');
   refs.favoritesIconRef = refs.favoritesRef.querySelector('svg');
   refs.favoritesTextRef = refs.favoritesRef.querySelector('span');
+  refs.productInfoButton = document.querySelector('.productInfo__button');
+  refs.dealerTel = document.querySelector('.dealerTel')
 
   mobSlider(refs.dotsRef);
   isAuth(refs.activeListRef);
@@ -68,6 +72,13 @@ function openProductInfo(card) {
 
   refs.minImgListRef.addEventListener('click', onMinImgClick);
   refs.favoritesRef.addEventListener('click', onFavoritesClick.bind(card));
+  refs.productInfoButton.addEventListener('click', getDealerInfo)
+}
+function getDealerInfo(event) {
+  const id = event.target.dataset.id
+  const category = event.target.dataset.category
+  const adv = data.categoriesList[category].find(item => item._id === id)
+  refs.dealerTel.textContent = adv.phone;
 }
 
 function onMinImgClick(event) {

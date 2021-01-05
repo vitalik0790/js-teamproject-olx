@@ -31,9 +31,12 @@
     <div class="dots"></div>
 
     <p class="productInfo__price">{{price}} <span> &#8364;</span></p>
-    <button class="productInfo__button" type="button">
+    <button class="productInfo__button" type="button" data-id="{{_id}}" data-category="{{category}}">
       Информация о <br>продавце
     </button>
+    <div class="dealerInfo">
+      <p><span>Телефон: </span><span class="dealerTel">+38**********</span></p>
+    </div>
     <ul class=" list productInfo__action-list">
       <li class="productInfo__action-item favorites-js ">
         <span class="productInfo__action-item-text">В избранное </span>

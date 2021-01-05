@@ -7,6 +7,7 @@ import { toggleMenuAuth } from './sandwichmenu';
 import { fetchFavourites, fetchOwnCalls } from './productInfo/productInfo';
 import { data } from '../data/data';
 import { getToken } from '../utils/getToken';
+import {getUserInfo, refreshAuth} from '../api/apiAuth'
 
 const signUpURL = 'https://callboard-backend.herokuapp.com/auth/register';
 const signInURL = 'https://callboard-backend.herokuapp.com/auth/login';
@@ -70,6 +71,8 @@ const signUpHandler = () => {
       isLogin();
       toggleMenuAuth('menuPane');
       fetchFavourites();
+      await getUserInfo();
+      setInterval(()=>{refreshAuth()}, 1000 * 60 * 5);
     } catch (error) {
       console.log(error);
       console.log(error.response.data.message);
@@ -118,11 +121,14 @@ const signInHandler = () => {
       signInFormSignUpBtn.removeEventListener('click', signUpHandler);
       data.auth.isAuth = true;
       data.auth.token = getToken();
+      data.auth = {...data.auth, ...response.data}
       closeModal();
       isLogin();
       toggleMenuAuth('menuPane');
       fetchFavourites();
       fetchOwnCalls();
+      await getUserInfo();
+      setInterval(()=>{refreshAuth()}, 1000 * 60 * 5)
     } catch (error) {
       console.log(error.response.data.message);
       errorIn.textContent = error.response.data.message;
