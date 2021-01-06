@@ -45,18 +45,47 @@ export const createHero = () => {
   </div>`
   }
 
-  const createMarkup = async () => {
-    await getCall()
-    // console.log('work', adds);
-    let i = 0;
-
-    const timer = setInterval(() => {
-      divCard.innerHTML = createMainPic(adds[i])
-      i += 1;
-      if (i == 5) {
-        i = 0;
-      }
-    }, 3000);
+  // const createMarkup = async () => {
+  //   await getCall()
+  //   // console.log('work', adds);
+  //   let i = 0;
+  //   divCard.innerHTML = createMainPic(adds[i])
+  //   i += 1;
+  //   const timer = setInterval(() => {
+  //     divCard.innerHTML = createMainPic(adds[i])
+  //     i += 1;
+  //     if (i == 5) {
+  //       i = 0;
+  //     }
+  //   }, 3000);
+  //   div.innerHTML = createSecondPic(adds[8])
+  //   thirdCard.innerHTML = createThirdPic(adds[4])
+  //   desctop.innerHTML = createDesctopFirPic(adds[2])
+  //   desctopSec.innerHTML = createDesctopSecPic(adds[7])
+  //   desctopThir.innerHTML = createDesctopThirPic(adds[3])
+  // }
+    const createMarkup = async () => {
+      await getCall()
+      // console.log('work', adds);
+      
+      divCard.innerHTML = `<ul class="hero-slider"></ul>`
+      const heroSlider = document.querySelector('.hero-slider')
+      for (let i = 0; i<=5; i+=1){
+        const li = `<li class="hero-slider__item">${createMainPic(adds[i])}</li>`
+        heroSlider.insertAdjacentHTML("beforeend", li)       
+      }  
+      console.log(heroSlider);    
+      $(document).ready(function () {
+        $('.hero-slider').not('.slick-initialized').slick({
+          dots: true,
+          arrows: false,
+          // variableWidth: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 3000,
+        });
+      });
 
     div.innerHTML = createSecondPic(adds[8])
     thirdCard.innerHTML = createThirdPic(adds[4])
