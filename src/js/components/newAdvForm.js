@@ -192,6 +192,9 @@ export const newAdvFormComponent = advData => {
 
           closeModal();
           successAlert('Объявление успешно записано!').open();
+          if (document.querySelector('.favorites-myGoods')){
+            createMarkupFavoritesGoodsList('Мои объявления', data.user.ownCalls, 'В моих объявлениях пока пусто');
+          }
         } catch (error) {
           errorAlert('Что-то пошло не так( Попробуйте еще раз').open();
         }
@@ -305,6 +308,9 @@ export const newAdvFormComponent = advData => {
           ];
           await closeModal();
           successAlert('Объявление успешно удалено!').open();
+          if (document.querySelector('.favorites-myGoods')){
+            createMarkupFavoritesGoodsList('Мои объявления', data.user.ownCalls, 'В моих объявлениях пока пусто');
+          }
         } catch (error) {
           errorAlert('Что-то пошло не так( Попробуйте еще раз').open();
         }

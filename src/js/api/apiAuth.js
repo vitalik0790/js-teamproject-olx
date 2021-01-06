@@ -12,7 +12,7 @@ export const getUserInfo = () => {
 }
 export const refreshAuth = () => {
   // const intervalRefresh = (sid) => {
-    // data.auth.sid = sid;
+  //   data.auth.sid = sid;
     setInterval(()=>{      
       axios.defaults.headers.common['Authorization'] = data.auth.accessToken;
       axios.post('https://callboard-backend.herokuapp.com/auth/refresh', {
@@ -26,7 +26,7 @@ export const refreshAuth = () => {
         // localStorage.setItem('accessToken', response.data.newAccessToken)
         console.log(data.auth);
     })
-    }, 10000)
+    }, 1000 * 60 * 5)
   // }
   // if (data.auth.accessToken && data.auth.sid) {
   //   axios.defaults.headers.common['Authorization'] = data.auth.accessToken;
@@ -51,12 +51,12 @@ export const refreshAuth = () => {
 export const isActualToken = async () => {    
   
   if (localStorage.getItem('sid')) {
-        axios.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('accessToken'));
+        // axios.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('accessToken'));
       
-        await axios.get('https://callboard-backend.herokuapp.com/user').then(response => data.user = {...data.user, ...response.data}).then(() => console.log(data)).catch(()=> console.log('unauthorized'))
+        // await axios.get('https://callboard-backend.herokuapp.com/user').then(response => data.user = {...data.user, ...response.data}).then(() => console.log(data)).catch(()=> console.log('unauthorized'))
 ///////// !!!!!!!!!!! error!!!!!!!!!!!!!!!!
 // const sid = JSON.parse(localStorage.getItem('sid'))
-        // await refreshAuth();
+        await refreshAuth();
       //  refreshAuth(JSON.parse(localStorage.getItem('sid')));
         await checkAuth();
   if (data.auth.isAuth === true) {

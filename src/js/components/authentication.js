@@ -27,6 +27,7 @@ const logOut = () => {
   localStorage.clear();
   data.auth.isAuth = false;
   data.auth.token = '';
+  data.auth.accessToken = '';
   data.user.favorites = [];
   data.user.ownCalls = [];
   isLogin();
