@@ -49,13 +49,12 @@ const initialisation = async () => {
   await isLogin();
   await createCategoryMarkup();
   await renderHeader();
-  await isActualToken();  
+  // await isActualToken();  
   await renderJsMenu();
   filterListener();
   clearFilterListener();
   newAdvMobileListener();
-  filterMainListener();
-
+  filterMainListener();  
   setFiltersListeners();
   loading()
 };

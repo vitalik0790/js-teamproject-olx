@@ -5,6 +5,7 @@ import profileMenuTemplate from '../../templates/profileMenu.hbs';
 import { profileMenu } from './profileMenu';
 import { loading } from './loader/loader';
 import { confirmModal } from './confirmModal';
+import { getToken } from '../utils/getToken';
 
 const refs = {
   signInDiv: document.querySelector('.header-auth'),
@@ -12,7 +13,7 @@ const refs = {
 
 export const isLogin = () => {
 
-  if (!localStorage.getItem('accessToken')) {
+  if (!getToken()) {
     refs.signInDiv.innerHTML = `${navigationEstimate()}`;
     const signInBtn = document.querySelector('.signInBtn');
     const signUpBtn = document.querySelector('.signUpBtn');

@@ -8,14 +8,17 @@ import { getToken } from "../utils/getToken"
 
 export const getUserInfo = () => {    
     axios.defaults.headers.common['Authorization'] = getToken();
-    axios.get('https://callboard-backend.herokuapp.com/user').then(response => data.user = {...data.user, ...response.data}).then(()=> console.log(data))
+    axios.get('https://callboard-backend.herokuapp.com/user').then(response => data.user = {...data.user, ...response.data, favorites: response.data.favourites, ownCalls: response.data.calls}).then(()=> console.log(data))
 }
 export const refreshAuth = () => {
-    axios.defaults.headers.common['Authorization'] = data.auth.accessToken;
-    console.log(data.auth.sid);
-    axios.post('https://callboard-backend.herokuapp.com/auth/refresh', {
+  // const intervalRefresh = (sid) => {
+    // data.auth.sid = sid;
+    setInterval(()=>{      
+      axios.defaults.headers.common['Authorization'] = data.auth.accessToken;
+      axios.post('https://callboard-backend.herokuapp.com/auth/refresh', {
         sid: data.auth.sid
       }).then(response => {
+        console.log(data.auth);
           data.auth.sid = response.data.newSid;
         data.auth.accessToken = response.data.newAccessToken;
         data.auth.refreshToken = response.data.newRefreshToken;
@@ -23,17 +26,38 @@ export const refreshAuth = () => {
         // localStorage.setItem('accessToken', response.data.newAccessToken)
         console.log(data.auth);
     })
+    }, 10000)
+  // }
+  // if (data.auth.accessToken && data.auth.sid) {
+  //   axios.defaults.headers.common['Authorization'] = data.auth.accessToken;
+  //   console.log(data.auth.sid);   
+  //   intervalRefresh(data.auth.sid)
+  // } else if (localStorage.getItem('accessToken') && localStorage.getItem('sid')){
+  //   axios.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('accessToken'));
+  //   axios.post('https://callboard-backend.herokuapp.com/auth/refresh', {
+  //       sid: JSON.parse(localStorage.getItem('sid'))
+  //     }).then(response => {
+  //         data.auth.sid = response.data.newSid;
+  //       data.auth.accessToken = response.data.newAccessToken;
+  //       data.auth.refreshToken = response.data.newRefreshToken;
+  //       data.auth.token = response.data.newAccessToken;
+  //       // localStorage.setItem('accessToken', response.data.newAccessToken)
+  //       intervalRefresh(JSON.parse(localStorage.getItem('sid')));
+  //       console.log(data.auth);
+  //   })
+  // }
+    
 }
 export const isActualToken = async () => {    
+  
+  if (localStorage.getItem('sid')) {
         axios.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('accessToken'));
-    
-        await axios.get('https://callboard-backend.herokuapp.com/user').then(response => data.user = {...data.user, ...response.data}).catch(()=> console.log('unauthorized'))
-    
-      if (data.user.sid) {
+      
+        await axios.get('https://callboard-backend.herokuapp.com/user').then(response => data.user = {...data.user, ...response.data}).then(() => console.log(data)).catch(()=> console.log('unauthorized'))
 ///////// !!!!!!!!!!! error!!!!!!!!!!!!!!!!
-
+// const sid = JSON.parse(localStorage.getItem('sid'))
         // await refreshAuth();
-        setInterval(()=>{refreshAuth()}, 5000);
+      //  refreshAuth(JSON.parse(localStorage.getItem('sid')));
         await checkAuth();
   if (data.auth.isAuth === true) {
     await fetchFavourites();

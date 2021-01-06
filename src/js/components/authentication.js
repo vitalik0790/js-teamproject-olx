@@ -59,10 +59,14 @@ const signUpHandler = () => {
       // const data = { email: response.data.email };
       // console.log('data', data);
       const responseIn = await axios.post(signInURL, user);
-      localStorage.setItem(
-        'accessToken',
-        JSON.stringify(responseIn.data.accessToken),
-      );
+      // localStorage.setItem(
+      //   'accessToken',
+      //   JSON.stringify(responseIn.data.accessToken),
+      // );
+      // localStorage.setItem(
+      //   'sid',
+      //   JSON.stringify(responseIn.data.sid),
+      // );
       signUpForm.removeEventListener('input', getUserData);
       signUpForm.removeEventListener('submit', signUpData);
       data.auth.isAuth = true;
@@ -70,9 +74,9 @@ const signUpHandler = () => {
       closeModal();
       isLogin();
       toggleMenuAuth('menuPane');
-      fetchFavourites();
+      // fetchFavourites();
       await getUserInfo();
-      setInterval(()=>{refreshAuth()}, 1000 * 60 * 5);
+      refreshAuth();
     } catch (error) {
       console.log(error);
       console.log(error.response.data.message);
@@ -112,10 +116,14 @@ const signInHandler = () => {
   const signIn = async user => {
     try {
       const response = await axios.post(signInURL, user);
-      localStorage.setItem(
-        'accessToken',
-        JSON.stringify(response.data.accessToken),
-      );
+      // localStorage.setItem(
+      //   'accessToken',
+      //   JSON.stringify(response.data.accessToken),
+      // );
+      // localStorage.setItem(
+      //   'sid',
+      //   JSON.stringify(response.data.sid),
+      // );
       signInForm.removeEventListener('input', getUserData);
       signInForm.removeEventListener('submit', signInData);
       signInFormSignUpBtn.removeEventListener('click', signUpHandler);
@@ -125,10 +133,10 @@ const signInHandler = () => {
       closeModal();
       isLogin();
       toggleMenuAuth('menuPane');
-      fetchFavourites();
-      fetchOwnCalls();
+      // fetchFavourites();
+      // fetchOwnCalls();
       await getUserInfo();
-      setInterval(()=>{refreshAuth()}, 1000 * 60 * 5)
+      refreshAuth()
     } catch (error) {
       console.log(error.response.data.message);
       errorIn.textContent = error.response.data.message;
