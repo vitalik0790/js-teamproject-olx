@@ -16,6 +16,7 @@ const errorAlert = text =>
     sticker: false,
     closer: false,
     delay: 2000,
+    width: '300px',
   });
 const noticeAlert = text =>
   notice({
@@ -23,6 +24,7 @@ const noticeAlert = text =>
     sticker: false,
     closer: false,
     delay: 3000,
+    width: '300px',
   });
 const successAlert = text =>
   success({
@@ -30,6 +32,7 @@ const successAlert = text =>
     sticker: false,
     closer: false,
     delay: 2000,
+    width: '300px',
   });
 
 // ================================= MARKUP =========================================
