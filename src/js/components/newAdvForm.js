@@ -194,6 +194,8 @@ export const newAdvFormComponent = advData => {
           successAlert('Объявление успешно записано!').open();
           if (document.querySelector('.favorites-myGoods')){
             createMarkupFavoritesGoodsList('Мои объявления', data.user.ownCalls, 'В моих объявлениях пока пусто');
+            const btnInCardRef = document.querySelectorAll('.myGoods-btn');
+            btnInCardRef.forEach(btn => btn.classList.add('myGoods-btn--active'));
           }
         } catch (error) {
           errorAlert('Что-то пошло не так( Попробуйте еще раз').open();
@@ -310,6 +312,8 @@ export const newAdvFormComponent = advData => {
           successAlert('Объявление успешно удалено!').open();
           if (document.querySelector('.favorites-myGoods')){
             createMarkupFavoritesGoodsList('Мои объявления', data.user.ownCalls, 'В моих объявлениях пока пусто');
+            const btnInCardRef = document.querySelectorAll('.myGoods-btn');
+    btnInCardRef.forEach(btn => btn.classList.add('myGoods-btn--active'));
           }
         } catch (error) {
           errorAlert('Что-то пошло не так( Попробуйте еще раз').open();
