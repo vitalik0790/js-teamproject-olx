@@ -43,13 +43,13 @@ import mobileSearh from './js/components/header-mob-search';
 import './js/components/clearBtn';
 
 const initialisation = async () => {
+  await isActualToken();  
   await createMain();
   await createHero();
   await init();
   await isLogin();
   await createCategoryMarkup();
   await renderHeader();
-  // await isActualToken();  
   await renderJsMenu();
   filterListener();
   clearFilterListener();

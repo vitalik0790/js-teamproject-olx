@@ -60,14 +60,18 @@ const signUpHandler = () => {
       // const data = { email: response.data.email };
       // console.log('data', data);
       const responseIn = await axios.post(signInURL, user);
-      // localStorage.setItem(
-      //   'accessToken',
-      //   JSON.stringify(responseIn.data.accessToken),
-      // );
-      // localStorage.setItem(
-      //   'sid',
-      //   JSON.stringify(responseIn.data.sid),
-      // );
+      localStorage.setItem(
+        'accessToken',
+        JSON.stringify(responseIn.data.accessToken),
+      );
+      localStorage.setItem(
+        'sid',
+        JSON.stringify(responseIn.data.sid),
+      );
+      localStorage.setItem(
+        'refreshToken',
+        JSON.stringify(responseIn.data.refreshToken),
+      );
       signUpForm.removeEventListener('input', getUserData);
       signUpForm.removeEventListener('submit', signUpData);
       data.auth.isAuth = true;
@@ -117,14 +121,18 @@ const signInHandler = () => {
   const signIn = async user => {
     try {
       const response = await axios.post(signInURL, user);
-      // localStorage.setItem(
-      //   'accessToken',
-      //   JSON.stringify(response.data.accessToken),
-      // );
-      // localStorage.setItem(
-      //   'sid',
-      //   JSON.stringify(response.data.sid),
-      // );
+      localStorage.setItem(
+        'accessToken',
+        JSON.stringify(response.data.accessToken),
+      );
+      localStorage.setItem(
+        'sid',
+        JSON.stringify(response.data.sid),
+      );
+      localStorage.setItem(
+        'refreshToken',
+        JSON.stringify(response.data.refreshToken),
+      );
       signInForm.removeEventListener('input', getUserData);
       signInForm.removeEventListener('submit', signInData);
       signInFormSignUpBtn.removeEventListener('click', signUpHandler);
