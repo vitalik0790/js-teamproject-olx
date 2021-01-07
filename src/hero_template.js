@@ -74,7 +74,7 @@ export const createHero = () => {
         const li = `<li class="hero-slider__item">${createMainPic(adds[i])}</li>`
         heroSlider.insertAdjacentHTML("beforeend", li)       
       }  
-      console.log(heroSlider);    
+      // console.log(heroSlider);    
       $(document).ready(function () {
         $('.hero-slider').not('.slick-initialized').slick({
           dots: true,
