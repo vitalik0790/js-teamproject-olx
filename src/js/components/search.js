@@ -84,8 +84,18 @@ export const onPressSearchIcon = async event => {
   }
 };
 
+
+export const onSubmitMobile = async event => { 
+  event.preventDefault()  
+  if (headerInputMob.value.length >= 1) {
+      updateMarkup(await getSearchQuery(headerInputMob.value.toLowerCase()));
+      headerInputMob.value = '';
+    }  
+};
+
 headerInput.addEventListener('keydown', onPressEnterSearch);
 headerInputTablet.addEventListener('keydown', onPressEnterSearch);
+document.forms.mobileSearchForm.addEventListener('submit', onSubmitMobile);
 headerInputMob.addEventListener('keydown', onPressEnterSearch);
 
 searchDesIcon.addEventListener('click', onPressSearchIcon);
