@@ -1,0 +1,46 @@
+.signUpBtn,
+.signInBtn,
+.logOutBtn,
+.user_btn {
+  display: flex;
+  align-items: center;
+  display: inline-block;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  color: $header-primary-text-color;
+  transition: 0.5s;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    color: $accent-color;
+  }
+}
+.user_btn {
+  display: flex;
+}
+
+.sign-in-up__stick {
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 60%;
+  background-color: rgba(70, 83, 99, 1);
+  border: 1px solid rgba(70, 83, 99, 1);
+}
+
+.user_btn__svg,
+.logOutBtn_svg {
+  fill: currentColor;
+}
+.user_btn__svg {
+  margin-right: 5px;
+}

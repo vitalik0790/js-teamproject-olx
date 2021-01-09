@@ -1,0 +1,400 @@
+.slider-hero .container {
+  padding: 0;
+}
+
+.sliders {
+  width: 320px;
+  height: 366px;
+  margin: 0 auto;
+}
+.firstImages {
+  position: relative;
+  min-width: 320px;
+  width: 100%;
+  height: 366px;
+  background-color: $secondary-background-color;
+  margin: 0 auto;
+}
+.name-firstImages {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  max-width: 150px;
+  height: 150px;
+  object-fit: contain;
+  // object-position: 60% 50%;
+}
+.description-first {
+  position: absolute;
+  top: 130px;
+  left: 15px;
+  max-width: 50%;
+  color: $primary-bg-color;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.22;
+  display: block;
+  color: FF6B09;
+  text-align: center;
+}
+.symbol-first {
+  position: absolute;
+  top: 190px;
+  left: 30px;
+  color: $accent-color;
+  font-family: Montserrat;
+  font-weight: 700;
+  width: 32px;
+  height: 17px;
+  font-size: 10px;
+}
+.price-first {
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  color: $accent-color;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 34px;
+}
+.horisontal-desctop {
+  visibility: hidden;
+  display: none;
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .display {
+    visibility: hidden;
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .display {
+    visibility: visible;
+    display: block;
+    display: flex;
+  }
+
+  .firstImages {
+    position: relative;
+    width: 770px;
+    height: 370px;
+    background-color: $secondary-background-color;
+  }
+  .name-firstImages {
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    transform: translateY(-50%);
+    max-width: 270px;
+    height: 300px;
+  }
+  .description-first {
+    position: absolute;
+    top: 130px;
+    left: 30px;
+    max-width: 50%;
+    color: $primary-bg-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.22;
+    display: block;
+    color: FF6B09;
+    text-align: center;
+  }
+  .symbol-first {
+    position: absolute;
+    top: 240px;
+    left: 170px;
+    color: $accent-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    width: 32px;
+    height: 17px;
+    font-size: 14px;
+  }
+  .price-first {
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    color: $accent-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 54px;
+  }
+  .secondImages {
+    position: relative;
+    width: 384px;
+    height: 218px;
+    background-color: $categories-list-old-price-text-color;
+  }
+  .desctop-img {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    //right: 30px;
+    transform: translateY(-50%);
+    max-width: 150px;
+    height: 150px;
+  }
+  .description-tablet {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.2;
+    position: absolute;
+    left: 30px;
+    top: 40px;
+  }
+  .symbol-tablet {
+    position: absolute;
+    top: 100px;
+    left: 60px;
+    color: $primary-text-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    width: 26px;
+    height: 14px;
+    font-size: 12px;
+  }
+  .symbol-tablet-acc {
+    position: absolute;
+    top: 100px;
+    left: 60px;
+    font-family: Montserrat;
+    font-weight: 700;
+    width: 26px;
+    height: 14px;
+    font-size: 12px;
+    color: $accent-color;
+  }
+  .price-tablet {
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    color: $primary-text-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 42px;
+  }
+  .price-tablet-acce {
+    color: $accent-color;
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 42px;
+  }
+
+  .thirdImages {
+    position: relative;
+    width: 384px;
+    height: 218px;
+    background-color: $primary-bg-color;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .display {
+    display: flex;
+    flex-direction: column;
+    //float: right;
+  }
+  .desctop-main {
+    display: flex;
+  }
+  .secondImages {
+    position: relative;
+    width: 426px;
+    height: 242px;
+    background-color: $categories-list-old-price-text-color;
+  }
+  .thirdImages {
+    position: relative;
+    width: 426px;
+    height: 242px;
+    background-color: $primary-bg-color;
+  }
+
+  .desctop-img {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    //right: 30px;
+    transform: translateY(-50%);
+    max-width: 150px;
+    height: 150px;
+  }
+
+  .firstImages {
+    position: relative;
+    width: 854px;
+    height: 485px;
+    background-color: $secondary-background-color;
+  }
+  .name-firstImages {
+    position: absolute;
+    top: 50%;
+    right: 60px;
+    transform: translateY(-50%);
+    max-width: 350px;
+    height: 400px;
+    // object-fit: cover;
+    // object-position: 60% 50%;
+  }
+  .name-thirdImages {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    max-width: 150px;
+    height: 100px;
+  }
+  .description-first {
+    position: absolute;
+    max-width: 50%;
+    top: 130px;
+    left: 60px;
+    color: $primary-bg-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.22;
+    display: block;
+    color: FF6B09;
+    text-align: center;
+  }
+  .symbol-first {
+    position: absolute;
+    top: 240px;
+    left: 200px;
+    color: $accent-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    width: 32px;
+    height: 17px;
+    font-size: 14px;
+  }
+  .price-first {
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    color: $accent-color;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 54px;
+  }
+  .horisontal-desctop {
+    visibility: visible;
+    display: block;
+    display: flex;
+  }
+  .desctopImages {
+    position: relative;
+    width: 426px;
+    height: 242px;
+  }
+  .first {
+    background-color: $categories-list-old-price-text-color;
+  }
+  .third {
+    background-color: $accent-color;
+  }
+  .description-third {
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.2;
+    position: absolute;
+    left: 30px;
+    top: 70px;
+  }
+
+  .name-thirdImages {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    max-width: 150px;
+    height: 150px;
+  }
+  .symbol-third {
+    position: absolute;
+    top: 120px;
+    left: 50px;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .sec-sym-dec {
+    color: $accent-color;
+  }
+  .thir-sym-dec {
+    color: $primary-bg-color;
+  }
+  .price-third {
+    position: absolute;
+    font-size: 42px;
+    font-weight: 700;
+    top: -10px;
+    left: 30px;
+  }
+}
+ /* стили добавленные для слайдера */
+.card{  
+  overflow: hidden;  
+}
+.hero-slider{
+  position: relative;
+  width: 100%;
+  .slick-list {
+    overflow: hidden;
+  }
+  /* Лента слайдов */
+  .slick-track {
+    display: flex;
+    align-items: center;
+    // padding: 10px;
+  }
+   /* Точки (булиты) */
+   .slick-dots {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // @media screen and (min-width: 768px) {
+    //   transform: translateX(-50%);
+    // }    
+  }
+  .slick-dots li {
+    list-style: none;
+  }
+  /* Активная точка */
+  .slick-dots li.slick-active button {
+    background-color: $accent-color;
+  }
+  /* Элемент точки */
+  .slick-dots li button {
+    // @media screen and (max-width: 767px) {
+    //   display: none;
+    // }
+    z-index: 50;
+    font-size: 0;
+    cursor: pointer;
+    height: 6px;
+    width: 6px;
+    margin: 20px 4px;
+    background-color: #ddd;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+  }
+}

@@ -1,7 +1,13 @@
+html {
+  box-sizing: border-box;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -17,6 +23,7 @@ img {
 }
 
 .container {
+  overflow: hidden;
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
@@ -43,4 +50,11 @@ img {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
 }
